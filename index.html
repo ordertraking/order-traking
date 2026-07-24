@@ -3,170 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Markaz Fabric</title>
+<title>Track Order - Markaz Fabric</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:#f5f5f5;
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f4f4;
 }
 
-header{
+.header{
 background:#0b3d91;
 color:#fff;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-header h2{
-font-size:26px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:15px;
+padding:15px;
+text-align:center;
+font-size:28px;
 font-weight:bold;
 }
 
-.hero{
-padding:70px 20px;
-text-align:center;
-background:white;
+.box{
+max-width:500px;
+margin:40px auto;
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
 
-.hero h1{
-font-size:38px;
-color:#222;
-}
-
-.hero p{
+input{
+width:100%;
+padding:12px;
 margin-top:15px;
-font-size:18px;
-color:#666;
+font-size:16px;
 }
 
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 28px;
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
 background:#0b3d91;
 color:white;
-text-decoration:none;
+border:none;
+font-size:18px;
+border-radius:6px;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+padding:15px;
+background:#f8f8f8;
 border-radius:8px;
 }
-
-  .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:30px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,.1);
-text-align:center;
-}
-
-.card h3{
-margin-bottom:10px;
-color:#0b3d91;
-}
-
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:30px;
-}
 </style>
+
 </head>
 
 <body>
 
-<header>
-<h2>Markaz Fabric</h2>
+<div class="header">
+Markaz Fabric
+</div>
 
-<nav>
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">Track Order</a>
-<a href="#">Contact</a>
-</nav>
+<div class="box">
 
-</header>
+<h2>Track Your Order</h2>
 
-<section class="hero">
+<input
+type="text"
+id="orderNo"
+placeholder="Enter Order Number">
 
-<h1>Welcome to Markaz Fabric</h1>
+<button onclick="trackOrder()">
+Track Order
+</button>
 
-<p>Professional Printing & Designing Services</p>
+<div id="result">
+Enter your Order Number.
+</div>
 
-<a class="btn" href="#">Track Your Order</a>
+</div>
 
-</section>
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:30px;
-}
+<script>
 
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,.1);
-text-align:center;
-}
+function trackOrder(){
 
-.card h3{
-margin-bottom:10px;
-color:#0b3d91;
-}
+let order=document.getElementById("orderNo").value;
 
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:30px;
-}
-</style>
-</head>
+document.getElementById("result").innerHTML=
+"Searching...";
 
-<body>
+fetch("PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE?order="+order)
 
-<header>
-<h2>Markaz Fabric</h2>
+.then(response=>response.json())
 
-<nav>
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">Track Order</a>
-<a href="#">Contact</a>
-</nav>
+.then(data=>{
 
-</header>
+document.getElementById("result").innerHTML=
 
-<section class="hero">
-
-<h1>Welcome to Markaz Fabric</h1>
-
-<p>Professional Printing & Designing Services</p>
-
-<a class="btn" href="#">Track Your Order</a>
-
-</section>
+"<b>Order:</b> "+data
