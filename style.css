@@ -1,142 +1,72 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f4f4f4;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+background:#f4f4f4;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
 }
 
 .container{
-    width:400px;
-    background:#ffffff;
-    border-radius:18px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-    text-align:center;
+width:400px;
+background:#fff;
+padding:30px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+text-align:center;
 }
 
-/* Logo */
 .logo{
-    width:80px;
-    height:auto;
-    display:block;
-    margin:0 auto 15px;
+width:80px;
+margin:auto;
+display:block;
+margin-bottom:15px;
 }
 
-/* Company Name */
 h1{
-    color:#000;
-    font-size:30px;
-    font-weight:700;
-    margin-bottom:5px;
+font-size:30px;
+color:#000;
+margin-bottom:5px;
 }
 
-/* Order Tracking Text */
 .title{
-    color:#ff5a00;
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:25px;
+font-size:18px;
+font-weight:bold;
+color:#ff5a00;
+margin-bottom:25px;
 }
 
-/* Input */
 input{
-    width:100%;
-    padding:14px;
-    border:2px solid #ff5a00;
-    border-radius:10px;
-    font-size:16px;
-    margin-bottom:18px;
+width:100%;
+padding:13px;
+border:2px solid #ff5a00;
+border-radius:8px;
+font-size:16px;
+margin-bottom:15px;
 }
 
-input:focus{
-    outline:none;
-    border-color:#000;
-}
-
-/* Button */
 button{
-    width:100%;
-    padding:14px;
-    background:#ff5a00;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+width:100%;
+padding:13px;
+background:#ff5a00;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-    background:#000;
+background:#000;
 }
 
-/* Result */
 #result{
-    margin-top:25px;
-}
-
-/* Result Card */
-#result div{
-    background:#fff;
-    border-top:5px solid #ff5a00;
-    border-left:5px solid #000;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 6px 15px rgba(0,0,0,.12);
-    text-align:left;
-}
-
-/* Result Heading */
-#result h3{
-    text-align:center;
-    color:#ff5a00;
-    margin-bottom:20px;
-    font-size:24px;
-}
-
-/* Table */
-#result table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-#result td{
-    padding:12px;
-    font-size:15px;
-}
-
-#result tr:nth-child(even){
-    background:#f8f8f8;
-}
-
-#result td:first-child{
-    font-weight:bold;
-    color:#333;
-}
-
-/* Responsive */
-@media(max-width:480px){
-
-.container{
-    width:95%;
-    padding:20px;
-}
-
-h1{
-    font-size:24px;
-}
-
-.logo{
-    width:70px;
-}
-
+margin-top:20px;
 }
