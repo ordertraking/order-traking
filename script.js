@@ -1,15 +1,20 @@
 function trackOrder() {
 
     let order = document.getElementById("orderNo").value.trim();
+    let result = document.getElementById("result");
 
     if (order === "") {
-        document.getElementById("result").innerHTML =
-        "<p style='color:red;font-weight:bold;'>⚠ Please enter Order Number.</p>";
+        result.innerHTML = `
+        <div style="background:#ffe5e5;padding:15px;border-radius:10px;color:#d60000;text-align:center;font-weight:bold;">
+            ⚠ Please Enter Order Number
+        </div>`;
         return;
     }
 
-    document.getElementById("result").innerHTML =
-    "<p style='text-align:center;'>⏳ Loading...</p>";
+    result.innerHTML = `
+    <div style="text-align:center;padding:15px;">
+        ⏳ Loading...
+    </div>`;
 
     fetch("https://script.google.com/macros/s/AKfycbwAnKhXTJqXLprnoEvaTByiaPiVKolTab1jKZ3niHpYS1wZeoiOE4cTuyEz3mki87CV/exec?order=" + encodeURIComponent(order))
 
@@ -17,56 +22,109 @@ function trackOrder() {
 
     .then(data => {
 
-        if (data.success === false || data.message === "Order Not Found") {
+        if (!data || data.success === false || data.message === "Order Not Found") {
 
-            document.getElementById("result").innerHTML =
-            "<p style='color:red;font-weight:bold;text-align:center;'>❌ Order Not Found</p>";
-
-        } else {
-
-            let statusColor = "#007bff";
-
-            if (data.status.toLowerCase().includes("design")) statusColor = "#ff9800";
-            else if (data.status.toLowerCase().includes("printing")) statusColor = "#673ab7";
-            else if (data.status.toLowerCase().includes("ready")) statusColor = "#28a745";
-            else if (data.status.toLowerCase().includes("delivered")) statusColor = "#198754";
-
-            document.getElementById("result").innerHTML = `
-            <div style="
-                background:#ffffff;
-                border:1px solid #ddd;
-                border-left:6px solid ${statusColor};
-                border-radius:12px;
-                padding:18px;
-                margin-top:15px;
-                box-shadow:0 4px 12px rgba(0,0,0,.10);
-                line-height:1.8;
-                font-size:16px;
-            ">
-
-                <p><strong>📦 Order No:</strong> ${data.order}</p>
-
-                <p><strong>👤 Customer:</strong> ${data.customer}</p>
-
-                <p><strong>📌 Status:</strong>
-                <span style="color:${statusColor};font-weight:bold;">
-                ${data.status}
-                </span></p>
-
-                <p><strong>📅 Date:</strong> ${data.date}</p>
-
-                <p><strong>📝 Remarks:</strong> ${data.remarks}</p>
-
-            </div>
-            `;
+            result.innerHTML = `
+            <div style="background:#ffe5e5;border-left:5px solid red;padding:15px;border-radius:10px;color:red;font-weight:bold;text-align:center;">
+                ❌ Order Not Found
+            </div>`;
+            return;
         }
 
+        let statusColor = "#0d6efd";
+        let statusIcon = "📦";
+
+        switch(data.status.toLowerCase()){
+
+            case "received":
+                statusColor="#0d6efd";
+                statusIcon="📥";
+                break;
+
+            case "design":
+            case "design in progress":
+                statusColor="#ff9800";
+                statusIcon="🎨";
+                break;
+
+            case "printing":
+                statusColor="#6f42c1";
+                statusIcon="🖨️";
+                break;
+
+            case "ready":
+                statusColor="#198754";
+                statusIcon="✅";
+                break;
+
+            case "delivered":
+                statusColor="#28a745";
+                statusIcon="🚚";
+                break;
+
+            default:
+                statusColor="#0d6efd";
+                statusIcon="📦";
+        }
+
+        result.innerHTML = `
+        <div style="
+            background:#ffffff;
+            border-radius:15px;
+            padding:20px;
+            box-shadow:0 6px 15px rgba(0,0,0,.12);
+            border-top:6px solid ${statusColor};
+            font-family:Arial,sans-serif;
+        ">
+
+            <h3 style="
+                text-align:center;
+                color:${statusColor};
+                margin-bottom:18px;
+            ">
+                ${statusIcon} Order Details
+            </h3>
+
+            <table style="width:100%;border-collapse:collapse;">
+
+                <tr>
+                    <td style="padding:10px;font-weight:bold;">Order No</td>
+                    <td style="padding:10px;">${data.order}</td>
+                </tr>
+
+                <tr style="background:#f8f9fa;">
+                    <td style="padding:10px;font-weight:bold;">Customer</td>
+                    <td style="padding:10px;">${data.customer}</td>
+                </tr>
+
+                <tr>
+                    <td style="padding:10px;font-weight:bold;">Status</td>
+                    <td style="padding:10px;color:${statusColor};font-weight:bold;">
+                        ${data.status}
+                    </td>
+                </tr>
+
+                <tr style="background:#f8f9fa;">
+                    <td style="padding:10px;font-weight:bold;">Date</td>
+                    <td style="padding:10px;">${data.date}</td>
+                </tr>
+
+                <tr>
+                    <td style="padding:10px;font-weight:bold;">Remarks</td>
+                    <td style="padding:10px;">${data.remarks}</td>
+                </tr>
+
+            </table>
+
+        </div>`;
     })
 
     .catch(error => {
 
-        document.getElementById("result").innerHTML =
-        "<p style='color:red;font-weight:bold;'>❌ Connection Error</p>";
+        result.innerHTML = `
+        <div style="background:#ffe5e5;padding:15px;border-radius:10px;color:red;text-align:center;font-weight:bold;">
+            ❌ Connection Error
+        </div>`;
 
         console.log(error);
 
