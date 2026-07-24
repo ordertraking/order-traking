@@ -1,0 +1,27 @@
+.logo{
+text-align:center;
+margin-bottom:30px;
+}
+
+.logo h1{
+font-size:34px;
+font-weight:700;
+color:#0F4C81;
+margin:0;
+}
+
+.logo h3{
+font-size:18px;
+font-weight:500;
+color:#666;
+margin:5px 0;
+}
+
+.logo p{
+font-size:16px;
+font-weight:bold;
+color:#1E88E5;
+text-transform:uppercase;
+letter-spacing:2px;
+margin-top:10px;
+}
