@@ -1,11 +1,36 @@
-📁 order-traking
-│── index.html
-│── style.css
-│── script.js
-│── images/
-│    ├── logo.png
-│    ├── pending.png
-│    ├── design.png
-│    ├── printing.png
-│    ├── ready.png
-│    └── delivered.png
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Printings (Private) Limited</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <h1>Amazon Printings</h1>
+    <h2>(Private) Limited</h2>
+    <p>ORDER TRACKING SERVICE</p>
+  </div>
+
+  <input
+    type="text"
+    id="orderNo"
+    placeholder="Enter Order Number">
+
+  <button onclick="trackOrder()">
+    Track Order
+  </button>
+
+  <div id="result"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
