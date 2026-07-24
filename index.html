@@ -3,81 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazon Printing - Order Tracking</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
+<title>Amazon Printing Pvt. Ltd.</title>
 
-body{
-    background:#f3f6fb;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
-
-.container{
-    width:380px;
-    background:#fff;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-    text-align:center;
-}
-
-.logo{
-    width:60px;
-    height:60px;
-    object-fit:contain;
-    display:block;
-    margin:0 auto 10px;
-}
-
-h1{
-    font-size:22px;
-    color:#0066cc;
-    margin-bottom:5px;
-}
-
-p.title{
-    color:#666;
-    margin-bottom:20px;
-}
-
-input{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    margin-bottom:15px;
-    font-size:16px;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    background:#0066cc;
-    color:#fff;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
-}
-
-button:hover{
-    background:#004d99;
-}
-
-#result{
-    margin-top:20px;
-    text-align:left;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -85,13 +14,16 @@ button:hover{
 
 <div class="container">
 
-<img src="logo.png" class="logo" alt="Amazon Printing">
+<img src="logo.png" class="logo" alt="Logo">
 
 <h1>Amazon Printing Pvt. Ltd.</h1>
 
 <p class="title">Order Tracking System</p>
 
-<input type="text" id="orderNo" placeholder="Enter Order Number">
+<input
+type="text"
+id="orderNo"
+placeholder="Enter Order Number">
 
 <button onclick="trackOrder()">
 Track Order
