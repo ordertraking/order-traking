@@ -1,77 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<div class="header">
-    <img src="logo.png" alt="Amazon Printing Pvt. Ltd." class="logo">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon Printing - Order Tracking</title>
 
-    <h1>Amazon Printing Pvt. Ltd.</h1>
-
-    <p>Order Tracking System</p>
-</div>
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-background:#f5f5f5;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    background:#f3f6fb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
 .container{
-width:350px;
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 0 15px rgba(0,0,0,.2);
-text-align:center;
+    width:380px;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    text-align:center;
 }
 
-h2{
-margin-bottom:20px;
-color:#0066cc;
+.logo{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 10px;
+}
+
+h1{
+    font-size:22px;
+    color:#0066cc;
+    margin-bottom:5px;
+}
+
+p.title{
+    color:#666;
+    margin-bottom:20px;
 }
 
 input{
-width:100%;
-padding:12px;
-margin-bottom:15px;
-border:1px solid #ccc;
-border-radius:5px;
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:15px;
+    font-size:16px;
 }
 
 button{
-width:100%;
-padding:12px;
-background:#0066cc;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
+    width:100%;
+    padding:12px;
+    background:#0066cc;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
 }
 
 button:hover{
-background:#004d99;
+    background:#004d99;
 }
 
 #result{
-margin-top:20px;
-text-align:left;
+    margin-top:20px;
+    text-align:left;
 }
 </style>
 
 </head>
+
 <body>
 
 <div class="container">
 
-<h2>Order Tracking</h2>
+<img src="logo.png" class="logo" alt="Amazon Printing">
+
+<h1>Amazon Printing Pvt. Ltd.</h1>
+
+<p class="title">Order Tracking System</p>
 
 <input type="text" id="orderNo" placeholder="Enter Order Number">
 
@@ -87,10 +105,3 @@ Track Order
 
 </body>
 </html>
-<div class="header">
-    <img src="logo.png" alt="Amazon Printing Logo" class="logo">
-
-    <h1>Amazon Printing Pvt. Ltd.</h1>
-    <p>Order Tracking System</p>
-</div>
-<img src="assets/images/logo.png" class="logo">
