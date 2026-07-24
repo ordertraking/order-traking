@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMAZON | Order Tracking</title>
+<title>Amazon Printings | Order Tracking</title>
 
 <style>
 *{
@@ -14,7 +14,7 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0d47a1,#1976d2);
+background:linear-gradient(135deg,#0f4c81,#1e88e5);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -26,8 +26,8 @@ padding:20px;
 width:100%;
 max-width:420px;
 background:#fff;
-padding:30px;
 border-radius:20px;
+padding:30px;
 box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
 
@@ -37,35 +37,37 @@ margin-bottom:25px;
 }
 
 .logo h1{
-color:#0d47a1;
-font-size:30px;
+font-size:32px;
+color:#0f4c81;
+font-weight:bold;
 }
 
 .logo p{
-color:#666;
-font-size:14px;
+color:#777;
 margin-top:5px;
+font-size:15px;
 }
 
 input{
 width:100%;
 padding:15px;
+font-size:16px;
 border:2px solid #ddd;
 border-radius:10px;
-font-size:16px;
-margin-bottom:15px;
+margin-top:20px;
 outline:none;
 }
 
 input:focus{
-border-color:#1976d2;
+border-color:#1e88e5;
 }
 
 button{
 width:100%;
+margin-top:15px;
 padding:15px;
-background:#1976d2;
-color:#fff;
+background:#1e88e5;
+color:white;
 font-size:17px;
 border:none;
 border-radius:10px;
@@ -74,7 +76,7 @@ transition:.3s;
 }
 
 button:hover{
-background:#0d47a1;
+background:#1565c0;
 }
 
 #result{
@@ -89,8 +91,11 @@ margin-top:20px;
 <div class="container">
 
 <div class="logo">
-<h1>AMAZON</h1>
-<p>Premium Printing & Fabric Solutions</p>
+
+<h1>AMAZON PRINTINGS</h1>
+
+<p>Professional Printing Services</p>
+
 </div>
 
 <input
@@ -99,7 +104,9 @@ id="orderNo"
 placeholder="Enter Order Number">
 
 <button onclick="trackOrder()">
+
 Track Order
+
 </button>
 
 <div id="result"></div>
