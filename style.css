@@ -1,10 +1,31 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+   .header{
+    text-align:center;
+    margin-bottom:25px;
 }
 
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    margin:0 auto 15px;
+    border:3px solid #0A66C2;
+}
+
+.header h1{
+    margin:0;
+    font-size:28px;
+    color:#0A66C2;
+    font-weight:bold;
+}
+
+.header p{
+    margin-top:5px;
+    color:#666;
+    font-size:16px;
+}
 body{
     background:linear-gradient(135deg,#0F4C81,#2196F3);
     min-height:100vh;
