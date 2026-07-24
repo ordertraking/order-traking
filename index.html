@@ -3,55 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazon Printings (Private) Limited</title>
+<title>Order Tracking</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+body{
+background:#f5f5f5;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+width:350px;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+color:#0066cc;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0066cc;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#004d99;
+}
+
+#result{
+margin-top:20px;
+text-align:left;
+}
+</style>
 
 </head>
-
 <body>
 
 <div class="container">
 
-<div class="card">
+<h2>Order Tracking</h2>
 
-<div class="header">
-
-<div class="logo">
-<i class="fa-solid fa-print"></i>
-</div>
-
-<h1>Amazon Printings</h1>
-
-<h2>(Private) Limited</h2>
-
-<p>ORDER TRACKING SERVICE</p>
-
-</div>
-
-<div class="search-box">
-
-<input
-type="text"
-id="orderNo"
-placeholder="Enter Your Order Number">
+<input type="text" id="orderNo" placeholder="Enter Order Number">
 
 <button onclick="trackOrder()">
-
-<i class="fa-solid fa-magnifying-glass"></i>
-
 Track Order
-
 </button>
 
-</div>
-
 <div id="result"></div>
-
-</div>
 
 </div>
 
@@ -59,4 +84,3 @@ Track Order
 
 </body>
 </html>
-<link rel="stylesheet" href="style.css">
