@@ -6,41 +6,58 @@
 <title>Markaz Fabric</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
 body{
-background:#f5f5f5;
+background:#f4f4f4;
 }
 
 header{
 background:#0b3d91;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 color:white;
-padding:18px;
-text-align:center;
+}
+
+header h2{
 font-size:28px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
 font-weight:bold;
 }
 
 .hero{
-padding:40px 20px;
+background:white;
+padding:60px 20px;
 text-align:center;
 }
 
 .hero h1{
-font-size:34px;
+font-size:40px;
 color:#222;
 }
 
 .hero p{
-margin-top:10px;
-color:#666;
+margin-top:15px;
 font-size:18px;
+color:#555;
 }
 
 .btn{
 display:inline-block;
 margin-top:25px;
-padding:14px 28px;
+padding:15px 30px;
 background:#0b3d91;
 color:white;
 text-decoration:none;
@@ -58,8 +75,8 @@ padding:30px;
 .card{
 background:white;
 padding:25px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
 text-align:center;
 }
 
@@ -75,27 +92,33 @@ padding:20px;
 margin-top:30px;
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <header>
-MARKAZ FABRIC
+<h2>Markaz Fabric</h2>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Order Tracking</a>
+<a href="#">Contact</a>
+</nav>
 </header>
 
 <section class="hero">
 <h1>Welcome to Markaz Fabric</h1>
-<p>Printing • Designing • Order Tracking</p>
+<p>Professional Printing & Designing Services</p>
 
-<a class="btn" href="#">Track Your Order</a>
-
+<a href="#" class="btn">Track Your Order</a>
 </section>
 
 <section class="cards">
 
 <div class="card">
 <h3>🎨 Designing</h3>
-<p>Professional Design Services</p>
+<p>Professional Graphic Design</p>
 </div>
 
 <div class="card">
@@ -105,21 +128,14 @@ MARKAZ FABRIC
 
 <div class="card">
 <h3>📦 Order Tracking</h3>
-<p>Track Your Order Anytime</p>
+<p>Track Your Orders Online</p>
 </div>
 
 <div class="card">
 <h3>📞 Contact</h3>
-<p>WhatsApp Support</p>
+<p>Fast WhatsApp Support</p>
 </div>
 
 </section>
 
 <footer>
-
-© 2026 Markaz Fabric
-
-</footer>
-
-</body>
-</html>
