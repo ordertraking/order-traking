@@ -1,72 +1,24 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+.company-name{
+    font-size:36px;
+    font-weight:800;
+    color:#000;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:5px;
 }
 
-body{
-background:#f4f4f4;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-}
-
-.container{
-width:400px;
-background:#fff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,.15);
-text-align:center;
-}
-
-.logo{
-width:80px;
-margin:auto;
-display:block;
-margin-bottom:15px;
-}
-
-h1{
-font-size:30px;
-color:#000;
-margin-bottom:5px;
+.company-type{
+    font-size:22px;
+    font-weight:700;
+    color:#ff5a00;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    margin-bottom:20px;
 }
 
 .title{
-font-size:18px;
-font-weight:bold;
-color:#ff5a00;
-margin-bottom:25px;
-}
-
-input{
-width:100%;
-padding:13px;
-border:2px solid #ff5a00;
-border-radius:8px;
-font-size:16px;
-margin-bottom:15px;
-}
-
-button{
-width:100%;
-padding:13px;
-background:#ff5a00;
-color:#fff;
-border:none;
-border-radius:8px;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-background:#000;
-}
-
-#result{
-margin-top:20px;
+    color:#666;
+    font-size:18px;
+    font-weight:500;
+    margin-bottom:25px;
 }
