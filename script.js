@@ -1,30 +1,48 @@
-document.getElementById("result").innerHTML = `
-<div class="result-card">
+function trackOrder() {
 
-    <div class="card-header">
-        <h3>📦 Order Details</h3>
-        <span class="status processing">${data.status}</span>
-    </div>
+    let order = document.getElementById("orderNo").value.trim();
 
-    <div class="info-row">
-        <span>Order No</span>
-        <strong>${data.order}</strong>
-    </div>
+    if (order === "") {
+        document.getElementById("result").innerHTML =
+            "<p style='color:red;'>Please enter Order Number.</p>";
+        return;
+    }
 
-    <div class="info-row">
-        <span>Customer</span>
-        <strong>${data.customer}</strong>
-    </div>
+    document.getElementById("result").innerHTML = "<p>Loading...</p>";
 
-    <div class="info-row">
-        <span>Date</span>
-        <strong>${data.date}</strong>
-    </div>
+    fetch("https://script.google.com/macros/s/AKfycbwAnKhXTJqXLprnoEvaTByiaPiVKolTab1jKZ3niHpYS1wZeoiOE4cTuyEz3mki87CV/exec?order=" + encodeURIComponent(order))
 
-    <div class="info-row">
-        <span>Remarks</span>
-        <strong>${data.remarks}</strong>
-    </div>
+    .then(response => response.json())
 
-</div>
-`;
+    .then(data => {
+
+        if (data.success === false || data.message === "Order Not Found") {
+
+            document.getElementById("result").innerHTML =
+                "<p style='color:red;'>Order Not Found</p>";
+
+        } else {
+
+            document.getElementById("result").innerHTML = `
+                <div style="background:#f5f5f5;padding:15px;border-radius:10px;">
+                    <p><b>Order:</b> ${data.order}</p>
+                    <p><b>Customer:</b> ${data.customer}</p>
+                    <p><b>Status:</b> ${data.status}</p>
+                    <p><b>Date:</b> ${data.date}</p>
+                    <p><b>Remarks:</b> ${data.remarks}</p>
+                </div>
+            `;
+        }
+
+    })
+
+    .catch(error => {
+
+        document.getElementById("result").innerHTML =
+            "<p style='color:red;'>Connection Error</p>";
+
+        console.log(error);
+
+    });
+
+}
