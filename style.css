@@ -13,21 +13,23 @@ body{
     min-height:100vh;
 }
 
+/* Main Box */
 .container{
-    width:400px;
+    width:420px;
     background:#ffffff;
-    padding:30px;
-    border-radius:18px;
+    padding:35px;
+    border-radius:20px;
     box-shadow:0 10px 25px rgba(0,0,0,.15);
     text-align:center;
 }
 
-/* Logo */
+/* LOGO */
 .logo{
-    width:80px;
+    width:170px;
     height:auto;
-    margin:0 auto 15px;
     display:block;
+    margin:0 auto 15px;
+    object-fit:contain;
 }
 
 /* AMAZON PRINTING */
@@ -37,7 +39,6 @@ body{
     color:#000;
     text-transform:uppercase;
     letter-spacing:2px;
-    line-height:1.1;
     margin-bottom:3px;
 }
 
@@ -55,7 +56,7 @@ body{
 .title{
     font-size:18px;
     font-weight:600;
-    color:#555;
+    color:#666;
     margin-bottom:25px;
 }
 
@@ -85,13 +86,14 @@ button{
     font-size:17px;
     font-weight:bold;
     cursor:pointer;
-    transition:.3s;
+    transition:0.3s;
 }
 
 button:hover{
     background:#000;
 }
 
+/* Result */
 #result{
     margin-top:25px;
 }
@@ -100,7 +102,11 @@ button:hover{
 
 .container{
     width:95%;
-    padding:20px;
+    padding:25px;
+}
+
+.logo{
+    width:140px;
 }
 
 .company-name{
@@ -109,11 +115,6 @@ button:hover{
 
 .company-type{
     font-size:13px;
-    letter-spacing:3px;
-}
-
-.logo{
-    width:70px;
 }
 
 }
