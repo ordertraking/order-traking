@@ -1,49 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markaz Fabric</title>
 
-    <title>Amazon Printing Private Limited | Order Tracking</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 
-    <link rel="stylesheet" href="style.css">
+body{
+background:#f5f5f5;
+}
+
+header{
+background:#0b3d91;
+color:white;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.hero{
+padding:40px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:34px;
+color:#222;
+}
+
+.hero p{
+margin-top:10px;
+color:#666;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 28px;
+background:#0b3d91;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-size:18px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="container">
+<header>
+MARKAZ FABRIC
+</header>
 
-        <!-- Logo -->
-        <img src="logo.png" class="logo" alt="Amazon Printing Logo">
+<section class="hero">
+<h1>Welcome to Markaz Fabric</h1>
+<p>Printing • Designing • Order Tracking</p>
 
-        <!-- Company Name -->
-        <h1 class="company-name">AMAZON PRINTING</h1>
+<a class="btn" href="#">Track Your Order</a>
 
-        <!-- Company Type -->
-        <h2 class="company-type">PRIVATE LIMITED</h2>
+</section>
 
-        <!-- Page Title -->
-        <p class="title">Order Tracking System</p>
+<section class="cards">
 
-        <!-- Search Box -->
-        <input
-            type="text"
-            id="orderNo"
-            placeholder="Enter Order Number">
+<div class="card">
+<h3>🎨 Designing</h3>
+<p>Professional Design Services</p>
+</div>
 
-        <!-- Button -->
-        <button onclick="trackOrder()">
-            Track Order
-        </button>
+<div class="card">
+<h3>🖨 Printing</h3>
+<p>High Quality Printing</p>
+</div>
 
-        <!-- Result -->
-        <div id="result"></div>
+<div class="card">
+<h3>📦 Order Tracking</h3>
+<p>Track Your Order Anytime</p>
+</div>
 
-    </div>
+<div class="card">
+<h3>📞 Contact</h3>
+<p>WhatsApp Support</p>
+</div>
 
-    <script src="script.js"></script>
+</section>
+
+<footer>
+
+© 2026 Markaz Fabric
+
+</footer>
 
 </body>
-
 </html>
