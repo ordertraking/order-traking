@@ -616,3 +616,35 @@ nav ul li{
 }
 
 }
+.hero-left{
+    flex:1;
+    max-width:600px;
+}
+
+.hero-left p{
+    margin-top:25px;
+    margin-bottom:35px;
+    color:#555;
+    font-size:20px;
+    line-height:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.btn1,
+.btn2{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:170px;
+    height:55px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:18px;
+}
