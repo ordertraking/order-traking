@@ -1,206 +1,219 @@
-/*====================================
- AMAZON PRINTING PRIVATE LIMITED
- STYLE.CSS
-====================================*/
+/*==================================
+ AMAZON PRINTING - STYLE.CSS
+ PART 1
+==================================*/
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#f7f7f7;
-    color:#222;
-    overflow-x:hidden;
+background:#f8f8f8;
+color:#222;
+overflow-x:hidden;
 }
 
-/*==========================
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+ul{
+list-style:none;
+}
+
+/*=========================
 HEADER
-==========================*/
+=========================*/
 
 header{
-    width:100%;
-    background:#fff;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-    position:sticky;
-    top:0;
-    z-index:999;
+position:sticky;
+top:0;
+z-index:999;
+background:#fff;
+box-shadow:0 2px 15px rgba(0,0,0,.08);
 }
 
 .navbar{
-    width:90%;
-    max-width:1300px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
+width:90%;
+max-width:1300px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
 }
 
 .logo-area{
-    display:flex;
-    align-items:center;
+display:flex;
+align-items:center;
+gap:15px;
 }
 
 .logo{
-    width:80px;
-    margin-right:15px;
+width:80px;
 }
 
 .company h1{
-    font-size:32px;
-    color:#000;
-    font-weight:800;
-    letter-spacing:1px;
+font-size:34px;
+font-weight:800;
+color:#111;
+line-height:1;
 }
 
 .company h3{
-    color:#ff5a00;
-    font-size:15px;
-    letter-spacing:3px;
-    margin-top:3px;
+margin-top:8px;
+font-size:15px;
+letter-spacing:3px;
+color:#ff5a00;
 }
 
 nav ul{
-    display:flex;
-    list-style:none;
-}
-
-nav ul li{
-    margin-left:30px;
+display:flex;
+align-items:center;
+gap:35px;
 }
 
 nav ul li a{
-    text-decoration:none;
-    color:#222;
-    font-weight:600;
-    transition:.3s;
+color:#222;
+font-size:17px;
+font-weight:600;
+transition:.3s;
 }
 
 nav ul li a:hover{
-    color:#ff5a00;
+color:#ff5a00;
 }
 
-/*==========================
+/*=========================
 HERO
-==========================*/
+=========================*/
 
 .hero{
-    width:90%;
-    max-width:1300px;
-    margin:70px auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
+width:90%;
+max-width:1300px;
+margin:70px auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:70px;
 }
 
 .hero-left{
-    flex:1;
+max-width:600px;
 }
 
 .hero-left h4{
-    color:#ff5a00;
-    font-size:22px;
-    margin-bottom:10px;
+font-size:22px;
+color:#ff5a00;
+margin-bottom:10px;
 }
 
 .hero-left h2{
-    font-size:65px;
-    line-height:70px;
-    color:#000;
-    font-weight:800;
+font-size:72px;
+font-weight:800;
+line-height:78px;
+color:#000;
+margin-bottom:15px;
 }
 
 .hero-left h3{
-    margin-top:15px;
-    color:#ff5a00;
-    font-size:26px;
-    letter-spacing:3px;
+font-size:28px;
+letter-spacing:4px;
+color:#ff5a00;
+margin-bottom:25px;
 }
 
 .hero-left p{
-    margin-top:25px;
-    color:#555;
-    font-size:20px;
-    line-height:35px;
+font-size:20px;
+line-height:36px;
+color:#555;
+margin-bottom:35px;
 }
 
 .buttons{
-    margin-top:35px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .btn1,
 .btn2{
-    display:inline-block;
-    padding:15px 35px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-    margin-right:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+width:200px;
+height:58px;
+border-radius:8px;
+font-size:18px;
+font-weight:600;
+transition:.3s;
 }
 
 .btn1{
-    background:#ff5a00;
-    color:#fff;
+background:#ff5a00;
+color:#fff;
 }
 
 .btn1:hover{
-    background:#000;
+background:#000;
 }
 
 .btn2{
-    border:2px solid #ff5a00;
-    color:#ff5a00;
+border:2px solid #ff5a00;
+color:#ff5a00;
+background:#fff;
 }
 
 .btn2:hover{
-    background:#ff5a00;
-    color:#fff;
+background:#ff5a00;
+color:#fff;
 }
 
 .hero-right{
-    flex:1;
-    text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .banner{
-    width:100%;
-    max-width:560px;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,.12);
+width:100%;
+max-width:560px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.12);
 }
 
-/*==========================
+/*=========================
 SECTION TITLE
-==========================*/
+=========================*/
 
-.services,
-.products,
-.why{
+.section-title{
+text-align:center;
+font-size:46px;
+font-weight:800;
+margin-bottom:50px;
+color:#111;
+}
+/*==================================
+SERVICES
+==================================*/
+
+.services{
     width:90%;
     max-width:1300px;
     margin:80px auto;
 }
-
-.services h2,
-.products h2,
-.why h2{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:45px;
-    color:#000;
-}
-/*==========================
-SERVICES
-==========================*/
 
 .service-box{
     display:grid;
@@ -210,102 +223,43 @@ SERVICES
 
 .card{
     background:#fff;
-    padding:35px 25px;
-    border-radius:15px;
+    padding:40px 30px;
+    border-radius:18px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.card i{
+    font-size:55px;
+    color:#ff5a00;
+    margin-bottom:20px;
 }
 
 .card h3{
-    margin:15px 0;
-    font-size:24px;
+    font-size:28px;
+    margin-bottom:15px;
 }
 
 .card p{
     color:#666;
+    font-size:17px;
     line-height:28px;
 }
 
-/*==========================
-HOME PRODUCTS
-==========================*/
+/*==================================
+PRODUCTS
+==================================*/
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.product-card{
-    background:#fff;
-    border-radius:15px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.product-card:hover{
-    transform:translateY(-10px);
-}
-
-.product-card h3{
-    margin-bottom:15px;
-}
-
-.product-card p{
-    color:#666;
-}
-
-/*==========================
-WHY CHOOSE
-==========================*/
-
-.why-box{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.why-card{
-    background:#fff;
-    padding:25px;
-    border-left:5px solid #ff5a00;
-    border-radius:10px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    font-weight:600;
-    transition:.3s;
-}
-
-.why-card:hover{
-    transform:translateY(-8px);
-}
-
-/*==========================
-PRODUCT PAGE
-==========================*/
-
-.products-page{
+.products{
     width:90%;
     max-width:1300px;
-    margin:70px auto;
-    text-align:center;
-}
-
-.products-page h1{
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.products-text{
-    color:#666;
-    margin-bottom:40px;
+    margin:90px auto;
 }
 
 .products-grid{
@@ -314,79 +268,117 @@ PRODUCT PAGE
     gap:30px;
 }
 
-.product-item{
+.product-card{
     background:#fff;
-    border-radius:15px;
+    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
 }
 
-.product-item:hover{
+.product-card:hover{
     transform:translateY(-10px);
 }
 
-.product-item img{
+.product-card img{
     width:100%;
     height:220px;
     object-fit:cover;
 }
 
-.product-item h3{
-    margin-top:20px;
+.product-card h3{
+    padding:20px;
+    font-size:25px;
 }
 
-.product-item p{
-    padding:10px 20px;
+.product-card p{
+    padding:0 20px 20px;
     color:#666;
+    line-height:28px;
 }
 
-.product-item a{
-    display:inline-block;
-    margin:20px;
-    padding:12px 28px;
+.product-btn{
+    display:block;
+    margin:0 20px 25px;
+    text-align:center;
     background:#ff5a00;
     color:#fff;
-    text-decoration:none;
+    padding:14px;
     border-radius:8px;
     font-weight:600;
+    transition:.3s;
 }
 
-.product-item a:hover{
+.product-btn:hover{
     background:#000;
 }
-/*==========================
+
+/*==================================
+WHY CHOOSE US
+==================================*/
+
+.why{
+    width:90%;
+    max-width:1300px;
+    margin:90px auto;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.why-card{
+    background:#fff;
+    padding:30px;
+    border-left:5px solid #ff5a00;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+}
+
+.why-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.why-card p{
+    color:#666;
+    line-height:28px;
+}
+/*==================================
 TRACKING PAGE
-==========================*/
+==================================*/
 
 .track-page{
-    width:100%;
-    min-height:85vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:60px 20px;
-    background:#f7f7f7;
+    width:90%;
+    max-width:700px;
+    margin:80px auto;
 }
 
 .track-box{
-    width:100%;
-    max-width:550px;
     background:#fff;
-    border-radius:20px;
     padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
     text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
 }
 
 .track-logo{
     width:90px;
-    margin-bottom:15px;
+    margin:auto;
+    margin-bottom:20px;
 }
 
 .track-box h2{
+    font-size:35px;
     color:#ff5a00;
-    margin-bottom:10px;
+    margin-bottom:15px;
 }
 
 .track-box p{
@@ -396,21 +388,22 @@ TRACKING PAGE
 
 .track-box input{
     width:100%;
-    padding:15px;
+    padding:16px;
     border:2px solid #ff5a00;
     border-radius:10px;
+    font-size:17px;
     margin-bottom:20px;
-    font-size:16px;
 }
 
 .track-box button{
     width:100%;
-    padding:15px;
-    background:#ff5a00;
-    color:#fff;
+    padding:16px;
     border:none;
     border-radius:10px;
+    background:#ff5a00;
+    color:#fff;
     font-size:18px;
+    font-weight:600;
     cursor:pointer;
 }
 
@@ -418,31 +411,35 @@ TRACKING PAGE
     background:#000;
 }
 
-/*==========================
+/*==================================
 ABOUT PAGE
-==========================*/
+==================================*/
 
-.about-page{
+.about-page,
+.contact-page{
     width:90%;
-    max-width:1200px;
-    margin:70px auto;
+    max-width:1100px;
+    margin:80px auto;
 }
 
-.about-box{
+.about-box,
+.contact-box{
     background:#fff;
-    padding:50px;
+    padding:45px;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.about-box h1{
+.about-box h1,
+.contact-box h1{
     text-align:center;
     color:#ff5a00;
+    font-size:40px;
     margin-bottom:25px;
-    font-size:42px;
 }
 
 .about-box p{
+    font-size:18px;
     color:#555;
     line-height:32px;
     margin-bottom:20px;
@@ -458,46 +455,21 @@ ABOUT PAGE
 .about-card{
     background:#ff5a00;
     color:#fff;
-    padding:20px;
-    text-align:center;
+    padding:22px;
     border-radius:10px;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.about-card:hover{
-    background:#000;
-}
-
-/*==========================
-CONTACT PAGE
-==========================*/
-
-.contact-page{
-    width:90%;
-    max-width:900px;
-    margin:70px auto;
-}
-
-.contact-box{
-    background:#fff;
-    padding:50px;
-    border-radius:20px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    font-weight:600;
 }
 
-.contact-box h1{
-    color:#ff5a00;
-    font-size:40px;
-    margin-bottom:15px;
-}
+/*==================================
+CONTACT
+==================================*/
 
 .contact-item{
     background:#f8f8f8;
     padding:18px;
-    margin:15px 0;
     border-radius:10px;
+    margin:15px 0;
     font-size:18px;
 }
 
@@ -507,44 +479,42 @@ CONTACT PAGE
     padding:15px 35px;
     background:#25D366;
     color:#fff;
-    text-decoration:none;
     border-radius:10px;
-    font-weight:bold;
+    font-weight:600;
 }
 
 .whatsapp-btn:hover{
     background:#128C7E;
 }
 
-/*==========================
+/*==================================
 FOOTER
-==========================*/
+==================================*/
 
 footer{
+    margin-top:80px;
     background:#111;
     color:#fff;
-    margin-top:80px;
     padding:50px 0;
 }
 
 .footer-container{
     width:90%;
-    max-width:1200px;
+    max-width:1300px;
     margin:auto;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    gap:35px;
 }
 
 .footer-container h3{
     color:#ff5a00;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 .footer-container p,
 .footer-container a{
     color:#ddd;
-    text-decoration:none;
     line-height:28px;
 }
 
@@ -553,16 +523,16 @@ footer{
 }
 
 .copyright{
-    text-align:center;
     border-top:1px solid #333;
-    margin-top:30px;
+    margin-top:35px;
     padding-top:20px;
+    text-align:center;
     color:#aaa;
 }
 
-/*==========================
+/*==================================
 RESPONSIVE
-==========================*/
+==================================*/
 
 @media(max-width:991px){
 
@@ -572,23 +542,32 @@ RESPONSIVE
 }
 
 nav ul{
-    margin-top:20px;
     flex-wrap:wrap;
     justify-content:center;
+    gap:15px;
+    margin-top:20px;
 }
 
 .hero{
-    flex-direction:column;
+    grid-template-columns:1fr;
     text-align:center;
 }
 
-.hero-left h2{
-    font-size:45px;
-    line-height:50px;
+.hero-left{
+    max-width:100%;
 }
 
-.banner{
-    margin-top:30px;
+.buttons{
+    justify-content:center;
+}
+
+.company h1{
+    font-size:28px;
+}
+
+.hero-left h2{
+    font-size:52px;
+    line-height:58px;
 }
 
 }
@@ -596,7 +575,16 @@ nav ul{
 @media(max-width:768px){
 
 .hero-left h2{
-    font-size:35px;
+    font-size:38px;
+    line-height:45px;
+}
+
+.hero-left h3{
+    font-size:22px;
+}
+
+.logo{
+    width:60px;
 }
 
 .company h1{
@@ -607,44 +595,19 @@ nav ul{
     font-size:12px;
 }
 
-.logo{
-    width:60px;
-}
-
-nav ul li{
-    margin:10px;
-}
-
-}
-.hero-left{
-    flex:1;
-    max-width:600px;
-}
-
-.hero-left p{
-    margin-top:25px;
-    margin-bottom:35px;
-    color:#555;
-    font-size:20px;
-    line-height:35px;
+.btn1,
+.btn2{
+    width:100%;
 }
 
 .buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:15px;
+    flex-direction:column;
 }
 
-.btn1,
-.btn2{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    width:170px;
-    height:55px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
-    font-size:18px;
+.track-box,
+.about-box,
+.contact-box{
+    padding:25px;
+}
+
 }
