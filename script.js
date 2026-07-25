@@ -3,160 +3,124 @@ function trackOrder() {
     let order = document.getElementById("orderNo").value.trim();
     let result = document.getElementById("result");
 
-    if (order === "") {
-        result.innerHTML = `
-        <div style="
-            background:#fff3f0;
-            border:2px solid #ff5a00;
-            border-radius:12px;
-            padding:20px;
-            text-align:center;
-            color:#d32f2f;
-            font-family:'Noto Nastaliq Urdu', serif;
-            font-size:22px;
-            line-height:2;">
-            براہِ کرم اپنا آرڈر نمبر درج کریں۔
+    if(order==""){
+
+        result.innerHTML=`
+        <div style="background:#fff3cd;border-left:5px solid #ff9800;padding:15px;border-radius:10px;text-align:center;color:#8a6d3b;font-weight:bold;">
+        ⚠ براہِ کرم اپنا آرڈر نمبر درست درج کریں۔
         </div>`;
+
         return;
     }
 
-    result.innerHTML = `
-    <div style="
-        text-align:center;
-        padding:20px;
-        color:#ff5a00;
-        font-weight:bold;
-        font-size:18px;">
-        ⏳ Loading...
+    result.innerHTML=`
+    <div style="text-align:center;padding:20px;font-size:18px;">
+    ⏳ Loading...
     </div>`;
 
-    fetch("https://script.google.com/macros/s/AKfycbwAnKhXTJqXLprnoEvaTByiaPiVKolTab1jKZ3niHpYS1wZeoiOE4cTuyEz3mki87CV/exec?order=" + encodeURIComponent(order))
+    fetch("https://script.google.com/macros/s/AKfycbwAnKhXTJqXLprnoEvaTByiaPiVKolTab1jKZ3niHpYS1wZeoiOE4cTuyEz3mki87CV/exec?order="+encodeURIComponent(order))
 
-    .then(response => response.json())
+    .then(response=>response.json())
 
-    .then(data => {
+    .then(data=>{
 
-        if (!data || data.success === false || data.message === "Order Not Found") {
+        if(!data || data.success===false || data.message==="Order Not Found"){
 
-            result.innerHTML = `
-            <div style="
-                background:#fff3f0;
-                border:2px solid #ff5a00;
-                border-radius:12px;
-                padding:20px;
-                text-align:center;
-                color:#d32f2f;
-                font-family:'Noto Nastaliq Urdu', serif;
-                font-size:22px;
-                line-height:2;">
-                <strong>براہِ کرم اپنا آرڈر نمبر درست درج کریں۔</strong><br>
-                <span style="font-size:18px;color:#555;">
-                    درست آرڈر نمبر کا انتخاب کریں۔
-                </span>
+            result.innerHTML=`
+            <div style="background:#ffe5e5;border-left:5px solid red;padding:18px;border-radius:12px;text-align:center;color:red;font-weight:bold;">
+            ❌ آرڈر نمبر نہیں ملا، براہِ کرم درست آرڈر نمبر درج کریں۔
             </div>`;
+
             return;
         }
 
-        let status = (data.status || "").toLowerCase();
+        let color="#0d6efd";
 
-        let statusColor = "#ff5a00";
-        let statusIcon = "📦";
+        if(data.status.toLowerCase().includes("design")) color="#ff9800";
+        else if(data.status.toLowerCase().includes("printing")) color="#6f42c1";
+        else if(data.status.toLowerCase().includes("ready")) color="#28a745";
+        else if(data.status.toLowerCase().includes("deliver")) color="#198754";
 
-        if(status.includes("received")){
-            statusColor="#2196f3";
-            statusIcon="📥";
-        }
-        else if(status.includes("design")){
-            statusColor="#ff9800";
-            statusIcon="🎨";
-        }
-        else if(status.includes("printing")){
-            statusColor="#000";
-            statusIcon="🖨️";
-        }
-        else if(status.includes("ready")){
-            statusColor="#28a745";
-            statusIcon="✅";
-        }
-        else if(status.includes("delivered")){
-            statusColor="#198754";
-            statusIcon="🚚";
-        }
+        result.innerHTML=`
 
-        let orderDate = data.date;
+<div style="
+background:#fff;
+border-radius:15px;
+padding:20px;
+margin-top:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+border-top:6px solid ${color};
+">
 
-        if(orderDate){
-            let d = new Date(orderDate);
-            if(!isNaN(d)){
-                orderDate = d.toLocaleDateString("en-GB");
-            }
-        }
+<h2 style="
+color:${color};
+text-align:center;
+margin-bottom:20px;
+">
 
-        result.innerHTML = `
+📦 Order Details
 
-        <div style="
-            background:#fff;
-            border-top:5px solid ${statusColor};
-            border-left:5px solid #000;
-            border-radius:15px;
-            padding:20px;
-            box-shadow:0 8px 20px rgba(0,0,0,.12);
-            margin-top:20px;">
+</h2>
 
-            <h3 style="
-                text-align:center;
-                color:${statusColor};
-                margin-bottom:20px;">
-                ${statusIcon} Order Details
-            </h3>
+<table style="width:100%;border-collapse:collapse;">
 
-            <table style="width:100%;border-collapse:collapse;">
+<tr>
 
-                <tr>
-                    <td style="padding:10px;font-weight:bold;">📦 Order No</td>
-                    <td style="padding:10px;">${data.order}</td>
-                </tr>
+<td style="padding:12px;font-weight:bold;">Order No</td>
 
-                <tr style="background:#f8f8f8;">
-                    <td style="padding:10px;font-weight:bold;">👤 Customer</td>
-                    <td style="padding:10px;">${data.customer}</td>
-                </tr>
+<td style="padding:12px;">${data.order}</td>
 
-                <tr>
-                    <td style="padding:10px;font-weight:bold;">📌 Status</td>
-                    <td style="padding:10px;color:${statusColor};font-weight:bold;">
-                        ${data.status}
-                    </td>
-                </tr>
+</tr>
 
-                <tr style="background:#f8f8f8;">
-                    <td style="padding:10px;font-weight:bold;">📅 Date</td>
-                    <td style="padding:10px;">${orderDate}</td>
-                </tr>
+<tr style="background:#f7f7f7;">
 
-                <tr>
-                    <td style="padding:10px;font-weight:bold;">📝 Remarks</td>
-                    <td style="padding:10px;">${data.remarks}</td>
-                </tr>
+<td style="padding:12px;font-weight:bold;">Customer</td>
 
-            </table>
+<td style="padding:12px;">${data.customer}</td>
 
-        </div>`;
+</tr>
+
+<tr>
+
+<td style="padding:12px;font-weight:bold;">Status</td>
+
+<td style="padding:12px;color:${color};font-weight:bold;">
+
+${data.status}
+
+</td>
+
+</tr>
+
+<tr style="background:#f7f7f7;">
+
+<td style="padding:12px;font-weight:bold;">Date</td>
+
+<td style="padding:12px;">${data.date}</td>
+
+</tr>
+
+<tr>
+
+<td style="padding:12px;font-weight:bold;">Remarks</td>
+
+<td style="padding:12px;">${data.remarks}</td>
+
+</tr>
+
+</table>
+
+</div>
+
+`;
 
     })
 
-    .catch(error => {
+    .catch(error=>{
 
-        result.innerHTML = `
-        <div style="
-            background:#fff3f0;
-            border:2px solid red;
-            border-radius:12px;
-            padding:20px;
-            text-align:center;
-            color:red;
-            font-weight:bold;">
-            ❌ Connection Error
+        result.innerHTML=`
+        <div style="background:#ffe5e5;padding:18px;border-radius:10px;text-align:center;color:red;font-weight:bold;">
+        ❌ Connection Error
         </div>`;
 
         console.log(error);
