@@ -7,7 +7,12 @@
 
     <title>Amazon Printing Private Limited | Order Tracking</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Urdu Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -15,18 +20,24 @@
     <div class="container">
 
         <!-- Logo -->
-        <img src="logo.png" class="logo" alt="Amazon Printing Logo">
+        <img src="logo.png" alt="Amazon Printing Logo" class="logo">
 
         <!-- Company Name -->
-        <h1 class="company-name">AMAZON PRINTING</h1>
+        <h1 class="company-name">
+            AMAZON PRINTING
+        </h1>
 
         <!-- Company Type -->
-        <h2 class="company-type">PRIVATE LIMITED</h2>
+        <h2 class="company-type">
+            PRIVATE LIMITED
+        </h2>
 
-        <!-- Title -->
-        <p class="title">Order Tracking System</p>
+        <!-- Page Title -->
+        <p class="title">
+            Order Tracking System
+        </p>
 
-        <!-- Order Input -->
+        <!-- Order Number -->
         <input
             type="text"
             id="orderNo"
@@ -34,13 +45,20 @@
 
         <!-- Button -->
         <button onclick="trackOrder()">
-            Track Order
+            📦 Track Order
         </button>
 
         <!-- Help Line -->
         <div class="help-line">
-            <p>Need Help?</p>
-            <a href="tel:+923276650001">📞 +92 327 6650001</a>
+
+            <p class="help-title">
+                Need Help?
+            </p>
+
+            <a href="tel:+923276650001">
+                📞 +92 327 6650001
+            </a>
+
         </div>
 
         <!-- Result -->
@@ -48,6 +66,7 @@
 
     </div>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
