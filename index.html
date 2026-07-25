@@ -1,104 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Track Order - Markaz Fabric</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f4f4f4;
-}
+    <title>Amazon Printing Private Limited | Order Tracking</title>
 
-.header{
-background:#0b3d91;
-color:#fff;
-padding:15px;
-text-align:center;
-font-size:28px;
-font-weight:bold;
-}
-
-.box{
-max-width:500px;
-margin:40px auto;
-background:#fff;
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:15px;
-font-size:16px;
-}
-
-button{
-width:100%;
-padding:12px;
-margin-top:15px;
-background:#0b3d91;
-color:white;
-border:none;
-font-size:18px;
-border-radius:6px;
-cursor:pointer;
-}
-
-#result{
-margin-top:20px;
-padding:15px;
-background:#f8f8f8;
-border-radius:8px;
-}
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="header">
-Markaz Fabric
-</div>
+    <div class="container">
 
-<div class="box">
+        <!-- Logo -->
+        <img src="logo.png" class="logo" alt="Amazon Printing Logo">
 
-<h2>Track Your Order</h2>
+        <!-- Company Name -->
+        <h1 class="company-name">AMAZON PRINTING</h1>
 
-<input
-type="text"
-id="orderNo"
-placeholder="Enter Order Number">
+        <!-- Company Type -->
+        <h2 class="company-type">PRIVATE LIMITED</h2>
 
-<button onclick="trackOrder()">
-Track Order
-</button>
+        <!-- Title -->
+        <p class="title">Order Tracking System</p>
 
-<div id="result">
-Enter your Order Number.
-</div>
+        <!-- Order Input -->
+        <input
+            type="text"
+            id="orderNo"
+            placeholder="Enter Order Number">
 
-</div>
+        <!-- Button -->
+        <button onclick="trackOrder()">
+            Track Order
+        </button>
 
-<script>
+        <!-- Help Line -->
+        <div class="help-line">
+            <p>Need Help?</p>
+            <a href="tel:+923276650001">📞 +92 327 6650001</a>
+        </div>
 
-function trackOrder(){
+        <!-- Result -->
+        <div id="result"></div>
 
-let order=document.getElementById("orderNo").value;
+    </div>
 
-document.getElementById("result").innerHTML=
-"Searching...";
+    <script src="script.js"></script>
 
-fetch("PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE?order="+order)
+</body>
 
-.then(response=>response.json())
-
-.then(data=>{
-
-document.getElementById("result").innerHTML=
-
-"<b>Order:</b> "+data
+</html>
