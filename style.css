@@ -536,3 +536,95 @@ nav ul{
 ::-webkit-scrollbar-track{
     background:#eee;
 }
+/* ===========================
+        TRACKING PAGE
+=========================== */
+
+.track-page{
+    width:100%;
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+    background:#f7f7f7;
+}
+
+.track-box{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.10);
+    text-align:center;
+}
+
+.track-logo{
+    width:90px;
+    margin-bottom:15px;
+}
+
+.track-box h2{
+    font-size:32px;
+    color:#ff5a00;
+    margin-bottom:10px;
+}
+
+.track-box p{
+    color:#666;
+    margin-bottom:25px;
+    line-height:28px;
+}
+
+.track-box input{
+    width:100%;
+    padding:15px;
+    border:2px solid #ff5a00;
+    border-radius:10px;
+    font-size:16px;
+    margin-bottom:20px;
+    outline:none;
+}
+
+.track-box input:focus{
+    border-color:#000;
+}
+
+.track-box button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#ff5a00;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.track-box button:hover{
+    background:#000;
+}
+
+#result{
+    margin-top:25px;
+}
+
+.help-line{
+    margin-top:35px;
+    padding-top:20px;
+    border-top:1px solid #ddd;
+}
+
+.help-line h3{
+    color:#ff5a00;
+    margin-bottom:10px;
+}
+
+.help-line p{
+    font-size:18px;
+    font-weight:700;
+    color:#000;
+}
