@@ -4,104 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Your Order</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background-color: #f8f9fc;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f5f7; /* Light grey background */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
+            padding-top: 60px;
             margin: 0;
-            padding: 20px;
         }
-        .tracking-container {
+        
+        /* Main Card Style */
+        .card {
+            background: #ffffff;
             width: 100%;
-            max-width: 450px;
-            text-align: center;
-        }
-        h2 {
-            color: #1a0a40; /* Dark purple from your image */
-            margin-bottom: 10px;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        p {
-            color: #555;
-            margin-bottom: 30px;
-            font-size: 15px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
+            max-width: 650px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Soft shadow */
+            padding: 24px 30px;
+            margin-bottom: 24px;
             box-sizing: border-box;
+            border: 1px solid #eaeaea;
+        }
+
+        /* Orange Top Border */
+        .card-header {
+            border-top: 6px solid #f26b21; /* Orange color */
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding-top: 24px;
+        }
+
+        h2 {
+            margin: 0 0 8px 0;
+            font-size: 22px;
+            color: #111;
+        }
+
+        p.subtitle {
+            margin: 0 0 24px 0;
+            color: #666;
             font-size: 14px;
+        }
+
+        /* Input and Button Area */
+        .input-group {
+            display: flex;
+            align-items: stretch; /* Make input and button same height */
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            overflow: hidden;
+            height: 48px;
+        }
+
+        .input-prefix {
+            display: flex;
+            align-items: center;
+            padding: 0 12px 0 16px;
+            color: #999;
+            background: white;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            border: none;
+            padding: 0 10px;
+            font-size: 15px;
+            outline: none;
             color: #333;
         }
-        input[type="text"]::placeholder {
-            color: #999;
-        }
+
         button {
-            width: 100%;
-            padding: 14px;
-            background-color: #3b0099;
+            background-color: #f26b21;
             color: white;
             border: none;
-            border-radius: 6px;
+            padding: 0 24px;
             font-size: 15px;
             cursor: pointer;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            font-weight: 500;
+            transition: background-color 0.2s;
         }
+
         button:hover {
-            background-color: #2d007a;
+            background-color: #d95a1a;
         }
-        .divider {
-            border-top: 1px solid #e0e0e0;
-            margin: 30px auto;
-            width: 50%;
+
+        /* Error / Result Card Style */
+        .result-card {
+            text-align: center;
+            padding: 40px 20px;
         }
-        .footer-link {
-            margin-top: 30px;
-            font-size: 13px;
+
+        .result-icon {
+            font-size: 40px;
+            color: #e63946; /* Pinkish-red */
+            margin-bottom: 16px;
         }
-        .footer-link a {
-            color: #8b8b99;
-            text-decoration: underline;
+
+        .result-title {
+            color: #c1121f;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .result-text {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="tracking-container">
+    <!-- Tracking Input Card -->
+    <div class="card card-header">
         <h2>Track your order</h2>
-        <p>Enter your order details below to get the latest status.</p>
-
-        <!-- Method 1: Order Number & Email/Phone -->
-        <input type="text" id="orderNumber" placeholder="Order Number">
-        <input type="text" id="contactInfo" placeholder="Email Address / Phone Number (with country code)">
-        <button onclick="trackOrder()">Track Order</button>
-
-        <div class="divider"></div>
-
-        <!-- Method 2: Tracking Number -->
-        <input type="text" id="trackingNumber" placeholder="Tracking Number">
-        <button onclick="trackByNumber()">Track Order</button>
-
-        <div class="footer-link">
-            <a href="#">Order Tracking by Postship</a>
+        <p class="subtitle">Enter Order ID or Tracking Number.</p>
+        
+        <div class="input-group">
+            <div class="input-prefix">#</div>
+            <!-- Default value set just like your image -->
+            <input type="text" id="trackingInput" value="TRK-6280Dear" placeholder="e.g. TRK-123456">
+            <button onclick="trackOrder()">
+                <i class="fa-solid fa-magnifying-glass"></i> Track
+            </button>
         </div>
     </div>
 
+    <!-- Error Result Card (Visible below) -->
+    <div class="card result-card" id="errorCard">
+        <i class="fa-solid fa-box-open result-icon"></i>
+        <div class="result-title">Order not found</div>
+        <p class="result-text">Order not found for: <span id="displayTrackingId">TRK-6280Dear</span></p>
+    </div>
+
     <script>
-        // Placeholder function for when the button is clicked
         function trackOrder() {
-            alert("This will connect to your database to find the order!");
-        }
-        function trackByNumber() {
-            alert("This will track using the tracking number!");
+            // Get the value typed by the user
+            let inputValue = document.getElementById('trackingInput').value;
+            
+            // Update the text in the error card
+            document.getElementById('displayTrackingId').innerText = inputValue;
+            
+            // Note: Currently, clicking the button just updates the text. 
+            // Real logic to check the database will go here later.
         }
     </script>
 </body>
