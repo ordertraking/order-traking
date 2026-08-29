@@ -4,209 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Your Order</title>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f5f7;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 60px;
-            margin: 0;
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #f4f5f7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding-top: 60px; 
+            margin: 0; 
+            padding-bottom: 60px; 
         }
+        .card { 
+            background: #ffffff; 
+            width: 100%; 
+            max-width: 650px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+            padding: 24px 30px; 
+            margin-bottom: 24px; 
+            box-sizing: border-box; 
+            border: 1px solid #eaeaea; 
+        }
+        .card-header { 
+            border-top: 6px solid #f26b21; 
+            border-top-left-radius: 8px; 
+            border-top-right-radius: 8px; 
+            padding-top: 24px; 
+        }
+        h2 { margin: 0 0 8px 0; font-size: 22px; color: #111; }
+        p.subtitle { margin: 0 0 24px 0; color: #666; font-size: 14px; }
+        .input-group { 
+            display: flex; 
+            align-items: stretch; 
+            border: 1px solid #dcdcdc; 
+            border-radius: 6px; 
+            overflow: hidden; 
+            height: 48px; 
+        }
+        .input-prefix { 
+            display: flex; 
+            align-items: center; 
+            padding: 0 12px 0 16px; 
+            color: #999; 
+            background: white; 
+            font-size: 16px; 
+        }
+        input[type="text"] { 
+            flex: 1; 
+            border: none; 
+            padding: 0 10px; 
+            font-size: 15px; 
+            outline: none; 
+            color: #333; 
+        }
+        button { 
+            background-color: #f26b21; 
+            color: white; 
+            border: none; 
+            padding: 0 24px; 
+            font-size: 15px; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            font-weight: 500; 
+            transition: 0.2s; 
+        }
+        button:hover { background-color: #d95a1a; }
+        button:disabled { background-color: #fca074; cursor: not-allowed; }
         
-        .card {
-            background: #ffffff;
-            width: 100%;
-            max-width: 650px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            padding: 24px 30px;
-            margin-bottom: 24px;
-            box-sizing: border-box;
-            border: 1px solid #eaeaea;
+        .result-card { display: none; }
+        .success-panel { padding: 0; overflow: hidden; }
+        .success-header-area { 
+            text-align: center; 
+            background-color: #f9fcfa; 
+            padding: 30px 20px; 
+            border-bottom: 1px solid #eef2f5; 
         }
-
-        .card-header {
-            border-top: 6px solid #f26b21;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            padding-top: 24px;
-        }
-
-        h2 {
-            margin: 0 0 8px 0;
-            font-size: 22px;
-            color: #111;
-        }
-
-        p.subtitle {
-            margin: 0 0 24px 0;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .input-group {
-            display: flex;
-            align-items: stretch;
-            border: 1px solid #dcdcdc;
-            border-radius: 6px;
-            overflow: hidden;
-            height: 48px;
-        }
-
-        .input-prefix {
-            display: flex;
-            align-items: center;
-            padding: 0 12px 0 16px;
-            color: #999;
-            background: white;
-            font-size: 16px;
-        }
-
-        input[type="text"] {
-            flex: 1;
-            border: none;
-            padding: 0 10px;
-            font-size: 15px;
-            outline: none;
-            color: #333;
-        }
-
-        button {
-            background-color: #f26b21;
-            color: white;
-            border: none;
-            padding: 0 24px;
-            font-size: 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-            transition: background-color 0.2s;
-        }
-
-        button:hover {
-            background-color: #d95a1a;
-        }
+        .result-icon { font-size: 48px; color: #2a9d8f; margin-bottom: 12px; }
+        .result-title { color: #264653; font-weight: bold; font-size: 20px; }
         
-        button:disabled {
-            background-color: #fca074;
-            cursor: not-allowed;
+        .details-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            padding: 24px 30px; 
+            background: white; 
         }
-
-        .result-card {
-            text-align: center;
-            padding: 40px 20px;
-            display: none; /* Shuru mein yeh card hide rahega */
+        .detail-box { 
+            background: #f8f9fa; 
+            padding: 15px; 
+            border-radius: 8px; 
+            border: 1px solid #edf2f7; 
         }
-
-        .result-icon {
-            font-size: 40px;
-            color: #e63946;
-            margin-bottom: 16px;
+        .detail-box.full-width { grid-column: span 2; }
+        .detail-label { 
+            font-size: 11px; 
+            color: #888; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            margin-bottom: 6px; 
+            font-weight: 600; 
         }
-
-        .result-title {
-            color: #c1121f;
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 8px;
+        .detail-value { font-size: 15px; color: #222; font-weight: 500; }
+        
+        .badge { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            font-weight: bold; 
+            color: white; 
         }
-
-        .result-text {
-            color: #666;
-            font-size: 14px;
-            margin: 0;
-        }
+        .badge-pending { background-color: #f26b21; }
+        .badge-paid { background-color: #2a9d8f; }
+        .badge-unpaid { background-color: #e63946; }
     </style>
 </head>
 <body>
 
-    <!-- Tracking Input Card -->
     <div class="card card-header">
         <h2>Track your order</h2>
         <p class="subtitle">Enter Order ID or Tracking Number.</p>
-        
         <div class="input-group">
             <div class="input-prefix">#</div>
-            <input type="text" id="trackingInput" placeholder="e.g. 1001" onkeypress="handleKeyPress(event)">
+            <input type="text" id="trackingInput" placeholder="e.g. ORD-504" onkeypress="handleKeyPress(event)">
             <button onclick="trackOrder()">
                 <i class="fa-solid fa-magnifying-glass"></i> Track
             </button>
         </div>
     </div>
 
-    <!-- Error / Result Card -->
-    <div class="card result-card" id="errorCard">
-        <!-- JS ke zariye yahan data update hoga -->
+    <!-- Error Card -->
+    <div class="card result-card" id="errorCard" style="text-align: center; padding: 40px 20px;">
+        <i class="fa-solid fa-box-open" style="font-size: 40px; color: #e63946; margin-bottom: 16px;"></i>
+        <div style="color: #c1121f; font-weight: 600; font-size: 18px; margin-bottom: 8px;">Order not found</div>
+        <p style="color: #666; font-size: 14px; margin: 0;">Order not found for: <span id="errorTrackingId"></span></p>
     </div>
 
-    <script>
-        // Aapka Google Apps Script Web App URL
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1F2l6Q8dgbOClV2XbB3ubtwS8729RSSo7oD0Jf4hBOC9A0hFcmFylLSya4ZkZIpK0/exec";
+    <!-- Success Professional Panel -->
+    <div class="card result-card success-panel" id="successCard"></div>
 
-        // Agar user "Enter" dabaye toh bhi track ho jaye
+    <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9ttfrxqV_n78NmPWDtOb-t7-7K9Jr8Yo6upEoDIcqRL18lgIhM1HsFLaaTddWERkK/exec";
+
         function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                trackOrder();
-            }
+            if (event.key === "Enter") trackOrder();
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return 'N/A';
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) return dateString;
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
         }
 
         async function trackOrder() {
             const trackingInput = document.getElementById('trackingInput');
             const errorCard = document.getElementById('errorCard');
+            const successCard = document.getElementById('successCard');
             const trackBtn = document.querySelector('button');
-            
             const orderId = trackingInput.value.trim();
             
-            if(!orderId) {
-                alert("Please enter an Order ID");
-                return;
-            }
+            if(!orderId) { alert("Please enter an Order ID"); return; }
 
-            // UI updating state (Loading)
             trackBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Tracking...';
             trackBtn.disabled = true;
-            errorCard.style.display = 'none'; // Pehle wale result ko hide karein
+            errorCard.style.display = 'none'; 
+            successCard.style.display = 'none';
             
             try {
-                // Google Sheet se data fetch karna
                 const response = await fetch(`${GOOGLE_SCRIPT_URL}?order_id=${orderId}`);
                 const data = await response.json();
                 
                 if (data.found) {
-                    // Agar order mil gaya toh success UI dikhayein
-                    errorCard.innerHTML = `
-                        <i class="fa-solid fa-circle-check result-icon" style="color: #2a9d8f;"></i>
-                        <div class="result-title" style="color: #264653;">Order Found!</div>
-                        <p class="result-text" style="text-align: left; margin-top: 15px; font-size: 15px; line-height: 1.6;">
-                            <b>Order No:</b> ${data.orderNo}<br>
-                            <b>Customer:</b> ${data.customerName}<br>
-                            <b>Item:</b> ${data.item}<br>
-                            <b>Status:</b> <span style="background: #f26b21; color: white; padding: 2px 8px; border-radius: 12px; font-size: 13px;">${data.orderStatus}</span>
-                        </p>
+                    let paymentBadgeClass = 'badge-paid';
+                    if (data.paymentStatus && data.paymentStatus.toLowerCase().includes('not')) {
+                        paymentBadgeClass = 'badge-unpaid';
+                    }
+
+                    successCard.innerHTML = `
+                        <div class="success-header-area">
+                            <i class="fa-solid fa-circle-check result-icon"></i>
+                            <div class="result-title">Order Found Successfully!</div>
+                        </div>
+                        <div class="details-grid">
+                            <div class="detail-box">
+                                <div class="detail-label">Order No</div>
+                                <div class="detail-value">${data.orderNo}</div>
+                            </div>
+                            <div class="detail-box">
+                                <div class="detail-label">Order Date</div>
+                                <div class="detail-value">${formatDate(data.date)}</div>
+                            </div>
+                            <div class="detail-box full-width">
+                                <div class="detail-label">Customer Name</div>
+                                <div class="detail-value" style="text-transform: capitalize;">${data.customerName}</div>
+                            </div>
+                            <div class="detail-box">
+                                <div class="detail-label">Item</div>
+                                <div class="detail-value">${data.item}</div>
+                            </div>
+                            <div class="detail-box">
+                                <div class="detail-label">Size & Quantity</div>
+                                <div class="detail-value">${data.size} (Qty: ${data.quantity})</div>
+                            </div>
+                            <div class="detail-box">
+                                <div class="detail-label">Total Amount</div>
+                                <div class="detail-value">Rs. ${data.total}</div>
+                            </div>
+                            <div class="detail-box">
+                                <div class="detail-label">Amount Paid</div>
+                                <div class="detail-value">Rs. ${data.paid}</div>
+                            </div>
+                            <div class="detail-box">
+                                <div class="detail-label">Payment Status</div>
+                                <div class="detail-value"><span class="badge ${paymentBadgeClass}">${data.paymentStatus}</span></div>
+                            </div>
+                            <div class="detail-box">
+                                <div class="detail-label">Order Status</div>
+                                <div class="detail-value"><span class="badge badge-pending">${data.orderStatus}</span></div>
+                            </div>
+                        </div>
                     `;
-                    errorCard.style.display = 'block';
+                    successCard.style.display = 'block';
                 } else {
-                    // Agar order nahi mila
-                    errorCard.innerHTML = `
-                        <i class="fa-solid fa-box-open result-icon"></i>
-                        <div class="result-title">Order not found</div>
-                        <p class="result-text">Order not found for: <span>${orderId}</span></p>
-                    `;
+                    document.getElementById('errorTrackingId').innerText = orderId;
                     errorCard.style.display = 'block';
                 }
             } catch (error) {
-                alert("Tracking system is taking longer than expected. Please try again.");
+                alert("Network error. Please try again.");
                 console.error(error);
             }
-
-            // Reset button state
             trackBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Track';
             trackBtn.disabled = false;
         }
