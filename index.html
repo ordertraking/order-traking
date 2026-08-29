@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f5f7; /* Light grey background */
+            background-color: #f4f5f7;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -18,22 +18,20 @@
             margin: 0;
         }
         
-        /* Main Card Style */
         .card {
             background: #ffffff;
             width: 100%;
             max-width: 650px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Soft shadow */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             padding: 24px 30px;
             margin-bottom: 24px;
             box-sizing: border-box;
             border: 1px solid #eaeaea;
         }
 
-        /* Orange Top Border */
         .card-header {
-            border-top: 6px solid #f26b21; /* Orange color */
+            border-top: 6px solid #f26b21;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             padding-top: 24px;
@@ -51,10 +49,9 @@
             font-size: 14px;
         }
 
-        /* Input and Button Area */
         .input-group {
             display: flex;
-            align-items: stretch; /* Make input and button same height */
+            align-items: stretch;
             border: 1px solid #dcdcdc;
             border-radius: 6px;
             overflow: hidden;
@@ -88,7 +85,7 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px; /* Space between icon and text */
+            gap: 8px;
             font-weight: 500;
             transition: background-color 0.2s;
         }
@@ -96,16 +93,21 @@
         button:hover {
             background-color: #d95a1a;
         }
+        
+        button:disabled {
+            background-color: #fca074;
+            cursor: not-allowed;
+        }
 
-        /* Error / Result Card Style */
         .result-card {
             text-align: center;
             padding: 40px 20px;
+            display: none; /* Shuru mein yeh card hide rahega */
         }
 
         .result-icon {
             font-size: 40px;
-            color: #e63946; /* Pinkish-red */
+            color: #e63946;
             margin-bottom: 16px;
         }
 
@@ -132,31 +134,81 @@
         
         <div class="input-group">
             <div class="input-prefix">#</div>
-            <!-- Default value set just like your image -->
-            <input type="text" id="trackingInput" value="TRK-6280Dear" placeholder="e.g. TRK-123456">
+            <input type="text" id="trackingInput" placeholder="e.g. 1001" onkeypress="handleKeyPress(event)">
             <button onclick="trackOrder()">
                 <i class="fa-solid fa-magnifying-glass"></i> Track
             </button>
         </div>
     </div>
 
-    <!-- Error Result Card (Visible below) -->
+    <!-- Error / Result Card -->
     <div class="card result-card" id="errorCard">
-        <i class="fa-solid fa-box-open result-icon"></i>
-        <div class="result-title">Order not found</div>
-        <p class="result-text">Order not found for: <span id="displayTrackingId">TRK-6280Dear</span></p>
+        <!-- JS ke zariye yahan data update hoga -->
     </div>
 
     <script>
-        function trackOrder() {
-            // Get the value typed by the user
-            let inputValue = document.getElementById('trackingInput').value;
+        // Aapka Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1F2l6Q8dgbOClV2XbB3ubtwS8729RSSo7oD0Jf4hBOC9A0hFcmFylLSya4ZkZIpK0/exec";
+
+        // Agar user "Enter" dabaye toh bhi track ho jaye
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                trackOrder();
+            }
+        }
+
+        async function trackOrder() {
+            const trackingInput = document.getElementById('trackingInput');
+            const errorCard = document.getElementById('errorCard');
+            const trackBtn = document.querySelector('button');
             
-            // Update the text in the error card
-            document.getElementById('displayTrackingId').innerText = inputValue;
+            const orderId = trackingInput.value.trim();
             
-            // Note: Currently, clicking the button just updates the text. 
-            // Real logic to check the database will go here later.
+            if(!orderId) {
+                alert("Please enter an Order ID");
+                return;
+            }
+
+            // UI updating state (Loading)
+            trackBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Tracking...';
+            trackBtn.disabled = true;
+            errorCard.style.display = 'none'; // Pehle wale result ko hide karein
+            
+            try {
+                // Google Sheet se data fetch karna
+                const response = await fetch(`${GOOGLE_SCRIPT_URL}?order_id=${orderId}`);
+                const data = await response.json();
+                
+                if (data.found) {
+                    // Agar order mil gaya toh success UI dikhayein
+                    errorCard.innerHTML = `
+                        <i class="fa-solid fa-circle-check result-icon" style="color: #2a9d8f;"></i>
+                        <div class="result-title" style="color: #264653;">Order Found!</div>
+                        <p class="result-text" style="text-align: left; margin-top: 15px; font-size: 15px; line-height: 1.6;">
+                            <b>Order No:</b> ${data.orderNo}<br>
+                            <b>Customer:</b> ${data.customerName}<br>
+                            <b>Item:</b> ${data.item}<br>
+                            <b>Status:</b> <span style="background: #f26b21; color: white; padding: 2px 8px; border-radius: 12px; font-size: 13px;">${data.orderStatus}</span>
+                        </p>
+                    `;
+                    errorCard.style.display = 'block';
+                } else {
+                    // Agar order nahi mila
+                    errorCard.innerHTML = `
+                        <i class="fa-solid fa-box-open result-icon"></i>
+                        <div class="result-title">Order not found</div>
+                        <p class="result-text">Order not found for: <span>${orderId}</span></p>
+                    `;
+                    errorCard.style.display = 'block';
+                }
+            } catch (error) {
+                alert("Tracking system is taking longer than expected. Please try again.");
+                console.error(error);
+            }
+
+            // Reset button state
+            trackBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Track';
+            trackBtn.disabled = false;
         }
     </script>
 </body>
