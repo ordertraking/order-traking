@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Muhammad Ibrahim | Graphic & Web Designer</title>
 
 <style>
@@ -292,19 +291,9 @@ h1 span{
     height:500px;
     overflow:hidden;
     border-radius:50% 50% 46% 46%;
-
     border:2px solid var(--gold);
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(0,105,255,.22),
-        rgba(0,0,0,0) 68%
-    );
-
-    box-shadow:
-    0 0 60px rgba(0,95,255,.28),
-    inset 0 0 35px rgba(244,195,62,.10);
+    background: radial-gradient(circle, rgba(0,105,255,.22), rgba(0,0,0,0) 68%);
+    box-shadow: 0 0 60px rgba(0,95,255,.28), inset 0 0 35px rgba(244,195,62,.10);
 }
 
 .profile-ring:before{
@@ -323,10 +312,8 @@ h1 span{
     bottom:0;
     left:50%;
     transform:translateX(-50%);
-
     width:100%;
     height:100%;
-
     object-fit:cover;
     object-position:center top;
 }
@@ -336,14 +323,11 @@ h1 span{
     z-index:5;
     bottom:38px;
     right:15px;
-
     padding:16px 23px;
     min-width:220px;
-
     background:rgba(5,12,27,.96);
     border:1px solid #30405b;
     border-radius:15px;
-
     box-shadow:0 15px 40px rgba(0,0,0,.5);
 }
 
@@ -401,20 +385,12 @@ section{
 .about-box{
     margin-top:40px;
     padding:38px;
-
     display:grid;
     grid-template-columns:1fr 1.4fr;
     gap:40px;
-
     border:1px solid var(--line);
     border-radius:20px;
-
-    background:
-    linear-gradient(
-        110deg,
-        rgba(10,21,43,.82),
-        rgba(5,12,27,.55)
-    );
+    background: linear-gradient(110deg, rgba(10,21,43,.82), rgba(5,12,27,.55));
 }
 
 .about-box h3{
@@ -499,19 +475,11 @@ section{
 
 .project-img{
     height:210px;
-
     display:grid;
     place-items:center;
-
     font-size:38px;
     font-weight:900;
-
-    background:
-    linear-gradient(
-        135deg,
-        #0b4c9c,
-        #171143
-    );
+    background: linear-gradient(135deg, #0b4c9c, #171143);
 }
 
 .project-content{
@@ -537,18 +505,13 @@ section{
 
 .timeline-item:before{
     content:"";
-
     position:absolute;
-
     width:11px;
     height:11px;
-
     left:-34px;
     top:7px;
-
     background:var(--blue);
     border-radius:50%;
-
     box-shadow:0 0 15px var(--blue);
 }
 
@@ -609,13 +572,10 @@ form{
 .field{
     width:100%;
     padding:15px;
-
     color:#fff;
     background:#081126;
-
     border:1px solid var(--line);
     border-radius:10px;
-
     font:inherit;
     outline:none;
 }
@@ -647,879 +607,308 @@ footer{
 /* ================= MOBILE ================= */
 
 @media(max-width:950px){
-
-    .nav-links,
-    .phone{
-        display:none;
-    }
-
-    .menu{
-        display:block;
-    }
-
+    .nav-links, .phone{ display:none; }
+    .menu{ display:block; }
     .nav-links.open{
         position:absolute;
-        top:96px;
-        left:0;
-        right:0;
-
-        display:flex;
-        flex-direction:column;
-        gap:0;
-
+        top:96px; left:0; right:0;
+        display:flex; flex-direction:column; gap:0;
         padding:10px 5%;
-
         background:#050a18;
         border-bottom:1px solid var(--line);
     }
-
-    .nav-links.open a{
-        padding:14px;
-    }
-
-    .nav-links.open a.active:after{
-        display:none;
-    }
-
-    .hero-grid{
-        grid-template-columns:1fr;
-    }
-
-    .profile-wrap{
-        order:-1;
-        min-height:480px;
-    }
-
-    .about-box{
-        grid-template-columns:1fr;
-    }
-
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
-    .cards{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
+    .nav-links.open a{ padding:14px; }
+    .nav-links.open a.active:after{ display:none; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .profile-wrap{ order:-1; min-height:480px; }
+    .about-box{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .cards{ grid-template-columns:1fr 1fr; }
+    .stats{ grid-template-columns:repeat(2,1fr); }
 }
 
 @media(max-width:560px){
-
-    .brand-logo{
-        font-size:48px;
-    }
-
-    .brand-name strong{
-        font-size:17px;
-    }
-
-    .brand-name small{
-        font-size:8px;
-    }
-
-    h1{
-        font-size:52px;
-    }
-
-    .title{
-        font-size:17px;
-    }
-
-    .hero-text{
-        font-size:15px;
-    }
-
-    section{
-        padding:75px 0;
-    }
-
-    .section-title{
-        font-size:34px;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .profile-ring{
-        width:290px;
-        height:360px;
-    }
-
-    .freelance{
-        right:0;
-        bottom:22px;
-        min-width:190px;
-        padding:13px 17px;
-        font-size:13px;
-    }
-
-    .actions .btn{
-        width:100%;
-        text-align:center;
-    }
+    .brand-logo{ font-size:48px; }
+    .brand-name strong{ font-size:17px; }
+    .brand-name small{ font-size:8px; }
+    h1{ font-size:52px; }
+    .title{ font-size:17px; }
+    .hero-text{ font-size:15px; }
+    section{ padding:75px 0; }
+    .section-title{ font-size:34px; }
+    .cards{ grid-template-columns:1fr; }
+    .profile-ring{ width:290px; height:360px; }
+    .freelance{ right:0; bottom:22px; min-width:190px; padding:13px 17px; font-size:13px; }
+    .actions .btn{ width:100%; text-align:center; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
 <nav class="nav">
-
 <div class="container nav-inner">
-
 <a href="#home" class="brand">
-
-<div class="brand-logo">
-MI
-</div>
-
+<div class="brand-logo">MI</div>
 <div class="brand-name">
-
-<strong>
-Muhammad <span>Ibrahim</span>
-</strong>
-
-<small>
-GRAPHIC & WEB DESIGNER
-</small>
-
+<strong>Muhammad <span>Ibrahim</span></strong>
+<small>GRAPHIC & WEB DESIGNER</small>
 </div>
-
 </a>
-
 
 <div class="nav-links">
-
 <a class="active" href="#home">Home</a>
-
 <a href="#about">About</a>
-
 <a href="#services">Services</a>
-
 <a href="#projects">Projects</a>
-
 <a href="#experience">Experience</a>
-
 <a href="#contact">Contact</a>
-
 </div>
 
-
-<a class="phone" href="tel:+923209306672">
-☎ 0320-9306672
-</a>
-
-
-<button
-class="menu"
-onclick="document.querySelector('.nav-links').classList.toggle('open')"
->
-☰
-</button>
-
+<a class="phone" href="tel:+923209306672">☎ 0320-9306672</a>
+<button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </div>
-
 </nav>
 
-
+<!-- ================= HOME ================= -->
 <section class="hero" id="home">
-
 <div class="container hero-grid">
-
 <div>
-
-<div class="hello">
-HELLO, I'M
-</div>
-
-
-<h1>
-Muhammad
-<br>
-<span>Ibrahim</span>
-</h1>
-
-
-<div class="title">
-
-I
-
-<span>
-DESIGN SOLUTIONS
-</span>
-
-THAT INSPIRE
-
-</div>
-
-
+<div class="hello">HELLO, I'M</div>
+<h1>Muhammad<br><span>Ibrahim</span></h1>
+<div class="title">I <span>DESIGN SOLUTIONS</span> THAT INSPIRE</div>
 <p class="hero-text">
-
 I am a passionate Graphic Designer & Web Designer.
 I create modern, unique and professional designs
 that help brands grow and stand out from the competition.
-
 </p>
-
-
 <div class="actions">
-
-<a class="btn gold" href="#projects">
-ENTER PORTFOLIO →
-</a>
-
-<a class="btn blue" href="#contact">
-CONTACT ME
-</a>
-
+<a class="btn gold" href="#projects">ENTER PORTFOLIO →</a>
+<a class="btn blue" href="#contact">CONTACT ME</a>
 </div>
-
-
 <div class="social">
-
-<a href="#">
-f
-</a>
-
-<a href="#">
-◎
-</a>
-
-<a href="https://wa.me/923209306672">
-◉
-</a>
-
-<a href="#">
-in
-</a>
-
+<a href="#">f</a>
+<a href="#">◎</a>
+<a href="https://wa.me/923209306672">◉</a>
+<a href="#">in</a>
+</div>
 </div>
 
-</div>
-
-
+<!-- ================= PHOTO ================= -->
 <div class="profile-wrap">
-
 <div class="profile-ring">
-
-<img
-class="profile"
-src="https://files.catbox.moe/97a22i.png"
-alt="Muhammad Ibrahim"
->
-
+<img class="profile" src="https://i.ibb.co/3yk06Wc0/ChatGPT-Image-Sep-1-2026-10-57-04-AM.png" alt="Muhammad Ibrahim">
 </div>
-
-
 <div class="freelance">
-
-<b>
-Available For
-</b>
-
-<span>
-Freelance Work
-</span>
-
+<b>Available For</b>
+<span>Freelance Work</span>
 <i class="dot"></i>
-
 </div>
-
 </div>
-
 </div>
-
 </section>
 
-
+<!-- ================= ABOUT ================= -->
 <section id="about">
-
 <div class="container">
-
-<div class="section-label">
-ABOUT ME
-</div>
-
-<h2 class="section-title">
-Passionate
-<span>
-Designer
-</span>
-& Problem Solver
-</h2>
-
-<p class="section-desc">
-I turn ideas into clean, modern and useful visual experiences.
-</p>
-
+<div class="section-label">ABOUT ME</div>
+<h2 class="section-title">Passionate <span>Designer</span> & Problem Solver</h2>
+<p class="section-desc">I turn ideas into clean, modern and useful visual experiences.</p>
 
 <div class="about-box">
-
 <div>
-
-<h3>
-Creative Designer
-</h3>
-
+<h3>Creative Designer</h3>
 <p>
-
 I’m Muhammad Ibrahim, a Graphic Designer and Web Designer
 with a strong passion for creating clean, modern and
 user-friendly designs. I love turning ideas into professional
 visual experiences.
-
 </p>
-
-<a class="btn blue" href="#contact">
-LET'S WORK TOGETHER →
-</a>
-
+<a class="btn blue" href="#contact">LET'S WORK TOGETHER →</a>
 </div>
-
 
 <div class="stats">
-
-<div class="stat">
-<strong>2+</strong>
-<small>Years Experience</small>
+<div class="stat"><strong>2+</strong><small>Years Experience</small></div>
+<div class="stat"><strong>50+</strong><small>Projects Completed</small></div>
+<div class="stat"><strong>100%</strong><small>Client Satisfaction</small></div>
+<div class="stat"><strong>30+</strong><small>Happy Clients</small></div>
 </div>
-
-<div class="stat">
-<strong>50+</strong>
-<small>Projects Completed</small>
 </div>
-
-<div class="stat">
-<strong>100%</strong>
-<small>Client Satisfaction</small>
 </div>
-
-<div class="stat">
-<strong>30+</strong>
-<small>Happy Clients</small>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-
+<!-- ================= SERVICES ================= -->
 <section id="services">
-
 <div class="container">
-
-<div class="section-label">
-WHAT I DO
-</div>
-
-<h2 class="section-title">
-My Services
-</h2>
-
-<p class="section-desc">
-Professional creative solutions for businesses,
-brands and individuals.
-</p>
-
+<div class="section-label">WHAT I DO</div>
+<h2 class="section-title">My Services</h2>
+<p class="section-desc">Professional creative solutions for businesses, brands and individuals.</p>
 
 <div class="cards">
-
-
 <div class="card">
-
 <div class="icon">✦</div>
-
-<h3>
-Graphic Design
-</h3>
-
-<p>
-Posters, flyers, advertisements, social media
-posts and creative visual designs.
-</p>
-
+<h3>Graphic Design</h3>
+<p>Posters, flyers, advertisements, social media posts and creative visual designs.</p>
 </div>
-
-
 <div class="card">
-
 <div class="icon">◈</div>
-
-<h3>
-Web Design
-</h3>
-
-<p>
-Modern responsive websites, landing pages
-and portfolio websites.
-</p>
-
+<h3>Web Design</h3>
+<p>Modern responsive websites, landing pages and portfolio websites.</p>
 </div>
-
-
 <div class="card">
-
 <div class="icon">◎</div>
-
-###
-Branding
-</h3>
-
-<p>
-Logo design, business cards, brand graphics
-and complete visual identity.
-</p>
-
+<h3>Branding</h3>
+<p>Logo design, business cards, brand graphics and complete visual identity.</p>
 </div>
-
-
 <div class="card">
-
 <div class="icon">▣</div>
-
-<h3>
-Print Design
-</h3>
-
-<p>
-Banners, brochures, packaging, T-shirts,
-mugs and print-ready designs.
-</p>
-
+<h3>Print Design</h3>
+<p>Banners, brochures, packaging, T-shirts, mugs and print-ready designs.</p>
 </div>
-
-
 <div class="card">
-
 <div class="icon">◆</div>
-
-<h3>
-Social Media
-</h3>
-
-<p>
-Professional designs for Facebook, Instagram,
-TikTok and WhatsApp.
-</p>
-
+<h3>Social Media</h3>
+<p>Professional designs for Facebook, Instagram, TikTok and WhatsApp.</p>
 </div>
-
-
 <div class="card">
-
 <div class="icon">↗</div>
-
-<h3>
-Creative Solutions
-</h3>
-
-<p>
-Custom creative concepts based on your
-business and project requirements.
-</p>
-
+<h3>Creative Solutions</h3>
+<p>Custom creative concepts based on your business and project requirements.</p>
 </div>
-
-
 </div>
-
 </div>
-
 </section>
 
-
+<!-- ================= PROJECTS ================= -->
 <section id="projects">
-
 <div class="container">
-
-<div class="section-label">
-MY WORK
-</div>
-
-<h2 class="section-title">
-Featured Projects
-</h2>
-
-<p class="section-desc">
-Some examples of my design and creative work.
-</p>
-
+<div class="section-label">MY WORK</div>
+<h2 class="section-title">Featured Projects</h2>
+<p class="section-desc">Some examples of my design and creative work.</p>
 
 <div class="cards projects">
-
-
 <div class="card">
-
-<div class="project-img">
-BRAND
-</div>
-
+<div class="project-img">BRAND</div>
 <div class="project-content">
-
-<h3>
-Brand Identity
-</h3>
-
-<p>
-Modern logo and complete visual identity concept.
-</p>
-
-<small>
-Branding • Logo Design
-</small>
-
+<h3>Brand Identity</h3>
+<p>Modern logo and complete visual identity concept.</p>
+<small>Branding • Logo Design</small>
 </div>
-
 </div>
-
-
 <div class="card">
-
-<div class="project-img">
-WEB
-</div>
-
+<div class="project-img">WEB</div>
 <div class="project-content">
-
-<h3>
-Portfolio Website
-</h3>
-
-<p>
-Modern responsive portfolio website design.
-</p>
-
-<small>
-UI • Web Design
-</small>
-
+<h3>Portfolio Website</h3>
+<p>Modern responsive portfolio website design.</p>
+<small>UI • Web Design</small>
 </div>
-
 </div>
-
-
 <div class="card">
-
-<div class="project-img">
-PRINT
-</div>
-
+<div class="project-img">PRINT</div>
 <div class="project-content">
-
-<h3>
-Print Campaign
-</h3>
-
-<p>
-Professional promotional artwork for printing.
-</p>
-
-<small>
-Poster • Banner
-</small>
-
+<h3>Print Campaign</h3>
+<p>Professional promotional artwork for printing.</p>
+<small>Poster • Banner</small>
 </div>
-
 </div>
-
-
 </div>
-
 </div>
-
 </section>
 
-
+<!-- ================= EXPERIENCE ================= -->
 <section id="experience">
-
 <div class="container">
-
-<div class="section-label">
-MY JOURNEY
-</div>
-
-<h2 class="section-title">
-Experience
-</h2>
-
-
+<div class="section-label">MY JOURNEY</div>
+<h2 class="section-title">Experience</h2>
 <div class="card timeline">
-
-
 <div class="timeline-item">
-
-<span>
-GRAPHIC DESIGN
-</span>
-
-<h3>
-Creative Graphic Designer
-</h3>
-
-<p>
-Creating professional graphics for branding,
-advertising and print requirements.
-</p>
-
+<span>GRAPHIC DESIGN</span>
+<h3>Creative Graphic Designer</h3>
+<p>Creating professional graphics for branding, advertising and print requirements.</p>
 </div>
-
-
 <div class="timeline-item">
-
-<span>
-WEB DESIGN
-</span>
-
-<h3>
-Web & Portfolio Designer
-</h3>
-
-<p>
-Designing responsive websites and professional
-portfolio interfaces.
-</p>
-
+<span>WEB DESIGN</span>
+<h3>Web & Portfolio Designer</h3>
+<p>Designing responsive websites and professional portfolio interfaces.</p>
 </div>
-
-
 <div class="timeline-item">
-
-<span>
-FREELANCE
-</span>
-
-<h3>
-Freelance Creative Work
-</h3>
-
-<p>
-Turning client ideas into polished and professional
-visual designs.
-</p>
-
+<span>FREELANCE</span>
+<h3>Freelance Creative Work</h3>
+<p>Turning client ideas into polished and professional visual designs.</p>
 </div>
-
-
 </div>
-
 </div>
-
 </section>
 
-
+<!-- ================= CONTACT ================= -->
 <section id="contact">
-
 <div class="container">
-
-<div class="section-label">
-LET'S TALK
-</div>
-
-<h2 class="section-title">
-Contact Me
-</h2>
-
-<p class="section-desc">
-Have a project in mind? Contact me today.
-</p>
-
+<div class="section-label">LET'S TALK</div>
+<h2 class="section-title">Contact Me</h2>
+<p class="section-desc">Have a project in mind? Contact me today.</p>
 
 <div class="contact-grid">
-
-
 <div class="contact-card">
-
-
 <div class="contact-row">
-
 <div>☎️</div>
-
 <div>
-
-<strong>
-Phone / WhatsApp
-</strong>
-
-<span>
-<a href="tel:+923209306672">
-0320-9306672
-</a>
-</span>
-
+<strong>Phone / WhatsApp</strong>
+<span><a href="tel:+923209306672">0320-9306672</a></span>
 </div>
-
 </div>
-
-
 <div class="contact-row">
-
 <div>✉️</div>
-
 <div>
-
-<strong>
-Email
-</strong>
-
-<span>
-<a href="mailto:m.ibrahimsajid830@gmail.com">
-m.ibrahimsajid830@gmail.com
-</a>
-</span>
-
+<strong>Email</strong>
+<span><a href="mailto:m.ibrahimsajid830@gmail.com">m.ibrahimsajid830@gmail.com</a></span>
 </div>
-
 </div>
-
-
 <div class="contact-row">
-
 <div>📍</div>
-
 <div>
-
-<strong>
-Location
-</strong>
-
-<span>
-Pakistan
-</span>
-
+<strong>Location</strong>
+<span>Pakistan</span>
 </div>
-
 </div>
-
-
 </div>
-
 
 <div class="contact-card">
-
 <form onsubmit="sendWhatsApp(event)">
-
-<input
-class="field"
-id="name"
-type="text"
-placeholder="Your Name"
-required
->
-
-
-<input
-class="field"
-id="number"
-type="text"
-placeholder="Your Phone / WhatsApp"
-required
->
-
-
-<textarea
-class="field"
-id="msg"
-placeholder="Tell me about your project..."
-required
-></textarea>
-
-
-<button
-class="btn blue"
-type="submit"
->
-SEND ON WHATSAPP →
-</button>
-
+<input class="field" id="name" type="text" placeholder="Your Name" required>
+<input class="field" id="number" type="text" placeholder="Your Phone / WhatsApp" required>
+<textarea class="field" id="msg" placeholder="Tell me about your project..." required></textarea>
+<button class="btn blue" type="submit">SEND ON WHATSAPP →</button>
 </form>
-
 </div>
-
-
 </div>
-
 </div>
-
 </section>
 
-
+<!-- ================= FOOTER ================= -->
 <footer>
-
 <div class="container footer">
-
-<div>
-© 2026 Muhammad Ibrahim. All Rights Reserved.
+<div>© 2026 Muhammad Ibrahim. All Rights Reserved.</div>
+<div>Graphic & Web Designer</div>
 </div>
-
-<div>
-Graphic & Web Designer
-</div>
-
-</div>
-
 </footer>
 
-
+<!-- ================= JAVASCRIPT ================= -->
 <script>
-
 function sendWhatsApp(event){
-
-event.preventDefault();
-
-const name =
-document.getElementById("name").value;
-
-const number =
-document.getElementById("number").value;
-
-const message =
-document.getElementById("msg").value;
-
-
-const text =
-`Assalam o Alaikum Muhammad Ibrahim,
-
-Name: ${name}
-
-Phone: ${number}
-
-Project:
-${message}`;
-
-
-window.open(
-"https://wa.me/923209306672?text="
-+
-encodeURIComponent(text),
-"_blank"
-);
-
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const number = document.getElementById("number").value;
+    const message = document.getElementById("msg").value;
+    const text = `Assalam o Alaikum Muhammad Ibrahim,\n\nName: ${name}\n\nPhone: ${number}\n\nProject:\n${message}`;
+    window.open("https://wa.me/923209306672?text=" + encodeURIComponent(text), "_blank");
 }
 
-
-document.querySelectorAll(".nav-links a")
-.forEach(function(link){
-
-link.addEventListener("click",function(){
-
-document
-.querySelector(".nav-links")
-.classList
-.remove("open");
-
+document.querySelectorAll(".nav-links a").forEach(function(link){
+    link.addEventListener("click", function(){
+        document.querySelector(".nav-links").classList.remove("open");
+    });
 });
-
-});
-
 </script>
 
 </body>
