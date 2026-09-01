@@ -3,245 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track Your Order</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            background-color: #f4f5f7; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding-top: 60px; 
-            margin: 0; 
-            padding-bottom: 60px; 
-        }
-        .card { 
-            background: #ffffff; 
-            width: 100%; 
-            max-width: 650px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
-            padding: 24px 30px; 
-            margin-bottom: 24px; 
-            box-sizing: border-box; 
-            border: 1px solid #eaeaea; 
-        }
-        .card-header { 
-            border-top: 6px solid #f26b21; 
-            border-top-left-radius: 8px; 
-            border-top-right-radius: 8px; 
-            padding-top: 24px; 
-        }
-        h2 { margin: 0 0 8px 0; font-size: 22px; color: #111; }
-        p.subtitle { margin: 0 0 24px 0; color: #666; font-size: 14px; }
-        .input-group { 
-            display: flex; 
-            align-items: stretch; 
-            border: 1px solid #dcdcdc; 
-            border-radius: 6px; 
-            overflow: hidden; 
-            height: 48px; 
-        }
-        .input-prefix { 
-            display: flex; 
-            align-items: center; 
-            padding: 0 12px 0 16px; 
-            color: #999; 
-            background: white; 
-            font-size: 16px; 
-        }
-        input[type="text"] { 
-            flex: 1; 
-            border: none; 
-            padding: 0 10px; 
-            font-size: 15px; 
-            outline: none; 
-            color: #333; 
-        }
-        button { 
-            background-color: #f26b21; 
-            color: white; 
-            border: none; 
-            padding: 0 24px; 
-            font-size: 15px; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            font-weight: 500; 
-            transition: 0.2s; 
-        }
-        button:hover { background-color: #d95a1a; }
-        button:disabled { background-color: #fca074; cursor: not-allowed; }
-        
-        .result-card { display: none; }
-        .success-panel { padding: 0; overflow: hidden; }
-        .success-header-area { 
-            text-align: center; 
-            background-color: #f9fcfa; 
-            padding: 30px 20px; 
-            border-bottom: 1px solid #eef2f5; 
-        }
-        .result-icon { font-size: 48px; color: #2a9d8f; margin-bottom: 12px; }
-        .result-title { color: #264653; font-weight: bold; font-size: 20px; }
-        
-        .details-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
-            padding: 24px 30px; 
-            background: white; 
-        }
-        .detail-box { 
-            background: #f8f9fa; 
-            padding: 15px; 
-            border-radius: 8px; 
-            border: 1px solid #edf2f7; 
-        }
-        .detail-box.full-width { grid-column: span 2; }
-        .detail-label { 
-            font-size: 11px; 
-            color: #888; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px; 
-            margin-bottom: 6px; 
-            font-weight: 600; 
-        }
-        .detail-value { font-size: 15px; color: #222; font-weight: 500; }
-        
-        .badge { 
-            display: inline-block; 
-            padding: 4px 12px; 
-            border-radius: 20px; 
-            font-size: 12px; 
-            font-weight: bold; 
-            color: white; 
-        }
-        .badge-pending { background-color: #f26b21; }
-        .badge-paid { background-color: #2a9d8f; }
-        .badge-unpaid { background-color: #e63946; }
-    </style>
+    <title>My Portfolio</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 font-sans">
 
-    <div class="card card-header">
-        <h2>Track your order</h2>
-        <p class="subtitle">Enter Order ID or Tracking Number.</p>
-        <div class="input-group">
-            <div class="input-prefix">#</div>
-            <input type="text" id="trackingInput" placeholder="e.g. ORD-504" onkeypress="handleKeyPress(event)">
-            <button onclick="trackOrder()">
-                <i class="fa-solid fa-magnifying-glass"></i> Track
-            </button>
+    <!-- Header / Hero Section -->
+    <header class="min-h-[70vh] flex flex-col justify-center items-center text-center px-4 py-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-emerald-400">Hello, I'm <span class="text-white">Your Name</span></h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-xl mb-8">Web Developer & Designer. Building modern web experiences and custom applications.</p>
+        <div class="space-x-4">
+            <a href="#projects" class="bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-semibold px-6 py-3 rounded-lg transition">View Projects</a>
+            <a href="#contact" class="border border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-slate-900 font-semibold px-6 py-3 rounded-lg transition">Contact Me</a>
         </div>
-    </div>
+    </header>
 
-    <!-- Error Card -->
-    <div class="card result-card" id="errorCard" style="text-align: center; padding: 40px 20px;">
-        <i class="fa-solid fa-box-open" style="font-size: 40px; color: #e63946; margin-bottom: 16px;"></i>
-        <div style="color: #c1121f; font-weight: 600; font-size: 18px; margin-bottom: 8px;">Order not found</div>
-        <p style="color: #666; font-size: 14px; margin: 0;">Order not found for: <span id="errorTrackingId"></span></p>
-    </div>
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-4 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center text-emerald-400">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project Card 1 -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                <h3 class="text-xl font-semibold mb-2">Project One</h3>
+                <p class="text-slate-400 mb-4">A brief description of your project built with HTML, CSS, and JavaScript.</p>
+                <a href="#" class="text-emerald-400 hover:underline font-medium">View Project &rarr;</a>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+                <p class="text-slate-400 mb-4">A brief description of another web application or tool you created.</p>
+                <a href="#" class="text-emerald-400 hover:underline font-medium">View Project &rarr;</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Success Professional Panel -->
-    <div class="card result-card success-panel" id="successCard"></div>
+    <!-- Contact Section (Google Sheets Connected) -->
+    <section id="contact" class="py-16 px-4 max-w-xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6 text-center text-emerald-400">Get In Touch</h2>
+        <form id="contactForm" class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
+            <div>
+                <label class="block text-sm mb-1 text-slate-300">Name</label>
+                <input type="text" name="name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+                <label class="block text-sm mb-1 text-slate-300">Email</label>
+                <input type="email" name="email" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+                <label class="block text-sm mb-1 text-slate-300">Message</label>
+                <textarea name="message" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-emerald-500"></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-semibold py-3 rounded-lg transition">Send Message</button>
+            <p id="statusMsg" class="text-center text-sm mt-2"></p>
+        </form>
+    </section>
 
+    <!-- Footer -->
+    <footer class="text-center py-6 text-slate-500 text-sm border-t border-slate-800">
+        &copy; 2026 Your Name. All rights reserved.
+    </footer>
+
+    <!-- JavaScript to send form data to Google Sheets -->
     <script>
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9ttfrxqV_n78NmPWDtOb-t7-7K9Jr8Yo6upEoDIcqRL18lgIhM1HsFLaaTddWERkK/exec";
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'; // Yahan apna script URL dalna hai
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMsg');
 
-        function handleKeyPress(event) {
-            if (event.key === "Enter") trackOrder();
-        }
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
-        function formatDate(dateString) {
-            if (!dateString) return 'N/A';
-            const date = new Date(dateString);
-            if (isNaN(date.getTime())) return dateString;
-            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-        }
-
-        async function trackOrder() {
-            const trackingInput = document.getElementById('trackingInput');
-            const errorCard = document.getElementById('errorCard');
-            const successCard = document.getElementById('successCard');
-            const trackBtn = document.querySelector('button');
-            const orderId = trackingInput.value.trim();
-            
-            if(!orderId) { alert("Please enter an Order ID"); return; }
-
-            trackBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Tracking...';
-            trackBtn.disabled = true;
-            errorCard.style.display = 'none'; 
-            successCard.style.display = 'none';
-            
-            try {
-                const response = await fetch(`${GOOGLE_SCRIPT_URL}?order_id=${orderId}`);
-                const data = await response.json();
-                
-                if (data.found) {
-                    let paymentBadgeClass = 'badge-paid';
-                    if (data.paymentStatus && data.paymentStatus.toLowerCase().includes('not')) {
-                        paymentBadgeClass = 'badge-unpaid';
-                    }
-
-                    successCard.innerHTML = `
-                        <div class="success-header-area">
-                            <i class="fa-solid fa-circle-check result-icon"></i>
-                            <div class="result-title">Order Found Successfully!</div>
-                        </div>
-                        <div class="details-grid">
-                            <div class="detail-box">
-                                <div class="detail-label">Order No</div>
-                                <div class="detail-value">${data.orderNo}</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Order Date</div>
-                                <div class="detail-value">${formatDate(data.date)}</div>
-                            </div>
-                            <div class="detail-box full-width">
-                                <div class="detail-label">Customer Name</div>
-                                <div class="detail-value" style="text-transform: capitalize;">${data.customerName}</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Item</div>
-                                <div class="detail-value">${data.item}</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Size & Quantity</div>
-                                <div class="detail-value">${data.size} (Qty: ${data.quantity})</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Total Amount</div>
-                                <div class="detail-value">Rs. ${data.total}</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Amount Paid</div>
-                                <div class="detail-value">Rs. ${data.paid}</div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Payment Status</div>
-                                <div class="detail-value"><span class="badge ${paymentBadgeClass}">${data.paymentStatus}</span></div>
-                            </div>
-                            <div class="detail-box">
-                                <div class="detail-label">Order Status</div>
-                                <div class="detail-value"><span class="badge badge-pending">${data.orderStatus}</span></div>
-                            </div>
-                        </div>
-                    `;
-                    successCard.style.display = 'block';
-                } else {
-                    document.getElementById('errorTrackingId').innerText = orderId;
-                    errorCard.style.display = 'block';
-                }
-            } catch (error) {
-                alert("Network error. Please try again.");
-                console.error(error);
-            }
-            trackBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Track';
-            trackBtn.disabled = false;
-        }
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    statusMsg.textContent = 'Thank you! Your message has been sent successfully.';
+                    statusMsg.className = 'text-center text-sm mt-2 text-emerald-400';
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                })
+                .catch(error => {
+                    statusMsg.textContent = 'Error! Please try again.';
+                    statusMsg.className = 'text-center text-sm mt-2 text-red-400';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
+        });
     </script>
 </body>
 </html>
