@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MUHAMMAD IBRAHIM | Graphic & Web Designer</title>
-<!-- Google Fonts: Poppins for professional modern look -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Google Fonts: Inter & Poppins for professional modern look -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <!-- Font Awesome Icons for Theme Toggle & Phone -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+/* ================= GLOBAL VARIABLES & RESET ================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-    scroll-padding-top: 100px; /* Fixes section header overlapping behind fixed navbar */
 }
 
 :root {
@@ -53,8 +53,12 @@ html{
     --field-bg: #ffffff;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:'Poppins', sans-serif;
+    font-family:'Inter', sans-serif;
     background: var(--bg-color);
     color: var(--text-color);
     overflow-x:hidden;
@@ -182,6 +186,11 @@ a{
     padding:13px 20px;
     border-radius:10px;
     font-weight:600;
+    transition: 0.3s;
+}
+.phone:hover {
+    background: var(--gold);
+    color: var(--bg-color);
 }
 
 .menu{
@@ -190,9 +199,10 @@ a{
     background:none;
     color:var(--text-color);
     font-size:28px;
+    cursor: pointer;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO SECTION (Original & Integrated) ================= */
 
 .hero{
     min-height:100vh;
@@ -231,6 +241,8 @@ a{
     grid-template-columns:1.1fr 0.9fr;
     align-items:center;
     gap:35px;
+    position: relative;
+    z-index: 2;
 }
 
 .hello{
@@ -252,15 +264,15 @@ a{
 }
 
 h1{
+    font-family:'Poppins', sans-serif;
     font-size:clamp(42px, 5.5vw, 70px);
     line-height:1.1;
     letter-spacing:-1px;
     font-weight: 700;
 }
 
-h1 span{
-    color:var(--gold);
-}
+h1 .first { display: block; color: #f7f9ff; }
+h1 .last { display: block; color: var(--gold); }
 
 .title{
     margin-top:20px;
@@ -268,10 +280,7 @@ h1 span{
     font-weight: 600;
     letter-spacing:1px;
 }
-
-.title span{
-    color:var(--blue);
-}
+.title span{ color:var(--blue); }
 
 .hero-text{
     max-width:580px;
@@ -282,777 +291,124 @@ h1 span{
     font-weight: 400;
 }
 
-.actions{
+.hero-buttons{
     display:flex;
     gap:15px;
     margin-top:28px;
     flex-wrap:wrap;
 }
 
-.btn{
+.btn-hero{
     display:inline-block;
-    padding:14px 28px;
+    padding:15px 26px;
     border-radius:10px;
     border:1px solid var(--line);
     font-weight:600;
     transition:.3s;
-    font-size: 14px;
 }
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-.btn.gold{
-    color:var(--gold);
-    border-color:var(--gold);
-}
-
-.btn.blue{
+.btn-hero:hover{ transform:translateY(-4px); }
+.btn-hero.gold{ color:var(--gold); border-color:var(--gold); }
+.btn-hero.gold:hover { background: var(--gold); color: var(--bg-color); }
+.btn-hero.blue{
     color:#fff;
     border:0;
     background:linear-gradient(100deg,#087dff,#4b36ff);
-    box-shadow:0 10px 30px rgba(0,90,255,.3);
+    box-shadow:0 12px 35px rgba(0,90,255,.25);
 }
 
-.social{
+.social-hero{
     display:flex;
-    gap:12px;
-    margin-top:28px;
+    gap:13px;
+    margin-top:27px;
 }
-
-.social a{
-    width:42px;
-    height:42px;
+.social-hero a{
+    width:43px;
+    height:43px;
     display:grid;
     place-items:center;
     border:1px solid var(--line);
     border-radius:50%;
     color:var(--muted);
-    font-size:15px;
-    transition: 0.3s;
+    font-weight:600;
 }
+.social-hero a:hover{ color:var(--gold); border-color:var(--gold); }
 
-.social a:hover{
-    color:var(--gold);
-    border-color:var(--gold);
-    transform: translateY(-3px);
-}
+/* ================= PROFILE VISUALS (From your code, cleaned) ================= */
 
-/* ================= PROFILE ================= */
-
-.profile-wrap{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:540px;
+.hero-visual{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height:540px;
 }
 
-.profile-ring{
-    position:relative;
+.profile-area{
+    position: relative;
     width:370px;
     height:370px;
-    overflow:hidden;
-    border-radius:50%;
-    border:3px solid var(--gold);
-    background: radial-gradient(circle, rgba(0,105,255,.22), rgba(0,0,0,0) 68%);
-    box-shadow: 0 0 50px rgba(0,95,255,.25), inset 0 0 30px rgba(244,195,62,.10);
-    padding: 12px;
     margin: 0 auto;
 }
 
-.profile-ring:before{
-    content:"";
-    position:absolute;
-    inset:12px;
-    border:1px solid rgba(0,135,255,.8);
-    border-radius:50%;
-    z-index:2;
-    pointer-events:none;
+.profile-area::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    border-radius: 50%;
+    background: radial-gradient( circle, rgba(25,112,255,.22), transparent 65% );
+    filter: blur(15px);
 }
 
-.profile{
-    position:relative;
-    z-index:1;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center top;
-    border-radius:50%;
+.ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.18);
 }
 
-.freelance{
-    position:absolute;
-    z-index:5;
-    bottom:20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 11px 20px;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--freelance-bg);
-    border: 1px solid var(--line);
-    border-radius: 50px;
-    box-shadow: 0 15px 35px rgba(0,0,0,.3);
+.ring.gold {
+    inset: -13px;
+    border: 2px solid var(--gold);
+    border-left-color: transparent;
+    animation: rotate 10s linear infinite;
 }
 
-.freelance span{
-    color: var(--text-color);
-    font-size: 13px;
-    font-weight: 500;
+.ring.blue {
+    inset: 10px;
+    border: 2px solid rgba(35,123,255,.8);
+    border-right-color: transparent;
+    animation: rotateReverse 8s linear infinite;
 }
 
-.freelance b{
-    color: var(--gold);
-    font-weight: 600;
-}
+@keyframes rotate { to { transform: rotate(360deg); } }
+@keyframes rotateReverse { to { transform: rotate(-360deg); } }
 
-.dot{
-    display:inline-block;
-    width:8px;
-    height:8px;
-    background:#1fe38a;
-    border-radius:50%;
-    box-shadow: 0 0 8px #1fe38a;
-}
-
-/* ================= SECTIONS ================= */
-
-section{
-    padding:105px 0;
-}
-
-.section-label{
-    color:var(--gold);
-    font-size:13px;
-    letter-spacing:3px;
-    font-weight:700;
-}
-
-.section-title{
-    margin-top:8px;
-    font-size:38px;
-    font-weight: 700;
-}
-
-.section-title span{
-    color:var(--blue);
-}
-
-.section-desc{
-    margin-top:10px;
-    color:var(--muted);
-    max-width:650px;
-    line-height:1.7;
-}
-
-/* ================= ABOUT ================= */
-
-.about-box{
-    margin-top:40px;
-    padding:38px;
-    display:grid;
-    grid-template-columns:1fr 1.4fr;
-    gap:40px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    background: var(--about-grad);
-}
-
-.about-box h3{
-    font-size:28px;
-    font-weight: 700;
-}
-
-.about-box p{
-    color:var(--muted);
-    line-height:1.8;
-    margin:16px 0 22px;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-}
-
-.stat{
-    text-align:center;
-    padding:23px 10px;
-    border:1px solid var(--line);
-    border-radius:13px;
-    background: var(--stat-bg);
-}
-
-.stat strong{
-    display:block;
-    font-size:28px;
-    color:var(--text-color);
-    font-weight: 700;
-}
-
-.stat small{
-    color:var(--muted);
-    font-size: 12px;
-}
-
-/* ================= CARDS ================= */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:40px;
-}
-
-.card{
-    padding:28px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    background: var(--card-bg);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-7px);
-    border-color:rgba(244,195,62,.5);
-}
-
-.icon{
-    color:var(--gold);
-    font-size:32px;
-    margin-bottom:17px;
-}
-
-.card h3{
-    font-size:20px;
-    font-weight: 600;
-    margin-bottom:9px;
-}
-
-.card p{
-    color:var(--muted);
-    line-height:1.7;
-    font-size:14px;
-}
-
-/* ================= PROJECTS ================= */
-
-.projects .card{
-    padding:0;
-    overflow:hidden;
-}
-
-.project-img-wrap {
-    width: 100%;
-    height: 240px;
+.profile-img-container {
+    position: absolute;
+    inset: 24px;
+    border-radius: 50%;
     overflow: hidden;
-    position: relative;
-    border-bottom: 1px solid var(--line);
-    background: var(--card-bg);
+    background: #f3f5f9;
+    border: 5px solid rgba(255,255,255,.95);
+    box-shadow: 0 0 50px rgba(25,113,255,.22), 0 25px 80px rgba(0,0,0,.45);
 }
 
-.project-img-wrap img {
+.profile-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: fill; 
-    transition: transform 0.4s ease;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
 }
 
-.card:hover .project-img-wrap img {
-    transform: scale(1.04);
-}
+/* ================= FLOATING CARDS & STATUS ================= */
 
-.project-content{
-    padding:23px;
-}
-
-.project-content h3 {
-    font-weight: 600;
-}
-
-.project-content small{
-    color:var(--lightblue);
-    font-weight: 500;
-}
-
-/* ================= EXPERIENCE ================= */
-
-.timeline{
-    margin-top:40px;
-    border-left:1px solid var(--line);
-    padding-left:28px;
-}
-
-.timeline-item{
-    position:relative;
-    margin-bottom:35px;
-}
-
-.timeline-item:before{
-    content:"";
-    position:absolute;
-    width:11px;
-    height:11px;
-    left:-34px;
-    top:7px;
-    background:var(--blue);
-    border-radius:50%;
-    box-shadow:0 0 15px var(--blue);
-}
-
-.timeline-item span{
-    color:var(--lightblue);
-    font-size:13px;
-    font-weight: 600;
-}
-
-.timeline-item h3{
-    margin:6px 0;
-    font-weight: 600;
-}
-
-.timeline-item p{
-    color:var(--muted);
-}
-
-/* ================= CONTACT ================= */
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:22px;
-    margin-top:40px;
-}
-
-.contact-card{
-    padding:30px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    background: var(--card-bg);
-}
-
-.contact-row{
-    display:flex;
-    gap:15px;
-    margin:21px 0;
-}
-
-.contact-row strong{
-    display:block;
-    margin-bottom:4px;
-    font-weight: 600;
-}
-
-.contact-row span{
-    color:var(--muted);
-    font-size:14px;
-}
-
-.contact-row a{
-    color:var(--lightblue);
-}
-
-form{
-    display:grid;
-    gap:14px;
-}
-
-.field{
-    width:100%;
-    padding:15px;
-    color:var(--text-color);
-    background: var(--field-bg);
-    border:1px solid var(--line);
-    border-radius:10px;
-    font:inherit;
-    outline:none;
-}
-
-.field:focus{
-    border-color:var(--blue);
-}
-
-textarea{
-    min-height:145px;
-    resize:vertical;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    padding:30px 0;
-    border-top:1px solid var(--line);
-    color:var(--muted);
-    font-size: 14px;
-}
-
-.footer{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:950px){
-    .nav-links, .phone{ display:none; }
-    .menu{ display:block; }
-    .nav-links.open{
-        position:absolute;
-        top:96px; left:0; right:0;
-        display:flex; flex-direction:column; gap:0;
-        padding:10px 5%;
-        background:var(--nav-bg);
-        border-bottom:1px solid var(--line);
-    }
-    .nav-links.open a{ padding:14px; }
-    .nav-links.open a.active:after{ display:none; }
-    .hero-grid{ grid-template-columns:1fr; }
-    .profile-wrap{ order:-1; min-height:480px; }
-    .about-box{ grid-template-columns:1fr; }
-    .contact-grid{ grid-template-columns:1fr; }
-    .cards{ grid-template-columns:1fr 1fr; }
-    .stats{ grid-template-columns:repeat(2,1fr); }
-}
-
-@media(max-width:560px){
-    .brand-logo{ font-size:32px; }
-    .brand-name strong{ font-size:16px; }
-    .brand-name small{ font-size:8px; }
-    h1{ font-size:42px; }
-    .title{ font-size:16px; }
-    .hero-text{ font-size:14px; }
-    section{ padding:75px 0; }
-    .section-title{ font-size:30px; }
-    .cards{ grid-template-columns:1fr; }
-    .profile-ring{ width:290px; height:360px; padding: 10px; }
-    .freelance{ padding:10px 18px; font-size:12px; bottom: 15px; }
-    .actions .btn{ width:100%; text-align:center; }
-}
-</style>
-</head>
-
-<body data-theme="dark">
-
-<!-- ================= NAVBAR ================= -->
-<nav class="nav">
-<div class="container nav-inner">
-<a href="#home" class="brand">
-<div class="brand-logo">Hy</div>
-<div class="brand-name">
-<strong>Hy<span> Business </span></strong>
-<small>GRAPHIC & WEB DESIGNER</small>
-</div>
-</a>
-
-<div class="nav-links">
-<a class="active" href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#contact">Contact</a>
-</div>
-
-<div class="nav-right-actions">
-<button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
-<i class="fa-solid fa-moon" id="themeIcon"></i>
-</button>
-<a class="phone" href="tel:+923209306672">☎ 0320-9306672</a>
-</div>
-<button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-</div>
-</nav>
-
-<!-- ================= HOME ================= -->
-<section class="hero" id="home">
-<div class="container hero-grid">
-<div>
-<div class="hello">HELLO, I'M</div>
-<h1>Muhammad<br><span>Ibrahim </span></h1>
-<div class="title">I <span>DESIGN SOLUTIONS</span> THAT INSPIRE</div>
-<p class="hero-text">
-I am a passionate Graphic Designer & Web Designer.
-I create modern, unique and professional designs
-that help brands grow and stand out from the competition.
-</p>
-<div class="actions">
-<a class="btn gold" href="#projects">ENTER PORTFOLIO →</a>
-<a class="btn blue" href="#contact">CONTACT ME</a>
-</div>
-<div class="social">
-<a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-<a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-<a href="https://wa.me/923209306672" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-<a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-</div>
-</div>
-
-<!-- ================= PHOTO ================= -->
-<div class="profile-wrap">
-<div class="profile-ring">
-<img class="profile" src="profile.png" alt="Muhammad Ibrahim">
-</div>
-<div class="freelance">
-<span>Available For</span>
-<b>Freelance Work</b>
-<i class="dot"></i>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ================= ABOUT ================= -->
-<section id="about">
-<div class="container">
-<div class="section-label">ABOUT ME</div>
-<h2 class="section-title">Passionate <span>Designer</span> & Problem Solver</h2>
-<p class="section-desc">I turn ideas into clean, modern and useful visual experiences.</p>
-
-<div class="about-box">
-<div>
-<h3>Creative Designer</h3>
-<p>
-I’m Muhammad Ibrahim, a Graphic Designer and Web Designer
-with a strong passion for creating clean, modern and
-user-friendly designs. I love turning ideas into professional
-visual experiences.
-</p>
-<a class="btn blue" href="#contact">LET'S WORK TOGETHER →</a>
-</div>
-
-<div class="stats">
-<div class="stat"><strong>2+</strong><small>Years Experience</small></div>
-<div class="stat"><strong>50+</strong><small>Projects Completed</small></div>
-<div class="stat"><strong>100%</strong><small>Client Satisfaction</small></div>
-<div class="stat"><strong>30+</strong><small>Happy Clients</small></div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section id="services">
-<div class="container">
-<div class="section-label">WHAT I DO</div>
-<h2 class="section-title">My Services</h2>
-<p class="section-desc">Professional creative solutions for businesses, brands and individuals.</p>
-
-<div class="cards">
-<div class="card">
-<div class="icon">✦</div>
-<h3>Graphic Design</h3>
-<p>Posters, flyers, advertisements, social media posts and creative visual designs.</p>
-</div>
-<div class="card">
-<div class="icon">◈</div>
-<h3>Web Design</h3>
-<p>Modern responsive websites, landing pages and portfolio websites.</p>
-</div>
-<div class="card">
-<div class="icon">◎</div>
-<h3>Branding</h3>
-<p>Logo design, business cards, brand graphics and complete visual identity.</p>
-</div>
-<div class="card">
-<div class="icon">▣</div>
-<h3>Print Design</h3>
-<p>Banners, brochures, packaging, T-shirts, mugs and print-ready designs.</p>
-</div>
-<div class="card">
-<div class="icon">◆</div>
-<h3>Social Media</h3>
-<p>Professional designs for Facebook, Instagram, TikTok and WhatsApp.</p>
-</div>
-<div class="card">
-<div class="icon">↗</div>
-<h3>Creative Solutions</h3>
-<p>Custom creative concepts based on your business and project requirements.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ================= PROJECTS ================= -->
-<section id="projects">
-<div class="container">
-<div class="section-label">MY WORK</div>
-<h2 class="section-title">Featured Projects</h2>
-<p class="section-desc">Some examples of my design and creative work.</p>
-
-<div class="cards projects">
-<div class="card">
-<div class="project-img-wrap">
-<img src="project-1.png" alt="SEO Guest Post Banner">
-</div>
-<div class="project-content">
-<h3>SEO Guest Post Banner</h3>
-<p>High quality digital marketing poster layout for DA 50+ SEO services.</p>
-<small>Graphic Design • Banner Advertising</small>
-</div>
-</div>
-
-<div class="card">
-<div class="project-img-wrap">
-<img src="project-2.png" alt="Digital Marketing Poster">
-</div>
-<div class="project-content">
-<h3>Digital Marketing Poster</h3>
-<p>Clean and modern promotional creative design for online business growth.</p>
-<small>Poster Design • Marketing</small>
-</div>
-</div>
-
-<div class="card">
-<div class="project-img-wrap">
-<img src="project-3.png" alt="Premium SEO Promotion">
-</div>
-<div class="project-content">
-<h3>Premium SEO Promotion</h3>
-<p>Professional corporate advertisement layout for authoritative web services.</p>
-<small>Social Media • Promotion</small>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ================= EXPERIENCE ================= -->
-<section id="experience">
-<div class="container">
-<div class="section-label">MY JOURNEY</div>
-<h2 class="section-title">Experience</h2>
-<div class="card timeline">
-<div class="timeline-item">
-<span>GRAPHIC DESIGN</span>
-<h3>Creative Graphic Designer</h3>
-<p>Creating professional graphics for branding, advertising and print requirements.</p>
-</div>
-<div class="timeline-item">
-<span>WEB DESIGN</span>
-<h3>Web & Portfolio Designer</h3>
-<p>Designing responsive websites and professional portfolio interfaces.</p>
-</div>
-<div class="timeline-item">
-<span>FREELANCE</span>
-<h3>Freelance Creative Work</h3>
-<p>Turning client ideas into polished and professional visual designs.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact">
-<div class="container">
-<div class="section-label">LET'S TALK</div>
-<h2 class="section-title">Contact Me</h2>
-<p class="section-desc">Have a project in mind? Contact me today.</p>
-
-<div class="contact-grid">
-<div class="contact-card">
-<div class="contact-row">
-<div>☎️</div>
-<div>
-<strong>Phone / WhatsApp</strong>
-<span><a href="tel:+923209306672">0320-9306672</a></span>
-</div>
-</div>
-<div class="contact-row">
-<div>✉️</div>
-<div>
-<strong>Email</strong>
-<span><a href="mailto:m.ibrahimsajid830@gmail.com">m.ibrahimsajid830@gmail.com</a></span>
-</div>
-</div>
-<div class="contact-row">
-<div>📍</div>
-<div>
-<strong>Location</strong>
-<span>Pakistan</span>
-</div>
-</div>
-</div>
-
-<div class="contact-card">
-<form onsubmit="sendWhatsApp(event)">
-<input class="field" id="name" type="text" placeholder="Your Name" required>
-<input class="field" id="number" type="text" placeholder="Your Phone / WhatsApp" required>
-<textarea class="field" id="msg" placeholder="Tell me about your project..." required></textarea>
-<button class="btn blue" type="submit">SEND ON WHATSAPP →</button>
-</form>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-<div class="container footer">
-<div>© 2026 M U H A M M A D I B R A H I M. All Rights Reserved.</div>
-<div>Graphic & Web Designer</div>
-</div>
-</footer>
-
-<!-- ================= JAVASCRIPT ================= -->
-<script>
-function sendWhatsApp(event){
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const number = document.getElementById("number").value;
-    const message = document.getElementById("msg").value;
-    const text = `Assalam o Alaikum Muhammad Ibrahim,\n\nName: ${name}\n\nPhone: ${number}\n\nProject:\n${message}`;
-    window.open("https://wa.me/923209306672?text=" + encodeURIComponent(text), "_blank");
-}
-
-document.querySelectorAll(".nav-links a").forEach(function(link){
-    link.addEventListener("click", function(){
-        document.querySelector(".nav-links").classList.remove("open");
-    });
-});
-
-// Scrollspy to automatically update active navbar link and golden line underline
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
-});
-
-// Dark and Light Mode Toggle Function
-function toggleTheme() {
-    const body = document.body;
-    const themeIcon = document.getElementById('themeIcon');
-    
-    if (body.getAttribute('data-theme') === 'dark') {
-        body.setAttribute('data-theme', 'light');
-        themeIcon.className = 'fa-solid fa-sun';
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        themeIcon.className = 'fa-solid fa-moon';
-    }
-}
-</script>
-
-</body>
-</html>
+.floating-card {
+    position: absolute;
+    padding: 13px 17px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    background: rgba(7,17,36,.72);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 15px 40px rgba(0,0,0,.
