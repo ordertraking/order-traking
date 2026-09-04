@@ -18,6 +18,7 @@
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top: 100px; /* Fixes section header overlapping behind fixed navbar */
 }
 
 :root {
@@ -227,31 +228,31 @@ a{
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1.1fr 0.9fr;
     align-items:center;
-    gap:25px;
+    gap:35px;
 }
 
 .hello{
     color:var(--gold);
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
-    letter-spacing:3px;
-    margin-bottom:20px;
+    letter-spacing:4px;
+    margin-bottom:18px;
 }
 
 .hello:after{
     content:"";
     display:inline-block;
-    width:90px;
+    width:70px;
     height:2px;
     background:var(--gold);
-    margin-left:18px;
+    margin-left:15px;
     vertical-align:middle;
 }
 
 h1{
-    font-size:clamp(45px, 6vw, 75px);
+    font-size:clamp(42px, 5.5vw, 70px);
     line-height:1.1;
     letter-spacing:-1px;
     font-weight: 700;
@@ -262,8 +263,8 @@ h1 span{
 }
 
 .title{
-    margin-top:25px;
-    font-size:19px;
+    margin-top:20px;
+    font-size:18px;
     font-weight: 600;
     letter-spacing:1px;
 }
@@ -273,8 +274,8 @@ h1 span{
 }
 
 .hero-text{
-    max-width:610px;
-    margin-top:20px;
+    max-width:580px;
+    margin-top:18px;
     color:var(--muted);
     font-size:15px;
     line-height:1.8;
@@ -290,15 +291,16 @@ h1 span{
 
 .btn{
     display:inline-block;
-    padding:15px 26px;
+    padding:14px 28px;
     border-radius:10px;
     border:1px solid var(--line);
     font-weight:600;
     transition:.3s;
+    font-size: 14px;
 }
 
 .btn:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 }
 
 .btn.gold{
@@ -310,29 +312,31 @@ h1 span{
     color:#fff;
     border:0;
     background:linear-gradient(100deg,#087dff,#4b36ff);
-    box-shadow:0 12px 35px rgba(0,90,255,.25);
+    box-shadow:0 10px 30px rgba(0,90,255,.3);
 }
 
 .social{
     display:flex;
-    gap:13px;
-    margin-top:27px;
+    gap:12px;
+    margin-top:28px;
 }
 
 .social a{
-    width:43px;
-    height:43px;
+    width:42px;
+    height:42px;
     display:grid;
     place-items:center;
     border:1px solid var(--line);
     border-radius:50%;
     color:var(--muted);
-    font-weight:600;
+    font-size:15px;
+    transition: 0.3s;
 }
 
 .social a:hover{
     color:var(--gold);
     border-color:var(--gold);
+    transform: translateY(-3px);
 }
 
 /* ================= PROFILE ================= */
@@ -342,19 +346,19 @@ h1 span{
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:570px;
+    min-height:540px;
     width: 100%;
 }
 
 .profile-ring{
     position:relative;
-    width:380px;
-    height:380px;
+    width:370px;
+    height:370px;
     overflow:hidden;
     border-radius:50%;
     border:3px solid var(--gold);
     background: radial-gradient(circle, rgba(0,105,255,.22), rgba(0,0,0,0) 68%);
-    box-shadow: 0 0 60px rgba(0,95,255,.28), inset 0 0 35px rgba(244,195,62,.10);
+    box-shadow: 0 0 50px rgba(0,95,255,.25), inset 0 0 30px rgba(244,195,62,.10);
     padding: 12px;
     margin: 0 auto;
 }
@@ -382,10 +386,10 @@ h1 span{
 .freelance{
     position:absolute;
     z-index:5;
-    bottom:25px;
+    bottom:20px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 12px 22px;
+    padding: 11px 20px;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -393,7 +397,7 @@ h1 span{
     background: var(--freelance-bg);
     border: 1px solid var(--line);
     border-radius: 50px;
-    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+    box-shadow: 0 15px 35px rgba(0,0,0,.3);
 }
 
 .freelance span{
@@ -783,10 +787,10 @@ that help brands grow and stand out from the competition.
 <a class="btn blue" href="#contact">CONTACT ME</a>
 </div>
 <div class="social">
-<a href="#">f</a>
-<a href="#">◎</a>
-<a href="https://wa.me/923209306672">◉</a>
-<a href="#">in</a>
+<a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://wa.me/923209306672" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
 </div>
 </div>
 
@@ -1010,6 +1014,28 @@ function sendWhatsApp(event){
 document.querySelectorAll(".nav-links a").forEach(function(link){
     link.addEventListener("click", function(){
         document.querySelector(".nav-links").classList.remove("open");
+    });
+});
+
+// Scrollspy to automatically update active navbar link and golden line underline
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 150) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
     });
 });
 
