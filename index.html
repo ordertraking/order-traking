@@ -3,13 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUHAMMAD IBRAHIM | Graphic & Web Designer</title>
-<!-- Google Fonts: Poppins -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<title>MUHAMMAD IBRAHIM | Hy Business</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -18,59 +27,81 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top:100px;
 }
 
-:root {
-    --text-color: #fff;
-    --fire: #ff7a00;       
-    --ice: #00b4d8;        
-    --muted: #94a3b8;
-    --line: rgba(255,255,255,.15);
-    --nav-bg: rgba(6,9,19,.92);
-    --card-bg: rgba(13,20,38,0.85);
-    --about-grad: linear-gradient(110deg, rgba(25,18,35,0.88), rgba(10,22,38,0.85));
-    --stat-bg: rgba(255,255,255,.04);
-    --freelance-bg: rgba(6,9,19,.96);
-    --field-bg: rgba(11,17,32,0.9);
+:root{
+    --green:#22c55e;
+    --green-light:#86efac;
+    --teal:#14b8a6;
+    --purple:#8b5cf6;
+
+    --white:#ffffff;
+    --text:#f8fafc;
+    --muted:#a7b0c0;
+
+    --dark:#050914;
+    --dark2:#09121d;
+
+    --border:rgba(255,255,255,.13);
+
+    --glass:rgba(7,15,25,.72);
+
+    --gradient:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #14b8a6 55%,
+            #8b5cf6
+        );
 }
 
-[data-theme="light"] {
-    --text-color: #0f172a;
-    --fire: #ea580c;
-    --ice: #0284c7;
-    --muted: #64748b;
-    --line: rgba(0,0,0,.15);
-    --nav-bg: rgba(255,255,255,.92);
-    --card-bg: rgba(255,255,255,0.9);
-    --about-grad: linear-gradient(110deg, rgba(255,237,213,0.8), rgba(224,242,254,0.8));
-    --stat-bg: rgba(0,0,0,0.03);
-    --freelance-bg: rgba(255,255,255,0.96);
-    --field-bg: #ffffff;
+[data-theme="light"]{
+    --text:#0f172a;
+    --muted:#64748b;
+    --dark:#f8fafc;
+    --dark2:#ffffff;
+    --border:rgba(15,23,42,.12);
+    --glass:rgba(255,255,255,.78);
 }
 
 body{
-    font-family:'Poppins', sans-serif;
-    /* Yahan image ka naam exact woh likha hai jo aapki fire & ice texture wali image ka hai */
-    background: 
-        linear-gradient(rgba(6, 9, 19, 0.82), rgba(6, 9, 19, 0.88)),
-        url('image_b22f25.png') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--text-color);
+    font-family:'Poppins',sans-serif;
+    color:var(--text);
+
+    background:
+        linear-gradient(
+            rgba(3,10,15,.78),
+            rgba(3,10,15,.90)
+        ),
+        url("fire-ice-bg.png")
+        center center / cover fixed no-repeat;
+
+    min-height:100vh;
     overflow-x:hidden;
-    transition: background 0.3s ease, color 0.3s ease;
+
+    transition:.3s ease;
 }
 
-[data-theme="light"] body {
-    background: 
-        linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.92)),
-        url('image_b22f25.png') no-repeat center center fixed;
-    background-size: cover;
+[data-theme="light"] body{
+    background:
+        linear-gradient(
+            rgba(248,250,252,.78),
+            rgba(248,250,252,.91)
+        ),
+        url("fire-ice-bg.png")
+        center center / cover fixed no-repeat;
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
 }
 
 .container{
@@ -78,1258 +109,2474 @@ a{
     margin:auto;
 }
 
-/* ================= NAVBAR ================= */
+
+/* =========================
+   NAVBAR
+========================= */
 
 .nav{
     position:fixed;
-    z-index:100;
     top:0;
     left:0;
     right:0;
-    height:96px;
-    background: var(--nav-bg);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid var(--line);
+    z-index:999;
+
+    height:86px;
+
+    background:rgba(4,10,17,.80);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.25);
+}
+
+[data-theme="light"] .nav{
+    background:rgba(255,255,255,.82);
+}
+
+.nav::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-1px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #22c55e,
+            #14b8a6,
+            #8b5cf6,
+            transparent
+        );
 }
 
 .nav-inner{
     height:100%;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
+
+/* LOGO */
+
 .brand{
     display:flex;
     align-items:center;
-    gap:15px;
-    cursor: pointer;
+    gap:12px;
+
+    cursor:pointer;
 }
 
-.brand-logo{
-    font-family:'Poppins', sans-serif;
-    font-size:38px;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--fire), var(--ice));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+.logo{
+    width:48px;
+    height:48px;
 
-.brand-name strong{
-    font-size:20px;
-    font-weight: 600;
-}
+    display:grid;
+    place-items:center;
 
-.brand-name strong span{
-    color:var(--fire);
-}
+    border-radius:14px;
 
-.brand-name small{
-    display:block;
-    color:var(--muted);
-    font-size:10px;
-    letter-spacing:2px;
-    margin-top:5px;
-}
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #14b8a6 55%,
+            #8b5cf6
+        );
 
-.nav-links{
-    display:flex;
-    gap:32px;
-}
+    color:white;
 
-.nav-links a{
-    color:var(--text-color);
-    font-size:15px;
-    font-weight: 500;
-    padding:38px 0;
-    position:relative;
-    opacity: 0.8;
-    cursor: pointer;
-}
+    font-size:22px;
+    font-weight:800;
 
-.nav-links a:hover,
-.nav-links a.active{
-    color:var(--fire);
-    opacity: 1;
-}
+    border:1px solid rgba(255,255,255,.25);
 
-.nav-links a.active:after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:25px;
-    height:2px;
-    background:linear-gradient(90deg, var(--fire), var(--ice));
-}
+    box-shadow:
+        0 10px 30px rgba(34,197,94,.25),
+        inset 0 1px 0 rgba(255,255,255,.35);
 
-.nav-right-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.theme-toggle-btn {
-    background: var(--card-bg);
-    border: 1px solid var(--line);
-    color: var(--fire);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.theme-toggle-btn:hover {
-    transform: scale(1.05);
-}
-
-.phone{
-    border:1px solid var(--ice);
-    color:var(--ice);
-    padding:13px 20px;
-    border-radius:10px;
-    font-weight:600;
-    transition: 0.3s;
-}
-.phone:hover {
-    background: rgba(0,180,216,0.1);
-}
-
-.menu{
-    display:none;
-    border:0;
-    background:none;
-    color:var(--text-color);
-    font-size:28px;
-    cursor: pointer;
-}
-
-/* ================= PAGE VIEWS ================= */
-.page-view {
-    display: none;
-}
-
-.page-view.active-page {
-    display: block;
-}
-
-/* ================= HERO SECTION ================= */
-
-.hero{
-    min-height:100vh;
-    padding-top:130px;
-    padding-bottom:60px;
-    display:flex;
-    align-items:center;
     position:relative;
     overflow:hidden;
 }
 
-.hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    align-items:center;
-    gap:35px;
-    position: relative;
-    z-index: 2;
+.logo::after{
+    content:"";
+
+    position:absolute;
+    inset:3px;
+
+    border-radius:11px;
+
+    border:1px solid rgba(255,255,255,.18);
 }
 
-.hello{
-    color:var(--fire);
-    font-size:13px;
+.brand-name strong{
+    font-size:19px;
     font-weight:700;
+}
+
+.brand-name strong span{
+    color:var(--green);
+}
+
+.brand-name small{
+    display:block;
+
+    margin-top:2px;
+
+    color:var(--muted);
+
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+
+/* NAV LINKS */
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    position:relative;
+
+    padding:31px 0;
+
+    color:var(--text);
+
+    font-size:14px;
+    font-weight:500;
+
+    opacity:.75;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--green);
+    opacity:1;
+}
+
+.nav-links a.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:20px;
+
+    height:2px;
+
+    border-radius:10px;
+
+    background:var(--gradient);
+
+    box-shadow:0 0 10px rgba(34,197,94,.5);
+}
+
+
+/* RIGHT */
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.theme-btn{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.05);
+
+    color:var(--green);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.theme-btn:hover{
+    transform:rotate(15deg) scale(1.08);
+
+    border-color:var(--green);
+}
+
+.phone{
+    padding:11px 17px;
+
+    border:1px solid var(--green);
+
+    border-radius:9px;
+
+    color:var(--green-light);
+
+    font-size:13px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.phone:hover{
+    background:rgba(34,197,94,.10);
+    transform:translateY(-2px);
+}
+
+.menu{
+    display:none;
+
+    border:0;
+    background:none;
+
+    color:var(--text);
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    padding:
+        150px 0
+        70px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+}
+
+.hero-grid{
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    align-items:center;
+
+    gap:50px;
+}
+
+
+/* HERO TEXT */
+
+.hello{
+    color:var(--green);
+
+    font-size:12px;
+
+    font-weight:700;
+
     letter-spacing:4px;
+
     margin-bottom:18px;
 }
 
-.hello:after{
+.hello::after{
     content:"";
+
     display:inline-block;
-    width:70px;
+
+    width:65px;
     height:2px;
-    background:var(--fire);
-    margin-left:15px;
+
+    margin-left:14px;
+
     vertical-align:middle;
+
+    background:var(--gradient);
 }
 
 h1{
-    font-size:clamp(36px, 5.5vw, 70px);
-    line-height:1.1;
-    letter-spacing:-1px;
-    font-weight: 700;
+    font-size:clamp(42px,6vw,76px);
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+
+    font-weight:800;
 }
 
 h1 span{
-    background: linear-gradient(135deg, var(--fire), var(--ice));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background:var(--gradient);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
 }
 
 .title{
     margin-top:20px;
-    font-size:18px;
-    font-weight: 600;
+
+    font-size:17px;
+
+    font-weight:600;
+
     letter-spacing:1px;
 }
 
 .title span{
-    color:var(--ice);
+    color:var(--teal);
 }
 
 .hero-text{
-    max-width:580px;
+    max-width:600px;
+
     margin-top:18px;
+
     color:var(--muted);
-    font-size:15px;
-    line-height:1.8;
-    font-weight: 400;
+
+    font-size:14px;
+
+    line-height:1.9;
 }
+
+
+/* BUTTONS */
 
 .actions{
     display:flex;
-    gap:15px;
+
+    gap:13px;
+
     margin-top:28px;
+
     flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    padding:14px 28px;
+    display:inline-flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:13px 24px;
+
     border-radius:10px;
-    border:1px solid var(--line);
+
+    font-size:13px;
+
     font-weight:600;
+
+    cursor:pointer;
+
+    border:1px solid var(--border);
+
     transition:.3s;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
 }
 
 .btn:hover{
     transform:translateY(-3px);
 }
 
-.btn.gold{
-    color:var(--fire);
-    border-color:var(--fire);
-}
-.btn.gold:hover {
-    background: rgba(255,122,0,0.1);
+.btn-outline{
+    color:var(--green);
+
+    border-color:var(--green);
 }
 
-.btn.blue{
-    color:#fff;
-    border:0;
-    background:linear-gradient(100deg, var(--fire), var(--ice));
-    box-shadow:0 10px 25px rgba(255,122,0,.25);
+.btn-outline:hover{
+    background:rgba(34,197,94,.10);
 }
+
+.btn-primary{
+    color:white;
+
+    border:0;
+
+    background:
+        linear-gradient(
+            100deg,
+            #16a34a,
+            #14b8a6,
+            #7c3aed
+        );
+
+    box-shadow:
+        0 12px 30px rgba(34,197,94,.22);
+}
+
+
+/* SOCIAL */
 
 .social{
     display:flex;
-    gap:12px;
-    margin-top:28px;
+
+    gap:10px;
+
+    margin-top:27px;
 }
 
 .social a{
-    width:42px;
-    height:42px;
+    width:40px;
+    height:40px;
+
     display:grid;
     place-items:center;
-    border:1px solid var(--line);
+
+    border:1px solid var(--border);
+
     border-radius:50%;
+
     color:var(--muted);
-    font-size:15px;
-    transition: 0.3s;
+
+    font-size:14px;
+
+    transition:.3s;
 }
 
 .social a:hover{
-    color:var(--ice);
-    border-color:var(--ice);
-    transform: translateY(-3px);
+    color:var(--green);
+
+    border-color:var(--green);
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(34,197,94,.12);
 }
 
-/* ================= PROFILE ================= */
+
+/* =========================
+   PROFILE
+========================= */
 
 .profile-wrap{
     position:relative;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     min-height:450px;
-    width: 100%;
 }
 
 .profile-ring{
-    position:relative;
-    width:min(370px, 90vw);
-    height:min(370px, 90vw);
-    overflow:hidden;
+    width:min(370px,85vw);
+    height:min(370px,85vw);
+
+    padding:11px;
+
     border-radius:50%;
-    border:3px solid var(--fire);
-    background: radial-gradient(circle, rgba(255,122,0,.2), rgba(0,180,216,.2) 70%);
-    box-shadow: 0 0 50px rgba(255,122,0,.25), inset 0 0 30px rgba(0,180,216,.2);
-    padding: 12px;
-    margin: 0 auto;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,197,94,.35),
+            rgba(20,184,166,.20),
+            rgba(139,92,246,.35)
+        );
+
+    border:2px solid rgba(34,197,94,.75);
+
+    box-shadow:
+        0 0 50px rgba(34,197,94,.18),
+        0 0 100px rgba(20,184,166,.10);
+
+    animation:float 5s ease-in-out infinite;
 }
 
-.profile-ring:before{
+.profile-ring::before{
     content:"";
+
     position:absolute;
-    inset:12px;
-    border:1px solid rgba(0,180,216,.8);
+
+    inset:8px;
+
     border-radius:50%;
-    z-index:2;
+
+    border:1px solid rgba(103,232,249,.55);
+
     pointer-events:none;
 }
 
 .profile{
-    position:relative;
-    z-index:1;
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     object-position:center top;
+
     border-radius:50%;
+
+    display:block;
+
+    border:5px solid rgba(3,10,15,.8);
 }
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+
+/* STATUS */
 
 .freelance{
     position:absolute;
-    z-index:5;
-    bottom:10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 18px;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--freelance-bg);
-    border: 1px solid var(--line);
-    border-radius: 50px;
-    box-shadow: 0 15px 35px rgba(0,0,0,.3);
-}
 
-.freelance span{
-    color: var(--text-color);
-    font-size: 13px;
-    font-weight: 500;
+    bottom:12px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    white-space:nowrap;
+
+    display:flex;
+    align-items:center;
+
+    gap:9px;
+
+    padding:10px 17px;
+
+    background:rgba(4,10,17,.92);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid var(--border);
+
+    border-radius:50px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+
+    font-size:12px;
 }
 
 .freelance b{
-    color: var(--fire);
-    font-weight: 600;
+    color:var(--green);
 }
 
 .dot{
-    display:inline-block;
     width:8px;
     height:8px;
-    background:var(--ice);
+
+    background:var(--green);
+
     border-radius:50%;
-    box-shadow: 0 0 8px var(--ice);
+
+    box-shadow:
+        0 0 12px var(--green);
 }
 
-/* ================= SECTIONS ================= */
+
+/* =========================
+   SECTIONS
+========================= */
 
 section{
     padding:90px 0;
 }
 
-.section-header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 10px;
-}
-
-.view-all-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--fire);
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.view-all-link:hover {
-    gap: 12px;
-    color: var(--ice);
-}
-
 .section-label{
-    color:var(--fire);
-    font-size:13px;
-    letter-spacing:3px;
+    color:var(--green);
+
+    font-size:12px;
+
     font-weight:700;
+
+    letter-spacing:3px;
 }
 
 .section-title{
     margin-top:8px;
+
     font-size:38px;
-    font-weight: 700;
+
+    font-weight:800;
+
+    line-height:1.2;
 }
 
 .section-title span{
-    color:var(--ice);
+    color:var(--teal);
 }
 
 .section-desc{
     margin-top:10px;
-    color:var(--muted);
+
     max-width:650px;
+
+    color:var(--muted);
+
     line-height:1.7;
+
+    font-size:14px;
 }
 
-/* ================= ABOUT ================= */
+
+/* =========================
+   GLASS BOX
+========================= */
+
+.about-box,
+.card,
+.contact-card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8,20,28,.76),
+            rgba(8,15,30,.54)
+        );
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 18px 55px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
 
 .about-box{
-    margin-top:40px;
+    margin-top:38px;
+
     padding:38px;
+
     display:grid;
+
     grid-template-columns:1fr 1.4fr;
+
     gap:40px;
-    border:1px solid var(--line);
+
     border-radius:20px;
-    background: var(--about-grad);
-    backdrop-filter: blur(10px);
 }
 
 .about-box h3{
-    font-size:28px;
-    font-weight: 700;
+    font-size:27px;
 }
 
 .about-box p{
     color:var(--muted);
+
     line-height:1.8;
-    margin:16px 0 22px;
+
+    margin:15px 0 23px;
+
+    font-size:14px;
 }
 
 .stats{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:12px;
 }
 
 .stat{
     text-align:center;
-    padding:23px 10px;
-    border:1px solid var(--line);
+
+    padding:22px 8px;
+
+    border:1px solid var(--border);
+
     border-radius:13px;
-    background: var(--stat-bg);
+
+    background:rgba(255,255,255,.035);
+
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(34,197,94,.4);
 }
 
 .stat strong{
     display:block;
-    font-size:28px;
-    color:var(--text-color);
-    font-weight: 700;
+
+    font-size:27px;
+
+    color:var(--green-light);
 }
 
 .stat small{
     color:var(--muted);
-    font-size: 12px;
+
+    font-size:11px;
 }
 
-/* ================= CARDS ================= */
+
+/* =========================
+   SERVICES
+========================= */
 
 .cards{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:18px;
-    margin-top:40px;
+
+    margin-top:38px;
 }
 
 .card{
-    padding:28px;
-    border:1px solid var(--line);
+    padding:27px;
+
     border-radius:18px;
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    transition:.3s;
+
+    transition:.35s;
+
+    overflow:hidden;
 }
 
 .card:hover{
     transform:translateY(-7px);
-    border-color:rgba(0,180,216,.5);
-    box-shadow: 0 10px 30px rgba(0,180,216,.15);
+
+    border-color:rgba(34,197,94,.5);
+
+    box-shadow:
+        0 18px 40px rgba(34,197,94,.12);
 }
 
 .icon{
-    color:var(--fire);
-    font-size:32px;
-    margin-bottom:17px;
+    width:50px;
+    height:50px;
+
+    display:grid;
+    place-items:center;
+
+    margin-bottom:18px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,197,94,.14),
+            rgba(20,184,166,.12),
+            rgba(139,92,246,.12)
+        );
+
+    border:1px solid rgba(34,197,94,.18);
+
+    color:var(--green);
+
+    font-size:20px;
 }
 
 .card h3{
-    font-size:20px;
-    font-weight: 600;
-    margin-bottom:9px;
+    font-size:19px;
+
+    margin-bottom:8px;
 }
 
 .card p{
     color:var(--muted);
-    line-height:1.7;
-    font-size:14px;
+
+    line-height:1.75;
+
+    font-size:13px;
 }
 
-/* ================= PROJECTS ================= */
+
+/* =========================
+   PROJECTS
+========================= */
 
 .projects .card{
     padding:0;
+}
+
+.project-img{
+    width:100%;
+    height:230px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+}
+
+.projects .card:hover .project-img{
+    transform:scale(1.04);
+}
+
+.project-image-wrap{
+    height:230px;
+
     overflow:hidden;
-}
 
-.project-img-wrap {
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
-    position: relative;
-    border-bottom: 1px solid var(--line);
-    background: var(--card-bg);
-}
-
-.project-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.4s ease;
-}
-
-.card:hover .project-img-wrap img {
-    transform: scale(1.04);
+    border-bottom:1px solid var(--border);
 }
 
 .project-content{
-    padding:23px;
+    padding:21px;
 }
 
-.project-content h3 {
-    font-weight: 600;
+.project-content h3{
+    font-size:18px;
+}
+
+.project-content p{
+    margin:8px 0 10px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
 }
 
 .project-content small{
-    color:var(--ice);
-    font-weight: 500;
+    color:var(--teal);
+
+    font-size:11px;
+
+    font-weight:600;
 }
 
-/* ================= EXPERIENCE ================= */
+
+/* =========================
+   TIMELINE
+========================= */
 
 .timeline{
-    margin-top:40px;
-    border-left:2px solid var(--ice);
-    padding-left:28px;
+    margin-top:38px;
+
+    padding:30px 30px 10px 35px;
+
+    border-left:2px solid var(--teal);
+
+    border-radius:15px;
 }
 
 .timeline-item{
     position:relative;
-    margin-bottom:35px;
+
+    margin-bottom:32px;
 }
 
-.timeline-item:before{
+.timeline-item::before{
     content:"";
+
     position:absolute;
-    width:13px;
-    height:13px;
-    left:-35px;
-    top:7px;
-    background:var(--fire);
+
+    width:12px;
+    height:12px;
+
+    left:-42px;
+    top:5px;
+
     border-radius:50%;
-    box-shadow:0 0 15px var(--fire);
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 16px rgba(34,197,94,.7);
 }
 
 .timeline-item span{
-    color:var(--fire);
-    font-size:13px;
-    font-weight: 600;
+    color:var(--green);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
 }
 
 .timeline-item h3{
-    margin:6px 0;
-    font-weight: 600;
+    margin:5px 0;
+
+    font-size:18px;
 }
 
 .timeline-item p{
     color:var(--muted);
+
+    font-size:13px;
 }
 
-/* ================= CONTACT ================= */
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact-grid{
     display:grid;
+
     grid-template-columns:.8fr 1.2fr;
+
     gap:22px;
-    margin-top:40px;
+
+    margin-top:38px;
 }
 
 .contact-card{
-    padding:30px;
-    border:1px solid var(--line);
+    padding:29px;
+
     border-radius:18px;
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
 }
 
 .contact-row{
     display:flex;
+
     gap:15px;
-    margin:21px 0;
+
+    margin:20px 0;
+}
+
+.contact-icon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    flex-shrink:0;
+
+    border-radius:12px;
+
+    background:rgba(34,197,94,.10);
+
+    color:var(--green);
 }
 
 .contact-row strong{
     display:block;
-    margin-bottom:4px;
-    font-weight: 600;
+
+    margin-bottom:3px;
+
+    font-size:14px;
 }
 
 .contact-row span{
     color:var(--muted);
-    font-size:14px;
+
+    font-size:13px;
 }
 
 .contact-row a{
-    color:var(--ice);
+    color:var(--teal);
 }
 
 form{
     display:grid;
-    gap:14px;
+
+    gap:13px;
 }
 
 .field{
     width:100%;
-    padding:15px;
-    color:var(--text-color);
-    background: var(--field-bg);
-    border:1px solid var(--line);
+
+    padding:14px;
+
     border-radius:10px;
-    font:inherit;
+
+    border:1px solid var(--border);
+
+    background:rgba(3,10,17,.55);
+
+    color:var(--text);
+
     outline:none;
+
+    font-size:13px;
+
+    transition:.3s;
+}
+
+[data-theme="light"] .field{
+    background:#fff;
 }
 
 .field:focus{
-    border-color:var(--ice);
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 0 3px rgba(34,197,94,.08);
 }
 
 textarea{
     min-height:145px;
+
     resize:vertical;
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    padding:30px 0;
-    border-top:1px solid var(--line);
+    padding:28px 0;
+
+    border-top:1px solid var(--border);
+
+    background:rgba(3,8,14,.75);
+
+    backdrop-filter:blur(15px);
+
     color:var(--muted);
-    font-size: 14px;
-    background: var(--nav-bg);
-    backdrop-filter: blur(10px);
+
+    font-size:12px;
 }
 
 .footer{
     display:flex;
+
     justify-content:space-between;
+
     gap:15px;
+
     flex-wrap:wrap;
 }
 
-/* ================= RESPONSIVE ================= */
+.footer strong{
+    color:var(--green);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:950px){
-    .nav-links, .phone{ display:none; }
-    .menu{ display:block; }
+
+    .nav-links,
+    .phone{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
     .nav-links.open{
         position:absolute;
-        top:96px; left:0; right:0;
-        display:flex; flex-direction:column; gap:0;
-        padding:15px 5%;
-        background:var(--nav-bg);
-        border-bottom:1px solid var(--line);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+
+        top:86px;
+        left:0;
+        right:0;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:0;
+
+        padding:12px 5%;
+
+        background:rgba(4,10,17,.96);
+
+        backdrop-filter:blur(20px);
+
+        border-bottom:1px solid var(--border);
     }
-    .nav-links.open a{ padding:12px 0; }
-    .nav-links.open a.active:after{ display:none; }
-    .hero-grid{ grid-template-columns:1fr; text-align: center; }
-    .hello:after{ display: none; }
-    .hero-text{ margin-left: auto; margin-right: auto; }
-    .actions, .social{ justify-content: center; }
-    .profile-wrap{ order:-1; min-height:380px; margin-bottom: 20px; }
-    .about-box{ grid-template-columns:1fr; padding: 25px; }
-    .contact-grid{ grid-template-columns:1fr; }
-    .cards{ grid-template-columns:1fr 1fr; }
-    .stats{ grid-template-columns:repeat(2,1fr); }
-    .section-header-flex { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+    .nav-links.open a{
+        padding:13px 0;
+    }
+
+    .nav-links.open a.active::after{
+        display:none;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .profile-wrap{
+        order:-1;
+
+        min-height:370px;
+    }
+
+    .hero-text{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .actions,
+    .social{
+        justify-content:center;
+    }
+
+    .about-box{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
 }
+
 
 @media(max-width:650px){
-    .cards{ grid-template-columns:1fr; }
+
+    section{
+        padding:65px 0;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .section-title{
+        font-size:29px;
+    }
+
+    .about-box{
+        padding:25px;
+    }
+
+    .profile-ring{
+        width:280px;
+        height:280px;
+    }
 }
 
-@media(max-width:560px){
-    .brand-logo{ font-size:32px; }
-    .brand-name strong{ font-size:16px; }
-    .brand-name small{ font-size:8px; }
-    h1{ font-size:38px; }
-    .title{ font-size:16px; }
-    .hero-text{ font-size:14px; }
-    section{ padding:65px 0; }
-    .section-title{ font-size:28px; }
-    .profile-ring{ width:280px; height:280px; padding: 10px; }
-    .freelance{ padding:8px 15px; font-size:11px; bottom: 5px; }
-    .actions{ flex-direction: column; width: 100%; }
-    .actions .btn{ width:100%; text-align:center; }
-    .stats{ grid-template-columns: 1fr 1fr; }
+
+@media(max-width:500px){
+
+    .brand-name strong{
+        font-size:16px;
+    }
+
+    .brand-name small{
+        font-size:7px;
+    }
+
+    .logo{
+        width:44px;
+        height:44px;
+    }
+
+    h1{
+        font-size:40px;
+    }
+
+    .title{
+        font-size:14px;
+    }
+
+    .hero-text{
+        font-size:13px;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .actions .btn{
+        width:100%;
+    }
+
+    .freelance{
+        font-size:10px;
+    }
 }
+
 </style>
 </head>
 
+
 <body data-theme="dark">
 
+
 <!-- ================= NAVBAR ================= -->
+
 <nav class="nav">
+
 <div class="container nav-inner">
-<div class="brand" onclick="switchPage('home')">
-<div class="brand-logo">Hy</div>
+
+<div class="brand" onclick="goHome()">
+
+<div class="logo">Hy</div>
+
 <div class="brand-name">
-<strong>Hy<span> Business </span></strong>
+
+<strong>Hy <span>Business</span></strong>
+
 <small>GRAPHIC & WEB DESIGNER</small>
+
 </div>
+
 </div>
+
 
 <div class="nav-links">
-<a class="active" onclick="switchPage('home')">Home</a>
-<a onclick="switchPage('about')">About</a>
-<a onclick="switchPage('services')">Services</a>
-<a onclick="switchPage('projects')">Projects</a>
-<a onclick="switchPage('experience')">Experience</a>
-<a onclick="switchPage('contact')">Contact</a>
+
+<a class="active" onclick="showPage('home')">Home</a>
+
+<a onclick="showPage('about')">About</a>
+
+<a onclick="showPage('services')">Services</a>
+
+<a onclick="showPage('projects')">Projects</a>
+
+<a onclick="showPage('experience')">Experience</a>
+
+<a onclick="showPage('contact')">Contact</a>
+
 </div>
 
-<div class="nav-right-actions">
-<button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
-<i class="fa-solid fa-moon" id="themeIcon"></i>
+
+<div class="nav-right">
+
+<button class="theme-btn"
+onclick="toggleTheme()">
+
+<i id="themeIcon" class="fa-solid fa-moon"></i>
+
 </button>
-<a class="phone" href="tel:+923209306672">☎ 0320-9306672</a>
+
+<a class="phone"
+href="tel:+923209306672">
+
+<i class="fa-solid fa-phone"></i>
+&nbsp; 0320-9306672
+
+</a>
+
+<button class="menu"
+onclick="toggleMenu()">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
 </div>
-<button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+
 </div>
+
 </nav>
 
 
-<!-- ================= 1. HOME PAGE VIEW ================= -->
-<div id="page-home" class="page-view active-page">
-<!-- HERO SECTION -->
-<section class="hero" id="home">
+<!-- ================= HOME ================= -->
+
+<div id="home" class="page active">
+
+
+<section class="hero">
+
 <div class="container hero-grid">
+
+
 <div>
-<div class="hello">HELLO, I'M</div>
-<h1>MUHAMMAD<br><span>IBRAHIM </span></h1>
-<div class="title">I <span>DESIGN SOLUTIONS</span> THAT INSPIRE</div>
+
+<div class="hello">
+HELLO, I'M
+</div>
+
+<h1>
+MUHAMMAD
+<br>
+<span>IBRAHIM</span>
+</h1>
+
+<div class="title">
+I <span>DESIGN SOLUTIONS</span> THAT INSPIRE
+</div>
+
 <p class="hero-text">
+
 I am a passionate Graphic Designer & Web Designer.
 I create modern, unique and professional designs
 that help brands grow and stand out from the competition.
+
 </p>
+
+
 <div class="actions">
-<a class="btn gold" onclick="switchPage('projects')">ENTER PORTFOLIO →</a>
-<a class="btn blue" onclick="switchPage('contact')">CONTACT ME</a>
+
+<a class="btn btn-outline"
+onclick="showPage('projects')">
+
+ENTER PORTFOLIO
+<i class="fa-solid fa-arrow-right" style="margin-left:8px"></i>
+
+</a>
+
+<a class="btn btn-primary"
+onclick="showPage('contact')">
+
+CONTACT ME
+
+</a>
+
 </div>
+
+
 <div class="social">
-<a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-<a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-<a href="https://wa.me/923209306672" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-<a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+
+<a href="#" title="Facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="#" title="Instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://wa.me/923209306672"
+title="WhatsApp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<a href="#" title="LinkedIn">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
 </div>
+
 </div>
+
+
+<!-- PROFILE -->
 
 <div class="profile-wrap">
+
 <div class="profile-ring">
-<img class="profile" src="profile.png" alt="Muhammad Ibrahim">
+
+<img
+class="profile"
+src="profile.png"
+alt="Muhammad Ibrahim">
+
 </div>
+
+
 <div class="freelance">
+
 <span>Available For</span>
+
 <b>Freelance Work</b>
+
 <i class="dot"></i>
+
 </div>
+
 </div>
+
 </div>
+
 </section>
 
-<!-- ABOUT SECTION -->
-<section id="about">
+
+<!-- ================= ABOUT ================= -->
+
+<section>
+
 <div class="container">
-<div class="section-label">ABOUT ME</div>
-<h2 class="section-title">Passionate <span>Designer</span> & Problem Solver</h2>
-<p class="section-desc">I turn ideas into clean, modern and useful visual experiences.</p>
+
+<div class="section-label">
+ABOUT ME
+</div>
+
+<h2 class="section-title">
+Passionate <span>Designer</span> & Problem Solver
+</h2>
+
+<p class="section-desc">
+I turn ideas into clean, modern and useful visual experiences.
+</p>
+
 
 <div class="about-box">
+
 <div>
-<h3>Creative Designer</h3>
+
+<h3>
+Creative Designer
+</h3>
+
 <p>
+
 I’m Muhammad Ibrahim, a Graphic Designer and Web Designer
 with a strong passion for creating clean, modern and
 user-friendly designs. I love turning ideas into professional
 visual experiences.
+
 </p>
-<a class="btn blue" onclick="switchPage('contact')">LET'S WORK TOGETHER →</a>
+
+<a class="btn btn-primary"
+onclick="showPage('contact')">
+
+LET'S WORK TOGETHER
+<i class="fa-solid fa-arrow-right" style="margin-left:8px"></i>
+
+</a>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<strong>2+</strong>
+
+<small>
+Years Experience
+</small>
+
+</div>
+
+<div class="stat">
+
+<strong>50+</strong>
+
+<small>
+Projects Completed
+</small>
+
+</div>
+
+<div class="stat">
+
+<strong>100%</strong>
+
+<small>
+Client Satisfaction
+</small>
+
+</div>
+
+<div class="stat">
+
+<strong>30+</strong>
+
+<small>
+Happy Clients
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+WHAT I DO
+</div>
+
+<h2 class="section-title">
+My Services
+</h2>
+
+<p class="section-desc">
+Professional creative solutions for businesses, brands and individuals.
+</p>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">
+<i class="fa-solid fa-pen-nib"></i>
+</div>
+
+<h3>
+Graphic Design
+</h3>
+
+<p>
+Posters, flyers, advertisements, social media posts
+and creative visual designs.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+<i class="fa-solid fa-code"></i>
+</div>
+
+<h3>
+Web Design
+</h3>
+
+<p>
+Modern responsive websites, landing pages
+and professional portfolio websites.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+<i class="fa-solid fa-crown"></i>
+</div>
+
+<h3>
+Branding
+</h3>
+
+<p>
+Logo design, business cards, brand graphics
+and complete visual identity.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+<i class="fa-solid fa-print"></i>
+</div>
+
+<h3>
+Print Design
+</h3>
+
+<p>
+Banners, brochures, packaging, T-shirts,
+mugs and print-ready designs.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+<i class="fa-solid fa-share-nodes"></i>
+</div>
+
+<h3>
+Social Media
+</h3>
+
+<p>
+Professional designs for Facebook, Instagram,
+TikTok and WhatsApp.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+
+<h3>
+Creative Solutions
+</h3>
+
+<p>
+Custom creative concepts based on your
+business and project requirements.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+MY WORK
+</div>
+
+<h2 class="section-title">
+Featured <span>Projects</span>
+</h2>
+
+<p class="section-desc">
+Some examples of my design and creative work.
+</p>
+
+
+<div class="cards projects">
+
+
+<div class="card">
+
+<div class="project-image-wrap">
+
+<img
+class="project-img"
+src="project-1.png"
+alt="SEO Guest Post Banner">
+
+</div>
+
+<div class="project-content">
+
+<h3>
+SEO Guest Post Banner
+</h3>
+
+<p>
+High quality digital marketing poster layout
+for DA 50+ SEO services.
+</p>
+
+<small>
+Graphic Design • Banner Advertising
+</small>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="project-image-wrap">
+
+<img
+class="project-img"
+src="project-2.png"
+alt="Digital Marketing Poster">
+
+</div>
+
+<div class="project-content">
+
+<h3>
+Digital Marketing Poster
+</h3>
+
+<p>
+Clean and modern promotional creative design
+for online business growth.
+</p>
+
+<small>
+Poster Design • Marketing
+</small>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="project-image-wrap">
+
+<img
+class="project-img"
+src="project-3.png"
+alt="Premium SEO Promotion">
+
+</div>
+
+<div class="project-content">
+
+<h3>
+Premium SEO Promotion
+</h3>
+
+<p>
+Professional corporate advertisement layout
+for authoritative web services.
+</p>
+
+<small>
+Social Media • Promotion
+</small>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+MY JOURNEY
+</div>
+
+<h2 class="section-title">
+Experience
+</h2>
+
+
+<div class="card timeline">
+
+
+<div class="timeline-item">
+
+<span>
+GRAPHIC DESIGN
+</span>
+
+<h3>
+Creative Graphic Designer
+</h3>
+
+<p>
+Creating professional graphics for branding,
+advertising and print requirements.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<span>
+WEB DESIGN
+</span>
+
+<h3>
+Web & Portfolio Designer
+</h3>
+
+<p>
+Designing responsive websites and professional
+portfolio interfaces.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<span>
+FREELANCE
+</span>
+
+<h3>
+Freelance Creative Work
+</h3>
+
+<p>
+Turning client ideas into polished and
+professional visual designs.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+LET'S TALK
+</div>
+
+<h2 class="section-title">
+Contact <span>Me</span>
+</h2>
+
+<p class="section-desc">
+Have a project in mind? Contact me today.
+</p>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+
+<div class="contact-row">
+
+<div class="contact-icon">
+<i class="fa-solid fa-phone"></i>
+</div>
+
+<div>
+
+<strong>
+Phone / WhatsApp
+</strong>
+
+<span>
+<a href="tel:+923209306672">
+0320-9306672
+</a>
+</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-row">
+
+<div class="contact-icon">
+<i class="fa-solid fa-envelope"></i>
+</div>
+
+<div>
+
+<strong>
+Email
+</strong>
+
+<span>
+
+<a href="mailto:m.ibrahimsajid830@gmail.com">
+m.ibrahimsajid830@gmail.com
+</a>
+
+</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-row">
+
+<div class="contact-icon">
+<i class="fa-solid fa-location-dot"></i>
+</div>
+
+<div>
+
+<strong>
+Location
+</strong>
+
+<span>
+Pakistan
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="contact-card">
+
+<form onsubmit="sendWhatsApp(event)">
+
+<input
+class="field"
+id="name"
+type="text"
+placeholder="Your Name"
+required>
+
+
+<input
+class="field"
+id="number"
+type="text"
+placeholder="Your Phone / WhatsApp"
+required>
+
+
+<textarea
+class="field"
+id="msg"
+placeholder="Tell me about your project..."
+required></textarea>
+
+
+<button
+class="btn btn-primary"
+type="submit">
+
+SEND ON WHATSAPP
+<i class="fa-brands fa-whatsapp"
+style="margin-left:8px"></i>
+
+</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- ================= OTHER PAGES ================= -->
+
+<div id="about" class="page" style="display:none;">
+<section style="padding-top:140px;">
+<div class="container">
+
+<div class="section-label">ABOUT ME</div>
+
+<h2 class="section-title">
+Passionate <span>Designer</span>
+</h2>
+
+<p class="section-desc">
+I’m Muhammad Ibrahim, a Graphic Designer and Web Designer
+focused on clean, modern and professional visual experiences.
+</p>
+
+<div class="about-box">
+
+<div>
+<h3>Creative Designer</h3>
+
+<p>
+I create professional graphic designs, websites,
+branding materials, advertisements and print designs
+for businesses and individuals.
+</p>
+
+<a class="btn btn-primary"
+onclick="showPage('contact')">
+LET'S WORK TOGETHER
+</a>
+
 </div>
 
 <div class="stats">
-<div class="stat"><strong>2+</strong><small>Years Experience</small></div>
-<div class="stat"><strong>50+</strong><small>Projects Completed</small></div>
-<div class="stat"><strong>100%</strong><small>Client Satisfaction</small></div>
-<div class="stat"><strong>30+</strong><small>Happy Clients</small></div>
+
+<div class="stat">
+<strong>2+</strong>
+<small>Years Experience</small>
 </div>
+
+<div class="stat">
+<strong>50+</strong>
+<small>Projects</small>
 </div>
+
+<div class="stat">
+<strong>100%</strong>
+<small>Satisfaction</small>
+</div>
+
+<div class="stat">
+<strong>30+</strong>
+<small>Clients</small>
+</div>
+
+</div>
+
+</div>
+
 </div>
 </section>
+</div>
 
-<!-- SERVICES SECTION -->
-<section id="services">
+
+<div id="services" class="page" style="display:none;">
+<section style="padding-top:140px;">
 <div class="container">
+
 <div class="section-label">WHAT I DO</div>
-<h2 class="section-title">My Services</h2>
-<p class="section-desc">Professional creative solutions for businesses, brands and individuals.</p>
+
+<h2 class="section-title">
+My <span>Services</span>
+</h2>
+
+<p class="section-desc">
+Professional creative solutions for businesses,
+brands and individuals.
+</p>
 
 <div class="cards">
+
 <div class="card">
-<div class="icon">✦</div>
+<div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
 <h3>Graphic Design</h3>
-<p>Posters, flyers, advertisements, social media posts and creative visual designs.</p>
+<p>Professional posters, flyers, advertisements and social media designs.</p>
 </div>
+
 <div class="card">
-<div class="icon">◈</div>
+<div class="icon"><i class="fa-solid fa-code"></i></div>
 <h3>Web Design</h3>
-<p>Modern responsive websites, landing pages and portfolio websites.</p>
+<p>Modern responsive websites and professional portfolio websites.</p>
 </div>
+
 <div class="card">
-<div class="icon">◎</div>
+<div class="icon"><i class="fa-solid fa-crown"></i></div>
 <h3>Branding</h3>
-<p>Logo design, business cards, brand graphics and complete visual identity.</p>
+<p>Logo design, business cards and complete visual identity.</p>
 </div>
+
 <div class="card">
-<div class="icon">▣</div>
+<div class="icon"><i class="fa-solid fa-print"></i></div>
 <h3>Print Design</h3>
-<p>Banners, brochures, packaging, T-shirts, mugs and print-ready designs.</p>
+<p>Banners, brochures, packaging, T-shirts and mugs.</p>
 </div>
+
 <div class="card">
-<div class="icon">◆</div>
+<div class="icon"><i class="fa-solid fa-share-nodes"></i></div>
 <h3>Social Media</h3>
-<p>Professional designs for Facebook, Instagram, TikTok and WhatsApp.</p>
+<p>Creative designs for Facebook, Instagram, TikTok and WhatsApp.</p>
 </div>
+
 <div class="card">
-<div class="icon">↗</div>
+<div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
 <h3>Creative Solutions</h3>
-<p>Custom creative concepts based on your business and project requirements.</p>
+<p>Custom creative concepts for your business requirements.</p>
 </div>
+
 </div>
+
 </div>
 </section>
+</div>
 
-<!-- PROJECTS SECTION -->
-<section id="projects">
+
+<div id="projects" class="page" style="display:none;">
+<section style="padding-top:140px;">
 <div class="container">
-<div class="section-header-flex">
-<div>
+
 <div class="section-label">MY WORK</div>
-<h2 class="section-title">Featured Projects</h2>
-<p class="section-desc">Some examples of my design and creative work.</p>
-</div>
-<a class="view-all-link" onclick="switchPage('projects')">
-<span>View All Projects</span> <i class="fa-solid fa-arrow-right"></i>
-</a>
-</div>
+
+<h2 class="section-title">
+All <span>Projects</span>
+</h2>
+
+<p class="section-desc">
+Explore my creative graphic and web design work.
+</p>
 
 <div class="cards projects">
+
 <div class="card">
-<div class="project-img-wrap"><img src="project-1.png" alt="SEO Guest Post Banner"></div>
+<div class="project-image-wrap">
+<img class="project-img" src="project-1.png">
+</div>
 <div class="project-content">
 <h3>SEO Guest Post Banner</h3>
-<p>High quality digital marketing poster layout for DA 50+ SEO services.</p>
-<small>Graphic Design • Banner Advertising</small>
+<p>Professional digital marketing promotional design.</p>
+<small>Graphic Design</small>
 </div>
 </div>
 
 <div class="card">
-<div class="project-img-wrap"><img src="project-2.png" alt="Digital Marketing Poster"></div>
+<div class="project-image-wrap">
+<img class="project-img" src="project-2.png">
+</div>
 <div class="project-content">
 <h3>Digital Marketing Poster</h3>
-<p>Clean and modern promotional creative design for online business growth.</p>
-<small>Poster Design • Marketing</small>
+<p>Modern promotional creative for online business.</p>
+<small>Poster Design</small>
 </div>
 </div>
 
 <div class="card">
-<div class="project-img-wrap"><img src="project-3.png" alt="Premium SEO Promotion"></div>
+<div class="project-image-wrap">
+<img class="project-img" src="project-3.png">
+</div>
 <div class="project-content">
 <h3>Premium SEO Promotion</h3>
-<p>Professional corporate advertisement layout for authoritative web services.</p>
-<small>Social Media • Promotion</small>
+<p>Corporate advertisement layout for web services.</p>
+<small>Social Media</small>
 </div>
 </div>
+
 </div>
+
 </div>
 </section>
+</div>
 
-<!-- EXPERIENCE SECTION -->
-<section id="experience">
+
+<div id="experience" class="page" style="display:none;">
+<section style="padding-top:140px;">
 <div class="container">
+
 <div class="section-label">MY JOURNEY</div>
-<h2 class="section-title">Experience</h2>
+
+<h2 class="section-title">
+My <span>Experience</span>
+</h2>
+
 <div class="card timeline">
+
 <div class="timeline-item">
 <span>GRAPHIC DESIGN</span>
 <h3>Creative Graphic Designer</h3>
-<p>Creating professional graphics for branding, advertising and print requirements.</p>
+<p>Creating professional graphics for branding and advertising.</p>
 </div>
+
 <div class="timeline-item">
 <span>WEB DESIGN</span>
 <h3>Web & Portfolio Designer</h3>
-<p>Designing responsive websites and professional portfolio interfaces.</p>
+<p>Designing responsive websites and portfolio interfaces.</p>
 </div>
+
 <div class="timeline-item">
 <span>FREELANCE</span>
 <h3>Freelance Creative Work</h3>
-<p>Turning client ideas into polished and professional visual designs.</p>
+<p>Turning client ideas into polished professional designs.</p>
 </div>
+
 </div>
+
 </div>
 </section>
+</div>
 
-<!-- CONTACT SECTION -->
-<section id="contact">
+
+<div id="contact" class="page" style="display:none;">
+<section style="padding-top:140px;">
 <div class="container">
+
 <div class="section-label">LET'S TALK</div>
-<h2 class="section-title">Contact Me</h2>
-<p class="section-desc">Have a project in mind? Contact me today.</p>
+
+<h2 class="section-title">
+Contact <span>Me</span>
+</h2>
+
+<p class="section-desc">
+Have a project in mind? Contact me today.
+</p>
 
 <div class="contact-grid">
+
 <div class="contact-card">
+
 <div class="contact-row">
-<div>☎️</div>
+<div class="contact-icon">
+<i class="fa-solid fa-phone"></i>
+</div>
 <div>
 <strong>Phone / WhatsApp</strong>
-<span><a href="tel:+923209306672">0320-9306672</a></span>
+<span>
+<a href="tel:+923209306672">
+0320-9306672
+</a>
+</span>
 </div>
 </div>
+
 <div class="contact-row">
-<div>✉️</div>
+<div class="contact-icon">
+<i class="fa-solid fa-envelope"></i>
+</div>
 <div>
 <strong>Email</strong>
-<span><a href="mailto:m.ibrahimsajid830@gmail.com">m.ibrahimsajid830@gmail.com</a></span>
+<span>
+<a href="mailto:m.ibrahimsajid830@gmail.com">
+m.ibrahimsajid830@gmail.com
+</a>
+</span>
 </div>
 </div>
+
 <div class="contact-row">
-<div>📍</div>
+<div class="contact-icon">
+<i class="fa-solid fa-location-dot"></i>
+</div>
 <div>
 <strong>Location</strong>
 <span>Pakistan</span>
 </div>
 </div>
+
 </div>
 
+
 <div class="contact-card">
+
 <form onsubmit="sendWhatsApp(event)">
-<input class="field" id="name" type="text" placeholder="Your Name" required>
-<input class="field" id="number" type="text" placeholder="Your Phone / WhatsApp" required>
-<textarea class="field" id="msg" placeholder="Tell me about your project..." required></textarea>
-<button class="btn blue" type="submit">SEND ON WHATSAPP →</button>
+
+<input
+class="field"
+id="name2"
+placeholder="Your Name"
+required>
+
+<input
+class="field"
+id="number2"
+placeholder="Your Phone / WhatsApp"
+required>
+
+<textarea
+class="field"
+id="msg2"
+placeholder="Tell me about your project..."
+required></textarea>
+
+<button class="btn btn-primary">
+SEND ON WHATSAPP
+</button>
+
 </form>
-</div>
-</div>
-</div>
-</section>
+
 </div>
 
-
-<!-- ================= 2. ABOUT PAGE ================= -->
-<div id="page-about" class="page-view">
-<section style="padding-top: 140px;">
-<div class="container">
-<div class="section-label">ABOUT ME</div>
-<h2 class="section-title">Passionate <span>Designer</span> & Problem Solver</h2>
-<p class="section-desc">I turn ideas into clean, modern and useful visual experiences.</p>
-
-<div class="about-box">
-<div>
-<h3>Creative Designer</h3>
-<p>
-I’m Muhammad Ibrahim, a Graphic Designer and Web Designer
-with a strong passion for creating clean, modern and
-user-friendly designs. I love turning ideas into professional
-visual experiences.
-</p>
-<a class="btn blue" onclick="switchPage('contact')">LET'S WORK TOGETHER →</a>
 </div>
 
-<div class="stats">
-<div class="stat"><strong>2+</strong><small>Years Experience</small></div>
-<div class="stat"><strong>50+</strong><small>Projects Completed</small></div>
-<div class="stat"><strong>100%</strong><small>Client Satisfaction</small></div>
-<div class="stat"><strong>30+</strong><small>Happy Clients</small></div>
-</div>
-</div>
-</div>
-</section>
-</div>
-
-
-<!-- ================= 3. SERVICES PAGE ================= -->
-<div id="page-services" class="page-view">
-<section style="padding-top: 140px;">
-<div class="container">
-<div class="section-label">WHAT I DO</div>
-<h2 class="section-title">My Services</h2>
-<p class="section-desc">Professional creative solutions for businesses, brands and individuals.</p>
-
-<div class="cards">
-<div class="card">
-<div class="icon">✦</div>
-<h3>Graphic Design</h3>
-<p>Posters, flyers, advertisements, social media posts and creative visual designs.</p>
-</div>
-<div class="card">
-<div class="icon">◈</div>
-<h3>Web Design</h3>
-<p>Modern responsive websites, landing pages and portfolio websites.</p>
-</div>
-<div class="card">
-<div class="icon">◎</div>
-<h3>Branding</h3>
-<p>Logo design, business cards, brand graphics and complete visual identity.</p>
-</div>
-<div class="card">
-<div class="icon">▣</div>
-<h3>Print Design</h3>
-<p>Banners, brochures, packaging, T-shirts, mugs and print-ready designs.</p>
-</div>
-<div class="card">
-<div class="icon">◆</div>
-<h3>Social Media</h3>
-<p>Professional designs for Facebook, Instagram, TikTok and WhatsApp.</p>
-</div>
-<div class="card">
-<div class="icon">↗</div>
-<h3>Creative Solutions</h3>
-<p>Custom creative concepts based on your business and project requirements.</p>
-</div>
-</div>
-</div>
-</section>
-</div>
-
-
-<!-- ================= 4. ALL PROJECTS PAGE ================= -->
-<div id="page-projects" class="page-view">
-<section style="padding-top: 140px;">
-<div class="container">
-<div class="section-header-flex">
-<div>
-<div class="section-label">MY WORK</div>
-<h2 class="section-title">All Projects Collection</h2>
-<p class="section-desc">Explore the complete collection of my creative graphic and web design work.</p>
-</div>
-<a class="view-all-link" onclick="switchPage('home')">
-<i class="fa-solid fa-arrow-left"></i> <span>Back to Home</span>
-</a>
-</div>
-
-<div class="cards projects">
-<div class="card">
-<div class="project-img-wrap"><img src="project-1.png" alt="SEO Guest Post Banner"></div>
-<div class="project-content">
-<h3>SEO Guest Post Banner</h3>
-<p>High quality digital marketing poster layout for DA 50+ SEO services.</p>
-<small>Graphic Design • Banner Advertising</small>
-</div>
-</div>
-
-<div class="card">
-<div class="project-img-wrap"><img src="project-2.png" alt="Digital Marketing Poster"></div>
-<div class="project-content">
-<h3>Digital Marketing Poster</h3>
-<p>Clean and modern promotional creative design for online business growth.</p>
-<small>Poster Design • Marketing</small>
-</div>
-</div>
-
-<div class="card">
-<div class="project-img-wrap"><img src="project-3.png" alt="Premium SEO Promotion"></div>
-<div class="project-content">
-<h3>Premium SEO Promotion</h3>
-<p>Professional corporate advertisement layout for authoritative web services.</p>
-<small>Social Media • Promotion</small>
-</div>
-</div>
-
-<div class="card">
-<div class="project-img-wrap"><img src="project-1.png" alt="Business Card Design"></div>
-<div class="project-content">
-<h3>Business Card & Branding</h3>
-<p>Custom creative corporate identity layout and luxury visiting cards.</p>
-<small>Branding • Print Design</small>
-</div>
-</div>
-
-<div class="card">
-<div class="project-img-wrap"><img src="project-2.png" alt="Catering Receipt Pad"></div>
-<div class="project-content">
-<h3>A4 Rental Receipt Pad</h3>
-<p>Itemized inventory receipt sheet layout for professional catering services.</p>
-<small>Print Design • Business Material</small>
-</div>
-</div>
-
-<div class="card">
-<div class="project-img-wrap"><img src="project-3.png" alt="Circular Vector Logo"></div>
-<div class="project-content">
-<h3>Metallic Circular Logo</h3>
-<p>Professional dark navy and silver gradient custom vector logotype layout.</p>
-<small>Logo Design • Vector</small>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
-
-
-<!-- ================= 5. EXPERIENCE PAGE ================= -->
-<div id="page-experience" class="page-view">
-<section style="padding-top: 140px;">
-<div class="container">
-<div class="section-label">MY JOURNEY</div>
-<h2 class="section-title">Experience</h2>
-<div class="card timeline">
-<div class="timeline-item">
-<span>GRAPHIC DESIGN</span>
-<h3>Creative Graphic Designer</h3>
-<p>Creating professional graphics for branding, advertising and print requirements.</p>
-</div>
-<div class="timeline-item">
-<span>WEB DESIGN</span>
-<h3>Web & Portfolio Designer</h3>
-<p>Designing responsive websites and professional portfolio interfaces.</p>
-</div>
-<div class="timeline-item">
-<span>FREELANCE</span>
-<h3>Freelance Creative Work</h3>
-<p>Turning client ideas into polished and professional visual designs.</p>
-</div>
-</div>
-</div>
-</section>
-</div>
-
-
-<!-- ================= 6. CONTACT PAGE ================= -->
-<div id="page-contact" class="page-view">
-<section style="padding-top: 140px;">
-<div class="container">
-<div class="section-label">LET'S TALK</div>
-<h2 class="section-title">Contact Me</h2>
-<p class="section-desc">Have a project in mind? Contact me today.</p>
-
-<div class="contact-grid">
-<div class="contact-card">
-<div class="contact-row">
-<div>☎️</div>
-<div>
-<strong>Phone / WhatsApp</strong>
-<span><a href="tel:+923209306672">0320-9306672</a></span>
-</div>
-</div>
-<div class="contact-row">
-<div>✉️</div>
-<div>
-<strong>Email</strong>
-<span><a href="mailto:m.ibrahimsajid830@gmail.com">m.ibrahimsajid830@gmail.com</a></span>
-</div>
-</div>
-<div class="contact-row">
-<div>📍</div>
-<div>
-<strong>Location</strong>
-<span>Pakistan</span>
-</div>
-</div>
-</div>
-
-<div class="contact-card">
-<form onsubmit="sendWhatsApp(event)">
-<input class="field" id="name" type="text" placeholder="Your Name" required>
-<input class="field" id="number" type="text" placeholder="Your Phone / WhatsApp" required>
-<textarea class="field" id="msg" placeholder="Tell me about your project..." required></textarea>
-<button class="btn blue" type="submit">SEND ON WHATSAPP →</button>
-</form>
-</div>
-</div>
 </div>
 </section>
 </div>
 
 
 <!-- ================= FOOTER ================= -->
+
 <footer>
+
 <div class="container footer">
-<div>© 2026 M U H A M M A D I B R A H I M. All Rights Reserved.</div>
-<div>Graphic & Web Designer</div>
+
+<div>
+© 2026 <strong>MUHAMMAD IBRAHIM</strong>.
+All Rights Reserved.
 </div>
+
+<div>
+Graphic & Web Designer • Hy Business
+</div>
+
+</div>
+
 </footer>
 
-<!-- ================= JAVASCRIPT ================= -->
+
 <script>
-function switchPage(pageId) {
-    document.querySelectorAll('.page-view').forEach(page => {
-        page.classList.remove('active-page');
+
+/* =========================
+   PAGE SWITCH
+========================= */
+
+function showPage(page){
+
+    document.querySelectorAll(".page").forEach(function(p){
+        p.style.display="none";
     });
 
-    const target = document.getElementById('page-' + pageId);
-    if(target) {
-        target.classList.add('active-page');
+    const target=document.getElementById(page);
+
+    if(target){
+        target.style.display="block";
     }
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
+    document.querySelectorAll(".nav-links a").forEach(function(a){
+        a.classList.remove("active");
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        if(link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
-            link.classList.add('active');
+    document.querySelectorAll(".nav-links a").forEach(function(a){
+
+        if(
+            a.getAttribute("onclick") &&
+            a.getAttribute("onclick").includes("'" + page + "'")
+        ){
+            a.classList.add("active");
         }
+
     });
 
-    document.querySelector('.nav-links').classList.remove('open');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelector(".nav-links").classList.remove("open");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
+
+
+function goHome(){
+    showPage("home");
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu(){
+
+    document
+    .querySelector(".nav-links")
+    .classList
+    .toggle("open");
+
+}
+
+
+/* =========================
+   DARK / LIGHT
+========================= */
+
+function toggleTheme(){
+
+    const body=document.body;
+
+    const icon=document.getElementById("themeIcon");
+
+    if(body.getAttribute("data-theme")==="dark"){
+
+        body.setAttribute("data-theme","light");
+
+        icon.className="fa-solid fa-sun";
+
+        localStorage.setItem("theme","light");
+
+    }else{
+
+        body.setAttribute("data-theme","dark");
+
+        icon.className="fa-solid fa-moon";
+
+        localStorage.setItem("theme","dark");
+
+    }
+
+}
+
+
+/* SAVE THEME */
+
+const savedTheme=localStorage.getItem("theme");
+
+if(savedTheme==="light"){
+
+    document.body.setAttribute(
+        "data-theme",
+        "light"
+    );
+
+    document.getElementById("themeIcon").className=
+        "fa-solid fa-sun";
+}
+
+
+/* =========================
+   WHATSAPP FORM
+========================= */
 
 function sendWhatsApp(event){
+
     event.preventDefault();
-    const name = document.getElementById("name").value;
-    const number = document.getElementById("number").value;
-    const message = document.getElementById("msg").value;
-    const text = `Assalam o Alaikum Muhammad Ibrahim,\n\nName: ${name}\n\nPhone: ${number}\n\nProject:\n${message}`;
-    window.open("https://wa.me/923209306672?text=" + encodeURIComponent(text), "_blank");
+
+    let name=
+        document.getElementById("name")?.value ||
+        document.getElementById("name2")?.value;
+
+    let number=
+        document.getElementById("number")?.value ||
+        document.getElementById("number2")?.value;
+
+    let message=
+        document.getElementById("msg")?.value ||
+        document.getElementById("msg2")?.value;
+
+    const text=
+`Assalam o Alaikum Muhammad Ibrahim,
+
+Name: ${name}
+
+Phone: ${number}
+
+Project:
+${message}`;
+
+    const url=
+        "https://wa.me/923209306672?text="+
+        encodeURIComponent(text);
+
+    window.open(url,"_blank");
+
 }
 
-function toggleTheme() {
-    const body = document.body;
-    const themeIcon = document.getElementById('themeIcon');
-    
-    if (body.getAttribute('data-theme') === 'dark') {
-        body.setAttribute('data-theme', 'light');
-        themeIcon.className = 'fa-solid fa-sun';
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        themeIcon.className = 'fa-solid fa-moon';
-    }
-}
 </script>
 
 </body>
