@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MUHAMMAD IBRAHIM | Graphic & Web Designer</title>
-<!-- Google Fonts: Poppins for professional modern look -->
+<!-- Google Fonts: Poppins -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<!-- Font Awesome Icons for Theme Toggle & Phone -->
+<!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -28,13 +28,13 @@ html{
     --ice: #00b4d8;        
     --lightblue: #48cae4;
     --muted: #94a3b8;
-    --line: rgba(255,255,255,.12);
+    --line: rgba(255,255,255,.15);
     --nav-bg: rgba(6,9,19,.92);
-    --card-bg: rgba(13,20,38,.85);
-    --about-grad: linear-gradient(110deg, rgba(25,18,35,.85), rgba(10,22,38,.6));
-    --stat-bg: rgba(255,255,255,.025);
+    --card-bg: rgba(13,20,38,0.85);
+    --about-grad: linear-gradient(110deg, rgba(25,18,35,0.88), rgba(10,22,38,0.85));
+    --stat-bg: rgba(255,255,255,.04);
     --freelance-bg: rgba(6,9,19,.96);
-    --field-bg: #0b1120;
+    --field-bg: rgba(11,17,32,0.9);
 }
 
 [data-theme="light"] {
@@ -44,21 +44,32 @@ html{
     --ice: #0284c7;
     --lightblue: #0369a1;
     --muted: #64748b;
-    --line: rgba(0,0,0,.12);
+    --line: rgba(0,0,0,.15);
     --nav-bg: rgba(255,255,255,.92);
     --card-bg: rgba(255,255,255,0.9);
-    --about-grad: linear-gradient(110deg, rgba(255,237,213,0.6), rgba(224,242,254,0.6));
-    --stat-bg: rgba(0,0,0,0.025);
+    --about-grad: linear-gradient(110deg, rgba(255,237,213,0.8), rgba(224,242,254,0.8));
+    --stat-bg: rgba(0,0,0,0.03);
     --freelance-bg: rgba(255,255,255,0.96);
     --field-bg: #ffffff;
 }
 
 body{
     font-family:'Poppins', sans-serif;
-    background: var(--bg-color);
+    /* Yahan poori website ke background mein Fire & Ice texture image set ki hai */
+    background: 
+        linear-gradient(rgba(6, 9, 19, 0.88), rgba(6, 9, 19, 0.92)),
+        url('image_b2241d.png') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-color);
     overflow-x:hidden;
     transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] body {
+    background: 
+        linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.95)),
+        url('image_b2241d.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 a{
@@ -210,7 +221,7 @@ a{
     display: block;
 }
 
-/* ================= HERO (WITH FIRE & ICE BG IMAGE) ================= */
+/* ================= HERO SECTION ================= */
 
 .hero{
     min-height:100vh;
@@ -220,10 +231,6 @@ a{
     align-items:center;
     position:relative;
     overflow:hidden;
-    /* Yahan pehli wali background image ko overlay ke sath set kiya hai */
-    background: 
-        linear-gradient(rgba(6, 9, 19, 0.82), rgba(6, 9, 19, 0.90)),
-        url('image_b1bb42.png') no-repeat center center/cover;
 }
 
 .hero-grid{
@@ -367,7 +374,7 @@ h1 span{
     border-radius:50%;
     border:3px solid var(--fire);
     background: radial-gradient(circle, rgba(255,122,0,.2), rgba(0,180,216,.2) 70%);
-    box-shadow: 0 0 50px rgba(255,122,0,.2), inset 0 0 30px rgba(0,180,216,.15);
+    box-shadow: 0 0 50px rgba(255,122,0,.25), inset 0 0 30px rgba(0,180,216,.2);
     padding: 12px;
     margin: 0 auto;
 }
@@ -493,6 +500,7 @@ section{
     border:1px solid var(--line);
     border-radius:20px;
     background: var(--about-grad);
+    backdrop-filter: blur(10px);
 }
 
 .about-box h3{
@@ -546,13 +554,14 @@ section{
     border:1px solid var(--line);
     border-radius:18px;
     background: var(--card-bg);
+    backdrop-filter: blur(10px);
     transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-7px);
     border-color:rgba(0,180,216,.5);
-    box-shadow: 0 10px 30px rgba(0,180,216,.1);
+    box-shadow: 0 10px 30px rgba(0,180,216,.15);
 }
 
 .icon{
@@ -667,6 +676,7 @@ section{
     border:1px solid var(--line);
     border-radius:18px;
     background: var(--card-bg);
+    backdrop-filter: blur(10px);
 }
 
 .contact-row{
@@ -722,6 +732,8 @@ footer{
     border-top:1px solid var(--line);
     color:var(--muted);
     font-size: 14px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
 }
 
 .footer{
