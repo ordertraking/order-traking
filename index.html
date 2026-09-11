@@ -18,7 +18,7 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top: 100px; /* Fixes section header overlapping behind fixed navbar */
+    scroll-padding-top: 100px;
 }
 
 :root {
@@ -96,6 +96,7 @@ a{
     display:flex;
     align-items:center;
     gap:15px;
+    cursor: pointer;
 }
 
 .brand-logo{
@@ -134,6 +135,7 @@ a{
     padding:38px 0;
     position:relative;
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .nav-links a:hover,
@@ -193,28 +195,29 @@ a{
     cursor: pointer;
 }
 
+/* ================= PAGE VIEWS MANAGEMENT ================= */
+.page-view {
+    display: none;
+    padding-top: 130px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+.page-view.active-page {
+    display: block;
+}
+
 /* ================= HERO ================= */
 
 .hero{
-    min-height:100vh;
-    padding-top:130px;
-    padding-bottom:60px;
+    min-height:calc(100vh - 96px);
     display:flex;
     align-items:center;
     position:relative;
     overflow:hidden;
-
     background:
-    radial-gradient(
-        circle at 80% 45%,
-        rgba(0,105,255,.20),
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 10% 85%,
-        rgba(0,120,255,.08),
-        transparent 30%
-    );
+    radial-gradient(circle at 80% 45%, rgba(0,105,255,.20), transparent 30%),
+    radial-gradient(circle at 10% 85%, rgba(0,120,255,.08), transparent 30%);
 }
 
 .hero-grid{
@@ -289,6 +292,7 @@ h1 span{
     transition:.3s;
     font-size: 14px;
     text-align: center;
+    cursor: pointer;
 }
 
 .btn:hover{
@@ -412,10 +416,28 @@ h1 span{
     box-shadow: 0 0 8px #1fe38a;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTION HEADINGS ================= */
 
-section{
-    padding:90px 0;
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.view-all-link:hover {
+    gap: 12px;
 }
 
 .section-label{
@@ -707,7 +729,6 @@ footer{
     .nav-links.open a{ padding:12px 0; }
     .nav-links.open a.active:after{ display:none; }
     .hero-grid{ grid-template-columns:1fr; text-align: center; }
-    .hero{ padding-top: 130px; }
     .hello:after{ display: none; }
     .hero-text{ margin-left: auto; margin-right: auto; }
     .actions, .social{ justify-content: center; }
@@ -716,6 +737,7 @@ footer{
     .contact-grid{ grid-template-columns:1fr; }
     .cards{ grid-template-columns:1fr 1fr; }
     .stats{ grid-template-columns:repeat(2,1fr); }
+    .section-header-flex { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 
 @media(max-width:650px){
@@ -729,7 +751,6 @@ footer{
     h1{ font-size:38px; }
     .title{ font-size:16px; }
     .hero-text{ font-size:14px; }
-    section{ padding:65px 0; }
     .section-title{ font-size:28px; }
     .profile-ring{ width:280px; height:280px; padding: 10px; }
     .freelance{ padding:8px 15px; font-size:11px; bottom: 5px; }
@@ -745,21 +766,21 @@ footer{
 <!-- ================= NAVBAR ================= -->
 <nav class="nav">
 <div class="container nav-inner">
-<a href="#home" class="brand">
+<div class="brand" onclick="switchPage('home')">
 <div class="brand-logo">Hy</div>
 <div class="brand-name">
 <strong>Hy<span> Business </span></strong>
 <small>GRAPHIC & WEB DESIGNER</small>
 </div>
-</a>
+</div>
 
 <div class="nav-links">
-<a class="active" href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#contact">Contact</a>
+<a class="active" onclick="switchPage('home')">Home</a>
+<a onclick="switchPage('about')">About</a>
+<a onclick="switchPage('services')">Services</a>
+<a onclick="switchPage('projects')">Projects</a>
+<a onclick="switchPage('experience')">Experience</a>
+<a onclick="switchPage('contact')">Contact</a>
 </div>
 
 <div class="nav-right-actions">
@@ -772,7 +793,9 @@ footer{
 </div>
 </nav>
 
-<!-- ================= HOME ================= -->
+
+<!-- ================= 1. HOME PAGE VIEW ================= -->
+<div id="page-home" class="page-view active-page">
 <section class="hero" id="home">
 <div class="container hero-grid">
 <div>
@@ -785,8 +808,8 @@ I create modern, unique and professional designs
 that help brands grow and stand out from the competition.
 </p>
 <div class="actions">
-<a class="btn gold" href="#projects">ENTER PORTFOLIO →</a>
-<a class="btn blue" href="#contact">CONTACT ME</a>
+<a class="btn gold" onclick="switchPage('projects')">ENTER PORTFOLIO →</a>
+<a class="btn blue" onclick="switchPage('contact')">CONTACT ME</a>
 </div>
 <div class="social">
 <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -796,7 +819,6 @@ that help brands grow and stand out from the competition.
 </div>
 </div>
 
-<!-- ================= PHOTO ================= -->
 <div class="profile-wrap">
 <div class="profile-ring">
 <img class="profile" src="profile.png" alt="Muhammad Ibrahim">
@@ -809,9 +831,11 @@ that help brands grow and stand out from the competition.
 </div>
 </div>
 </section>
+</div>
 
-<!-- ================= ABOUT ================= -->
-<section id="about">
+
+<!-- ================= 2. ABOUT PAGE VIEW ================= -->
+<div id="page-about" class="page-view">
 <div class="container">
 <div class="section-label">ABOUT ME</div>
 <h2 class="section-title">Passionate <span>Designer</span> & Problem Solver</h2>
@@ -826,7 +850,7 @@ with a strong passion for creating clean, modern and
 user-friendly designs. I love turning ideas into professional
 visual experiences.
 </p>
-<a class="btn blue" href="#contact">LET'S WORK TOGETHER →</a>
+<a class="btn blue" onclick="switchPage('contact')">LET'S WORK TOGETHER →</a>
 </div>
 
 <div class="stats">
@@ -837,10 +861,11 @@ visual experiences.
 </div>
 </div>
 </div>
-</section>
+</div>
 
-<!-- ================= SERVICES ================= -->
-<section id="services">
+
+<!-- ================= 3. SERVICES PAGE VIEW ================= -->
+<div id="page-services" class="page-view">
 <div class="container">
 <div class="section-label">WHAT I DO</div>
 <h2 class="section-title">My Services</h2>
@@ -879,54 +904,86 @@ visual experiences.
 </div>
 </div>
 </div>
-</section>
-
-<!-- ================= PROJECTS ================= -->
-<section id="projects">
-<div class="container">
-<div class="section-label">MY WORK</div>
-<h2 class="section-title">Featured Projects</h2>
-<p class="section-desc">Some examples of my design and creative work.</p>
-
-<div class="cards projects">
-<div class="card">
-<div class="project-img-wrap">
-<img src="project-1.png" alt="SEO Guest Post Banner">
 </div>
+
+
+<!-- ================= 4. PROJECTS PAGE VIEW (Featured & All Projects) ================= -->
+<div id="page-projects" class="page-view">
+<div class="container">
+<div class="section-header-flex">
+<div>
+<div class="section-label">MY WORK</div>
+<h2 class="section-title" id="projects-title">Featured Projects</h2>
+<p class="section-desc" id="projects-desc">Some examples of my design and creative work.</p>
+</div>
+<a class="view-all-link" id="viewAllBtn" onclick="toggleAllProjects()">
+<span id="viewAllText">View All Projects</span> <i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+
+<!-- Projects Container (Will show 3 or All based on state) -->
+<div class="cards projects" id="projectsGrid">
+<!-- Project 1 -->
+<div class="card">
+<div class="project-img-wrap"><img src="project-1.png" alt="SEO Guest Post Banner"></div>
 <div class="project-content">
 <h3>SEO Guest Post Banner</h3>
 <p>High quality digital marketing poster layout for DA 50+ SEO services.</p>
 <small>Graphic Design • Banner Advertising</small>
 </div>
 </div>
-
+<!-- Project 2 -->
 <div class="card">
-<div class="project-img-wrap">
-<img src="project-2.png" alt="Digital Marketing Poster">
-</div>
+<div class="project-img-wrap"><img src="project-2.png" alt="Digital Marketing Poster"></div>
 <div class="project-content">
 <h3>Digital Marketing Poster</h3>
 <p>Clean and modern promotional creative design for online business growth.</p>
 <small>Poster Design • Marketing</small>
 </div>
 </div>
-
+<!-- Project 3 -->
 <div class="card">
-<div class="project-img-wrap">
-<img src="project-3.png" alt="Premium SEO Promotion">
-</div>
+<div class="project-img-wrap"><img src="project-3.png" alt="Premium SEO Promotion"></div>
 <div class="project-content">
 <h3>Premium SEO Promotion</h3>
 <p>Professional corporate advertisement layout for authoritative web services.</p>
 <small>Social Media • Promotion</small>
 </div>
 </div>
+<!-- Project 4 (Extra for All Projects View) -->
+<div class="card extra-project" style="display:none;">
+<div class="project-img-wrap"><img src="project-1.png" alt="Business Card Design"></div>
+<div class="project-content">
+<h3>Business Card & Branding</h3>
+<p>Custom creative corporate identity layout and luxury visiting cards.</p>
+<small>Branding • Print Design</small>
 </div>
 </div>
-</section>
+<!-- Project 5 (Extra for All Projects View) -->
+<div class="card extra-project" style="display:none;">
+<div class="project-img-wrap"><img src="project-2.png" alt="Catering Receipt Pad"></div>
+<div class="project-content">
+<h3>A4 Rental Receipt Pad</h3>
+<p>Itemized inventory receipt sheet layout for professional catering services.</p>
+<small>Print Design • Business Material</small>
+</div>
+</div>
+<!-- Project 6 (Extra for All Projects View) -->
+<div class="card extra-project" style="display:none;">
+<div class="project-img-wrap"><img src="project-3.png" alt="Circular Vector Logo"></div>
+<div class="project-content">
+<h3>Metallic Circular Logo</h3>
+<p>Professional dark navy and silver gradient custom vector logotype layout.</p>
+<small>Logo Design • Vector</small>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-<!-- ================= EXPERIENCE ================= -->
-<section id="experience">
+
+<!-- ================= 5. EXPERIENCE PAGE VIEW ================= -->
+<div id="page-experience" class="page-view">
 <div class="container">
 <div class="section-label">MY JOURNEY</div>
 <h2 class="section-title">Experience</h2>
@@ -948,10 +1005,11 @@ visual experiences.
 </div>
 </div>
 </div>
-</section>
+</div>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact">
+
+<!-- ================= 6. CONTACT PAGE VIEW ================= -->
+<div id="page-contact" class="page-view">
 <div class="container">
 <div class="section-label">LET'S TALK</div>
 <h2 class="section-title">Contact Me</h2>
@@ -992,7 +1050,8 @@ visual experiences.
 </div>
 </div>
 </div>
-</section>
+</div>
+
 
 <!-- ================= FOOTER ================= -->
 <footer>
@@ -1004,6 +1063,62 @@ visual experiences.
 
 <!-- ================= JAVASCRIPT ================= -->
 <script>
+// Page Switcher Function
+function switchPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll('.page-view').forEach(page => {
+        page.classList.remove('active-page');
+    });
+
+    // Show target page
+    const target = document.getElementById('page-' + pageId);
+    if(target) {
+        target.classList.add('active-page');
+    }
+
+    // Update Navbar active links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Match clicked link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        if(link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
+            link.classList.add('active');
+        }
+    });
+
+    // Close mobile nav if open
+    document.querySelector('.nav-links').classList.remove('open');
+    
+    // Scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Toggle View All Projects Feature
+let showingAllProjects = false;
+function toggleAllProjects() {
+    showingAllProjects = !showingAllProjects;
+    const extraCards = document.querySelectorAll('.extra-project');
+    const viewAllText = document.getElementById('viewAllText');
+    const projectsTitle = document.getElementById('projects-title');
+    const projectsDesc = document.getElementById('projects-desc');
+
+    if(showingAllProjects) {
+        extraCards.forEach(card => card.style.display = 'block');
+        viewAllText.innerText = 'Show Less';
+        projectsTitle.innerText = 'All Projects Collection';
+        projectsDesc.innerText = 'Explore the complete collection of my creative graphic and web design work.';
+    } else {
+        extraCards.forEach(card => card.style.display = 'none');
+        viewAllText.innerText = 'View All Projects';
+        projectsTitle.innerText = 'Featured Projects';
+        projectsDesc.innerText = 'Some examples of my design and creative work.';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+// WhatsApp Form Handler
 function sendWhatsApp(event){
     event.preventDefault();
     const name = document.getElementById("name").value;
@@ -1012,34 +1127,6 @@ function sendWhatsApp(event){
     const text = `Assalam o Alaikum Muhammad Ibrahim,\n\nName: ${name}\n\nPhone: ${number}\n\nProject:\n${message}`;
     window.open("https://wa.me/923209306672?text=" + encodeURIComponent(text), "_blank");
 }
-
-document.querySelectorAll(".nav-links a").forEach(function(link){
-    link.addEventListener("click", function(){
-        document.querySelector(".nav-links").classList.remove("open");
-    });
-});
-
-// Scrollspy to automatically update active navbar link and golden line underline
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-    });
-});
 
 // Dark and Light Mode Toggle Function
 function toggleTheme() {
