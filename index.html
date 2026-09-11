@@ -582,7 +582,7 @@ h1 span{
 }
 
 
-/* BUTTONS */
+/* BUTTONS (FIXED HIGH CONTRAST) */
 
 .actions{
 
@@ -628,33 +628,45 @@ h1 span{
 
 .btn.green{
 
-    color:#04120b;
+    color:#020b06;
 
     background:linear-gradient(
         135deg,
-        #00e676,
+        #00ff80,
         #b7ff00
     );
 
     box-shadow:
-        0 10px 28px rgba(0,230,118,.22);
+        0 10px 25px rgba(0,255,128,0.3);
+
+    border:none;
 }
 
 
-/* OUTLINE */
+/* OUTLINE BUTTON */
 
 .btn.outline{
 
     color:var(--cyan);
 
-    border:1px solid var(--cyan);
+    border:2px solid var(--cyan);
 
-    background:rgba(0,217,255,.03);
+    background:rgba(2, 12, 20, 0.85);
+
+    backdrop-filter:blur(10px);
 }
 
 .btn.outline:hover{
 
-    background:rgba(0,217,255,.1);
+    background:rgba(0,217,255,0.2);
+
+    color:#ffffff;
+}
+
+[data-theme="light"] .btn.outline {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #0088cc;
+    color: #006699;
 }
 
 
