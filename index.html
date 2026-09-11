@@ -22,11 +22,9 @@ html{
 }
 
 :root {
-    --bg-color: #060913;
     --text-color: #fff;
     --fire: #ff7a00;       
     --ice: #00b4d8;        
-    --lightblue: #48cae4;
     --muted: #94a3b8;
     --line: rgba(255,255,255,.15);
     --nav-bg: rgba(6,9,19,.92);
@@ -38,11 +36,9 @@ html{
 }
 
 [data-theme="light"] {
-    --bg-color: #f8fafc;
     --text-color: #0f172a;
     --fire: #ea580c;
     --ice: #0284c7;
-    --lightblue: #0369a1;
     --muted: #64748b;
     --line: rgba(0,0,0,.15);
     --nav-bg: rgba(255,255,255,.92);
@@ -55,10 +51,10 @@ html{
 
 body{
     font-family:'Poppins', sans-serif;
-    /* Yahan poori website ke background mein Fire & Ice texture image set ki hai */
+    /* Yahan image ka naam exact woh likha hai jo aapki fire & ice texture wali image ka hai */
     background: 
-        linear-gradient(rgba(6, 9, 19, 0.88), rgba(6, 9, 19, 0.92)),
-        url('image_b2241d.png') no-repeat center center fixed;
+        linear-gradient(rgba(6, 9, 19, 0.82), rgba(6, 9, 19, 0.88)),
+        url('image_b22f25.png') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-color);
     overflow-x:hidden;
@@ -67,8 +63,8 @@ body{
 
 [data-theme="light"] body {
     background: 
-        linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.95)),
-        url('image_b2241d.png') no-repeat center center fixed;
+        linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.92)),
+        url('image_b22f25.png') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -212,7 +208,7 @@ a{
     cursor: pointer;
 }
 
-/* ================= PAGE VIEWS MANAGEMENT ================= */
+/* ================= PAGE VIEWS ================= */
 .page-view {
     display: none;
 }
@@ -743,7 +739,7 @@ footer{
     flex-wrap:wrap;
 }
 
-/* ================= RESPONSIVE FIXES ================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:950px){
     .nav-links, .phone{ display:none; }
