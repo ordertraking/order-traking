@@ -198,9 +198,6 @@ a{
 /* ================= PAGE VIEWS MANAGEMENT ================= */
 .page-view {
     display: none;
-    padding-top: 130px;
-    padding-bottom: 60px;
-    min-height: 100vh;
 }
 
 .page-view.active-page {
@@ -210,7 +207,9 @@ a{
 /* ================= HERO ================= */
 
 .hero{
-    min-height:calc(100vh - 96px);
+    min-height:100vh;
+    padding-top:130px;
+    padding-bottom:60px;
     display:flex;
     align-items:center;
     position:relative;
@@ -416,7 +415,11 @@ h1 span{
     box-shadow: 0 0 8px #1fe38a;
 }
 
-/* ================= SECTION HEADINGS ================= */
+/* ================= SECTIONS ================= */
+
+section{
+    padding:90px 0;
+}
 
 .section-header-flex {
     display: flex;
@@ -751,6 +754,7 @@ footer{
     h1{ font-size:38px; }
     .title{ font-size:16px; }
     .hero-text{ font-size:14px; }
+    section{ padding:65px 0; }
     .section-title{ font-size:28px; }
     .profile-ring{ width:280px; height:280px; padding: 10px; }
     .freelance{ padding:8px 15px; font-size:11px; bottom: 5px; }
@@ -794,8 +798,9 @@ footer{
 </nav>
 
 
-<!-- ================= 1. HOME PAGE VIEW ================= -->
+<!-- ================= 1. HOME PAGE VIEW (Complete Full Sections) ================= -->
 <div id="page-home" class="page-view active-page">
+<!-- HERO SECTION -->
 <section class="hero" id="home">
 <div class="container hero-grid">
 <div>
@@ -831,11 +836,9 @@ that help brands grow and stand out from the competition.
 </div>
 </div>
 </section>
-</div>
 
-
-<!-- ================= 2. ABOUT PAGE VIEW ================= -->
-<div id="page-about" class="page-view">
+<!-- ABOUT SECTION -->
+<section id="about">
 <div class="container">
 <div class="section-label">ABOUT ME</div>
 <h2 class="section-title">Passionate <span>Designer</span> & Problem Solver</h2>
@@ -861,11 +864,10 @@ visual experiences.
 </div>
 </div>
 </div>
-</div>
+</section>
 
-
-<!-- ================= 3. SERVICES PAGE VIEW ================= -->
-<div id="page-services" class="page-view">
+<!-- SERVICES SECTION -->
+<section id="services">
 <div class="container">
 <div class="section-label">WHAT I DO</div>
 <h2 class="section-title">My Services</h2>
@@ -904,26 +906,23 @@ visual experiences.
 </div>
 </div>
 </div>
-</div>
+</section>
 
-
-<!-- ================= 4. PROJECTS PAGE VIEW (Featured & All Projects) ================= -->
-<div id="page-projects" class="page-view">
+<!-- PROJECTS SECTION -->
+<section id="projects">
 <div class="container">
 <div class="section-header-flex">
 <div>
 <div class="section-label">MY WORK</div>
-<h2 class="section-title" id="projects-title">Featured Projects</h2>
-<p class="section-desc" id="projects-desc">Some examples of my design and creative work.</p>
+<h2 class="section-title">Featured Projects</h2>
+<p class="section-desc">Some examples of my design and creative work.</p>
 </div>
-<a class="view-all-link" id="viewAllBtn" onclick="toggleAllProjects()">
-<span id="viewAllText">View All Projects</span> <i class="fa-solid fa-arrow-right"></i>
+<a class="view-all-link" onclick="switchPage('projects')">
+<span>View All Projects</span> <i class="fa-solid fa-arrow-right"></i>
 </a>
 </div>
 
-<!-- Projects Container (Will show 3 or All based on state) -->
-<div class="cards projects" id="projectsGrid">
-<!-- Project 1 -->
+<div class="cards projects">
 <div class="card">
 <div class="project-img-wrap"><img src="project-1.png" alt="SEO Guest Post Banner"></div>
 <div class="project-content">
@@ -932,7 +931,7 @@ visual experiences.
 <small>Graphic Design • Banner Advertising</small>
 </div>
 </div>
-<!-- Project 2 -->
+
 <div class="card">
 <div class="project-img-wrap"><img src="project-2.png" alt="Digital Marketing Poster"></div>
 <div class="project-content">
@@ -941,7 +940,7 @@ visual experiences.
 <small>Poster Design • Marketing</small>
 </div>
 </div>
-<!-- Project 3 -->
+
 <div class="card">
 <div class="project-img-wrap"><img src="project-3.png" alt="Premium SEO Promotion"></div>
 <div class="project-content">
@@ -950,40 +949,12 @@ visual experiences.
 <small>Social Media • Promotion</small>
 </div>
 </div>
-<!-- Project 4 (Extra for All Projects View) -->
-<div class="card extra-project" style="display:none;">
-<div class="project-img-wrap"><img src="project-1.png" alt="Business Card Design"></div>
-<div class="project-content">
-<h3>Business Card & Branding</h3>
-<p>Custom creative corporate identity layout and luxury visiting cards.</p>
-<small>Branding • Print Design</small>
 </div>
 </div>
-<!-- Project 5 (Extra for All Projects View) -->
-<div class="card extra-project" style="display:none;">
-<div class="project-img-wrap"><img src="project-2.png" alt="Catering Receipt Pad"></div>
-<div class="project-content">
-<h3>A4 Rental Receipt Pad</h3>
-<p>Itemized inventory receipt sheet layout for professional catering services.</p>
-<small>Print Design • Business Material</small>
-</div>
-</div>
-<!-- Project 6 (Extra for All Projects View) -->
-<div class="card extra-project" style="display:none;">
-<div class="project-img-wrap"><img src="project-3.png" alt="Circular Vector Logo"></div>
-<div class="project-content">
-<h3>Metallic Circular Logo</h3>
-<p>Professional dark navy and silver gradient custom vector logotype layout.</p>
-<small>Logo Design • Vector</small>
-</div>
-</div>
-</div>
-</div>
-</div>
+</section>
 
-
-<!-- ================= 5. EXPERIENCE PAGE VIEW ================= -->
-<div id="page-experience" class="page-view">
+<!-- EXPERIENCE SECTION -->
+<section id="experience">
 <div class="container">
 <div class="section-label">MY JOURNEY</div>
 <h2 class="section-title">Experience</h2>
@@ -1005,11 +976,10 @@ visual experiences.
 </div>
 </div>
 </div>
-</div>
+</section>
 
-
-<!-- ================= 6. CONTACT PAGE VIEW ================= -->
-<div id="page-contact" class="page-view">
+<!-- CONTACT SECTION -->
+<section id="contact">
 <div class="container">
 <div class="section-label">LET'S TALK</div>
 <h2 class="section-title">Contact Me</h2>
@@ -1050,6 +1020,234 @@ visual experiences.
 </div>
 </div>
 </div>
+</section>
+</div>
+
+
+<!-- ================= 2. DEDICATED ABOUT PAGE ================= -->
+<div id="page-about" class="page-view">
+<section style="padding-top: 140px;">
+<div class="container">
+<div class="section-label">ABOUT ME</div>
+<h2 class="section-title">Passionate <span>Designer</span> & Problem Solver</h2>
+<p class="section-desc">I turn ideas into clean, modern and useful visual experiences.</p>
+
+<div class="about-box">
+<div>
+<h3>Creative Designer</h3>
+<p>
+I’m Muhammad Ibrahim, a Graphic Designer and Web Designer
+with a strong passion for creating clean, modern and
+user-friendly designs. I love turning ideas into professional
+visual experiences.
+</p>
+<a class="btn blue" onclick="switchPage('contact')">LET'S WORK TOGETHER →</a>
+</div>
+
+<div class="stats">
+<div class="stat"><strong>2+</strong><small>Years Experience</small></div>
+<div class="stat"><strong>50+</strong><small>Projects Completed</small></div>
+<div class="stat"><strong>100%</strong><small>Client Satisfaction</small></div>
+<div class="stat"><strong>30+</strong><small>Happy Clients</small></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+
+<!-- ================= 3. DEDICATED SERVICES PAGE ================= -->
+<div id="page-services" class="page-view">
+<section style="padding-top: 140px;">
+<div class="container">
+<div class="section-label">WHAT I DO</div>
+<h2 class="section-title">My Services</h2>
+<p class="section-desc">Professional creative solutions for businesses, brands and individuals.</p>
+
+<div class="cards">
+<div class="card">
+<div class="icon">✦</div>
+<h3>Graphic Design</h3>
+<p>Posters, flyers, advertisements, social media posts and creative visual designs.</p>
+</div>
+<div class="card">
+<div class="icon">◈</div>
+<h3>Web Design</h3>
+<p>Modern responsive websites, landing pages and portfolio websites.</p>
+</div>
+<div class="card">
+<div class="icon">◎</div>
+<h3>Branding</h3>
+<p>Logo design, business cards, brand graphics and complete visual identity.</p>
+</div>
+<div class="card">
+<div class="icon">▣</div>
+<h3>Print Design</h3>
+<p>Banners, brochures, packaging, T-shirts, mugs and print-ready designs.</p>
+</div>
+<div class="card">
+<div class="icon">◆</div>
+<h3>Social Media</h3>
+<p>Professional designs for Facebook, Instagram, TikTok and WhatsApp.</p>
+</div>
+<div class="card">
+<div class="icon">↗</div>
+<h3>Creative Solutions</h3>
+<p>Custom creative concepts based on your business and project requirements.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+
+<!-- ================= 4. DEDICATED ALL PROJECTS PAGE ================= -->
+<div id="page-projects" class="page-view">
+<section style="padding-top: 140px;">
+<div class="container">
+<div class="section-header-flex">
+<div>
+<div class="section-label">MY WORK</div>
+<h2 class="section-title">All Projects Collection</h2>
+<p class="section-desc">Explore the complete collection of my creative graphic and web design work.</p>
+</div>
+<a class="view-all-link" onclick="switchPage('home')">
+<i class="fa-solid fa-arrow-left"></i> <span>Back to Home</span>
+</a>
+</div>
+
+<div class="cards projects">
+<div class="card">
+<div class="project-img-wrap"><img src="project-1.png" alt="SEO Guest Post Banner"></div>
+<div class="project-content">
+<h3>SEO Guest Post Banner</h3>
+<p>High quality digital marketing poster layout for DA 50+ SEO services.</p>
+<small>Graphic Design • Banner Advertising</small>
+</div>
+</div>
+
+<div class="card">
+<div class="project-img-wrap"><img src="project-2.png" alt="Digital Marketing Poster"></div>
+<div class="project-content">
+<h3>Digital Marketing Poster</h3>
+<p>Clean and modern promotional creative design for online business growth.</p>
+<small>Poster Design • Marketing</small>
+</div>
+</div>
+
+<div class="card">
+<div class="project-img-wrap"><img src="project-3.png" alt="Premium SEO Promotion"></div>
+<div class="project-content">
+<h3>Premium SEO Promotion</h3>
+<p>Professional corporate advertisement layout for authoritative web services.</p>
+<small>Social Media • Promotion</small>
+</div>
+</div>
+
+<div class="card">
+<div class="project-img-wrap"><img src="project-1.png" alt="Business Card Design"></div>
+<div class="project-content">
+<h3>Business Card & Branding</h3>
+<p>Custom creative corporate identity layout and luxury visiting cards.</p>
+<small>Branding • Print Design</small>
+</div>
+</div>
+
+<div class="card">
+<div class="project-img-wrap"><img src="project-2.png" alt="Catering Receipt Pad"></div>
+<div class="project-content">
+<h3>A4 Rental Receipt Pad</h3>
+<p>Itemized inventory receipt sheet layout for professional catering services.</p>
+<small>Print Design • Business Material</small>
+</div>
+</div>
+
+<div class="card">
+<div class="project-img-wrap"><img src="project-3.png" alt="Circular Vector Logo"></div>
+<div class="project-content">
+<h3>Metallic Circular Logo</h3>
+<p>Professional dark navy and silver gradient custom vector logotype layout.</p>
+<small>Logo Design • Vector</small>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+
+<!-- ================= 5. DEDICATED EXPERIENCE PAGE ================= -->
+<div id="page-experience" class="page-view">
+<section style="padding-top: 140px;">
+<div class="container">
+<div class="section-label">MY JOURNEY</div>
+<h2 class="section-title">Experience</h2>
+<div class="card timeline">
+<div class="timeline-item">
+<span>GRAPHIC DESIGN</span>
+<h3>Creative Graphic Designer</h3>
+<p>Creating professional graphics for branding, advertising and print requirements.</p>
+</div>
+<div class="timeline-item">
+<span>WEB DESIGN</span>
+<h3>Web & Portfolio Designer</h3>
+<p>Designing responsive websites and professional portfolio interfaces.</p>
+</div>
+<div class="timeline-item">
+<span>FREELANCE</span>
+<h3>Freelance Creative Work</h3>
+<p>Turning client ideas into polished and professional visual designs.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+
+<!-- ================= 6. DEDICATED CONTACT PAGE ================= -->
+<div id="page-contact" class="page-view">
+<section style="padding-top: 140px;">
+<div class="container">
+<div class="section-label">LET'S TALK</div>
+<h2 class="section-title">Contact Me</h2>
+<p class="section-desc">Have a project in mind? Contact me today.</p>
+
+<div class="contact-grid">
+<div class="contact-card">
+<div class="contact-row">
+<div>☎️</div>
+<div>
+<strong>Phone / WhatsApp</strong>
+<span><a href="tel:+923209306672">0320-9306672</a></span>
+</div>
+</div>
+<div class="contact-row">
+<div>✉️</div>
+<div>
+<strong>Email</strong>
+<span><a href="mailto:m.ibrahimsajid830@gmail.com">m.ibrahimsajid830@gmail.com</a></span>
+</div>
+</div>
+<div class="contact-row">
+<div>📍</div>
+<div>
+<strong>Location</strong>
+<span>Pakistan</span>
+</div>
+</div>
+</div>
+
+<div class="contact-card">
+<form onsubmit="sendWhatsApp(event)">
+<input class="field" id="name" type="text" placeholder="Your Name" required>
+<input class="field" id="number" type="text" placeholder="Your Phone / WhatsApp" required>
+<textarea class="field" id="msg" placeholder="Tell me about your project..." required></textarea>
+<button class="btn blue" type="submit">SEND ON WHATSAPP →</button>
+</form>
+</div>
+</div>
+</div>
+</section>
 </div>
 
 
@@ -1063,62 +1261,30 @@ visual experiences.
 
 <!-- ================= JAVASCRIPT ================= -->
 <script>
-// Page Switcher Function
 function switchPage(pageId) {
-    // Hide all pages
     document.querySelectorAll('.page-view').forEach(page => {
         page.classList.remove('active-page');
     });
 
-    // Show target page
     const target = document.getElementById('page-' + pageId);
     if(target) {
         target.classList.add('active-page');
     }
 
-    // Update Navbar active links
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.classList.remove('active');
     });
 
-    // Match clicked link
     document.querySelectorAll('.nav-links a').forEach(link => {
         if(link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
             link.classList.add('active');
         }
     });
 
-    // Close mobile nav if open
     document.querySelector('.nav-links').classList.remove('open');
-    
-    // Scroll to top smoothly
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Toggle View All Projects Feature
-let showingAllProjects = false;
-function toggleAllProjects() {
-    showingAllProjects = !showingAllProjects;
-    const extraCards = document.querySelectorAll('.extra-project');
-    const viewAllText = document.getElementById('viewAllText');
-    const projectsTitle = document.getElementById('projects-title');
-    const projectsDesc = document.getElementById('projects-desc');
-
-    if(showingAllProjects) {
-        extraCards.forEach(card => card.style.display = 'block');
-        viewAllText.innerText = 'Show Less';
-        projectsTitle.innerText = 'All Projects Collection';
-        projectsDesc.innerText = 'Explore the complete collection of my creative graphic and web design work.';
-    } else {
-        extraCards.forEach(card => card.style.display = 'none');
-        viewAllText.innerText = 'View All Projects';
-        projectsTitle.innerText = 'Featured Projects';
-        projectsDesc.innerText = 'Some examples of my design and creative work.';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-}
-
-// WhatsApp Form Handler
 function sendWhatsApp(event){
     event.preventDefault();
     const name = document.getElementById("name").value;
@@ -1128,7 +1294,6 @@ function sendWhatsApp(event){
     window.open("https://wa.me/923209306672?text=" + encodeURIComponent(text), "_blank");
 }
 
-// Dark and Light Mode Toggle Function
 function toggleTheme() {
     const body = document.body;
     const themeIcon = document.getElementById('themeIcon');
