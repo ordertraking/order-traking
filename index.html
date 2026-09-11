@@ -24,13 +24,13 @@ html{
 :root {
     --bg-color: #060913;
     --text-color: #fff;
-    --fire: #ff7a00;       /* Fiery Orange (Left side of image) */
-    --ice: #00b4d8;        /* Electric Ice Blue (Right side of image) */
+    --fire: #ff7a00;       
+    --ice: #00b4d8;        
     --lightblue: #48cae4;
     --muted: #94a3b8;
     --line: rgba(255,255,255,.12);
     --nav-bg: rgba(6,9,19,.92);
-    --card-bg: rgba(13,20,38,.75);
+    --card-bg: rgba(13,20,38,.85);
     --about-grad: linear-gradient(110deg, rgba(25,18,35,.85), rgba(10,22,38,.6));
     --stat-bg: rgba(255,255,255,.025);
     --freelance-bg: rgba(6,9,19,.96);
@@ -210,7 +210,7 @@ a{
     display: block;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (WITH FIRE & ICE BG IMAGE) ================= */
 
 .hero{
     min-height:100vh;
@@ -220,10 +220,10 @@ a{
     align-items:center;
     position:relative;
     overflow:hidden;
-    background:
-    radial-gradient(circle at 10% 30%, rgba(255,122,0,.22), transparent 35%),
-    radial-gradient(circle at 90% 70%, rgba(0,180,216,.22), transparent 35%),
-    var(--bg-color);
+    /* Yahan pehli wali background image ko overlay ke sath set kiya hai */
+    background: 
+        linear-gradient(rgba(6, 9, 19, 0.82), rgba(6, 9, 19, 0.90)),
+        url('image_b1bb42.png') no-repeat center center/cover;
 }
 
 .hero-grid{
@@ -231,6 +231,8 @@ a{
     grid-template-columns:1.1fr 0.9fr;
     align-items:center;
     gap:35px;
+    position: relative;
+    z-index: 2;
 }
 
 .hello{
